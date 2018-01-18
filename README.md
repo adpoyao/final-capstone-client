@@ -1,3 +1,56 @@
+# MOOD CLOUD *tentative*
+
+## ABOUT THIS PROJECT
+In this age of school bullying and shootings, sometimes it is not clear what a student's emotional state is for teachers to see. This app will give teachers and counselors access to the emotional state of their students. Students could update their emotional status every day where only the teachers have access to. If a teacher realizes a student is in a critical or depressed emotional condition, the teacher now have an opportunity to reach out immediately. In addition, student have access to record events of any incidents that made them hurtful - physically and/or emotionally. Teachers, too, will be notified and have access to these incidents as they are being logged.
+
+## STRATEGY
+* Test Driven Development (TDD)
+
+## KEY USER FEATURES
+AS a ***TEACHER/COUNSELOR***, you will be able to:
+* Create new class with auto-generated class ID to provide to students to add to their classes.
+* Update & Remove existing class information.
+* Be alerted when a student presses the Panic button with additional information to the location and time.
+* Be alerted when a student submits a mood that is considered to be a critical state (i.e. depressed, enraged).
+* View all linked students and access their personal profile with at-a-glance report and logs of their emotion submissions.
+
+AS a ***STUDENT***, you will be able to:
+* Search and add one or multiple classes with unique class ID provided by the teacher.
+* Remove yourself from a class at the end of term.
+* Submit your emotional status and an optional message to keep track via Mood Cloud.
+* Access Mood Cloud, a visual, word cloud representation of all the accumulated mood submissions.
+* Access to Alert button, which will dispatch the student's current location and begin chat session with all the teachers linked.
+
+## WIREFRAME
+*See Attached*
+
+## TECHNOLOGY STACK
+
+### FRONT-END TECHNOLOGIES:
+* JavaScript
+* CSS
+* HTML
+* React/Redux/Redux Form
+* Socket.io
+
+### SERVER TECHNOLOGIES:
+* Node JS
+* Express
+* Passport: Local and JWT authentication
+
+## DATA PERSISTENCE:
+* PostgreSQL
+* ElephantSQL
+* D3
+
+## CICD
+* Mocha/Chai
+* Jest
+
+
+##
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -300,7 +353,7 @@ In the WebStorm menu `Run` select `Edit Configurations...`. Then click `+` and s
 
 Start your app by running `npm start`, then press `^D` on macOS or `F9` on Windows and Linux or click the green debug icon to start debugging in WebStorm.
 
-The same way you can debug your application in IntelliJ IDEA Ultimate, PhpStorm, PyCharm Pro, and RubyMine. 
+The same way you can debug your application in IntelliJ IDEA Ultimate, PhpStorm, PyCharm Pro, and RubyMine.
 
 ## Formatting Code Automatically
 
@@ -1989,7 +2042,7 @@ If you’re using [Apache HTTP Server](https://httpd.apache.org/), you need to c
     RewriteRule ^ index.html [QSA,L]
 ```
 
-It will get copied to the `build` folder when you run `npm run build`. 
+It will get copied to the `build` folder when you run `npm run build`.
 
 If you’re using [Apache Tomcat](http://tomcat.apache.org/), you need to follow [this Stack Overflow answer](https://stackoverflow.com/a/41249464/4878474).
 
@@ -2418,7 +2471,7 @@ To resolve this:
 1. Open an issue on the dependency's issue tracker and ask that the package be published pre-compiled.
   * Note: Create React App can consume both CommonJS and ES modules. For Node.js compatibility, it is recommended that the main entry point is CommonJS. However, they can optionally provide an ES module entry point with the `module` field in `package.json`. Note that **even if a library provides an ES Modules version, it should still precompile other ES6 features to ES5 if it intends to support older browsers**.
 
-2. Fork the package and publish a corrected version yourself. 
+2. Fork the package and publish a corrected version yourself.
 
 3. If the dependency is small enough, copy it to your `src/` folder and treat it as application code.
 
