@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import adapter from '../setupTests';
+import adapter from '../../setupTests';
 
-import Nav from '../components/Nav';
+import Nav from '../../components/Nav';
 
 describe('Nav component', () => {
 
