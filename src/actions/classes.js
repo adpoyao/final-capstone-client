@@ -14,13 +14,19 @@ export const fetchClassesRequest = () => ({
   type: FETCH_CLASSES_REQUEST,
 });
 
-export const fetchClassesError = () => ({
+export const fetchClassesError = (err) => ({
   type: FETCH_CLASSES_ERROR,
+  err,
 });
 
 export const fetchClasses = username => (dispatch, getState) => {
   dispatch(fetchClassesRequest());
   return fetch('http://localhost:3000/api/classes')
   .then(res => res.json())
-  .then(classes => dispatch(fetchClassesSuccess(classes)));
+  .then(classes => dispatch(fetchClassesSuccess(classes)))
+  .catch((err) => {
+    console.log(err);
+    dispatch(fetchClassesError(err));
+  });
+
 };

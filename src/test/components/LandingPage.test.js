@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import adapter from '../setupTests';
+import adapter from '../../setupTests';
 
-import LandingPage from '../components/LandingPage';
+import LandingPage from '../../components/LandingPage';
 
 describe('LandingPage component', () => {
 
