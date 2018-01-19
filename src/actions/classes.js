@@ -25,6 +25,7 @@ export const fetchClasses = username => (dispatch, getState) => {
   .then(res => res.json())
   .then(classes => dispatch(fetchClassesSuccess(classes)))
   .catch((err) => {
+    //TODO: Test error coverage
     console.log(err);
     dispatch(fetchClassesError(err));
   });
