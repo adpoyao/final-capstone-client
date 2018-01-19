@@ -8,7 +8,7 @@ describe('usersReducer', () => {
       {
         users: [],
         loading: false,
-        error: false,
+        error: undefined,
       }
     );
   });
