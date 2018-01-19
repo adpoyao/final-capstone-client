@@ -1,25 +1,25 @@
 // import * as types from '../actions/actionType';
 //
 // const initialState = {
-//   classes: [],
+//   users: [],
 //   loading: false,
 //   error: false,
 // };
 //
-// const classesReducer = (state = initialState, action) => {
+// const usersReducer = (state = initialState, action) => {
 //   switch (action.type){
-//     case types.FETCH_CLASSES_SUCCESS:
+//     case types.FETCH_USERS_SUCCESS:
 //       return Object.assign({}, state, {
-//         classes: action.classes,
+//         users: action.users,
 //         loading: false,
 //         error: false,
 //       });
-//     case types.FETCH_CLASSES_REQUEST:
+//     case types.FETCH_USERS_REQUEST:
 //       return Object.assign({}, state, {
 //         loading: true,
 //         error: false,
 //       });
-//     case types.FETCH_CLASSES_ERROR:
+//     case types.FETCH_USERS_ERROR:
 //       return Object.assign({}, state, {
 //         loading: false,
 //         error: action.err,
@@ -28,4 +28,4 @@
 //   return state;
 // };
 //
-// export default classesReducer;
+// export default usersReducer;
