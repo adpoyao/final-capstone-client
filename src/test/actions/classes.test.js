@@ -1,6 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import * as actions from '../../actions/classes';
+import * as actions from '../../actions';
 import * as types from '../../actions/actionType';
 import fetchMock from 'fetch-mock';
 import expect from 'expect';
@@ -14,7 +14,7 @@ describe('async actions', () => {
     fetchMock.restore();
   });
 
-  it('creates FETCH_CLASSES_SUCCESS when fetching classes has been done', () => {
+  it('creates FETCH_CLASSES_REQUEST & FETCH_CLASSES_SUCCESS when fetchClasses() has been called', () => {
     fetchMock
         .getOnce('http://localhost:3000/api/classes', { body: { classes: ['do something'] },
         headers: { 'content-type': 'application/json' },
@@ -30,4 +30,28 @@ describe('async actions', () => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
+});
+
+
+describe('sync actions', () => {
+  it('returns expected type when FETCH_CLASSES_REQUEST has been called', () => {
+    const expectedAction = {
+      type: types.FETCH_CLASSES_REQUEST
+    }
+    expect (actions.fetchClassesRequest()).toEqual(expectedAction)
+  })
+
+  it('returns expected type when FETCH_CLASSES_SUCCESS has been called', () => {
+    const expectedAction = {
+      type: types.FETCH_CLASSES_SUCCESS
+    }
+    expect (actions.fetchClassesSuccess()).toEqual(expectedAction)
+  })
+
+  it('returns expected type when FETCH_CLASSES_ERROR has been called', () => {
+    const expectedAction = {
+      type: types.FETCH_CLASSES_ERROR
+    }
+    expect (actions.fetchClassesError()).toEqual(expectedAction)
+  })
 });
