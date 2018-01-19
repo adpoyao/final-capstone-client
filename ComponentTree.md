@@ -5,7 +5,7 @@ x = added
   - LoginPage x
     - LoginForm x
   - RegistrationPage x
-    - RegistrationForm x 
+    - RegistrationForm x
 
 - ClassesMain x
 	- Classes-Student x
@@ -19,19 +19,19 @@ x = added
 		- AddClassConfirmation x
 
 - DashboardMain x
-	- Dashboard-Student
-		- MoodSelections
-		- MoodCaptions
-		- MoodForm
-		- PanicButton
-	
-	- Dashboard-Teacher
-		- PanicAlert
-		- PanicAlertDetail
-		- EmotionAlert
-		- EmotionAlertDetail
+	- Dashboard-Student x
+		- MoodSelections x
+		- MoodCaptions x
+		- MoodForm x
+		- PanicButton x
 
-- MoodCloud
+	- Dashboard-Teacher x
+		- PanicAlert x
+		- PanicAlertDetail x
+		- EmotionAlert x
+		- EmotionAlertDetail x
+
+- MoodCloud x
 
 - Students x
 	- StudentListByClass
