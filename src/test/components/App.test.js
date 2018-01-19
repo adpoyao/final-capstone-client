@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import {BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import App from '../../App';
 import Nav from '../../components/Nav';
 import Features from '../../components/Features';
-
-// TODO: Inform Nate on this
 
 describe('<App />', () => {
   it('renders without crashing', () => {
@@ -17,7 +15,7 @@ describe('<App />', () => {
         <App />
       </Router>, div);
     ReactDOM.unmountComponentAtNode(div);
-  });  
+  });
 
   it('should render <Nav /> component', () => {
     const wrapper = shallow(<App />);
