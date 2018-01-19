@@ -34,10 +34,10 @@ x = added
 - MoodCloud x
 
 - Students x
-	- StudentListByClass
-	- StudentListDetail
-	- StudentSearch
-	- StudentDetail
-	- EmotionsList
-	- EmotionDetail
-	- MoodReport
+	- StudentListByClass x
+	- StudentListDetail x
+	- StudentSearch x
+	- StudentDetail x
+	- EmotionsList x
+	- EmotionsDetail x
+	- MoodReport x
