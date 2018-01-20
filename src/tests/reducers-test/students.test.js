@@ -1,27 +1,27 @@
-import usersReducer from '../../reducers/users';
-import * as actions from '../../actions/users';
+import studentsReducer from '../../reducers/students';
+import * as actions from '../../actions/students';
 import * as types from '../../actions/actionType';
 
-describe('usersReducer', () => {
+describe('studentsReducer', () => {
   it('should return the initial state', () => {
-    expect(usersReducer(undefined, {})).toEqual(
+    expect(studentsReducer(undefined, {})).toEqual(
       {
-        users: [],
+        students: [],
         loading: false,
         error: undefined,
       }
     );
   });
 
-  it('should handle fetchUsersSuccess()', () => {
+  it('should handle fetchStudentsSuccess()', () => {
     expect(
-      usersReducer({}, {
-        type: types.FETCH_USERS_SUCCESS,
-        users: [{ user: 'Run the users tests' }],
+      studentsReducer({}, {
+        type: types.FETCH_STUDENTS_SUCCESS,
+        students: [{ student: 'Run the students tests' }],
       })
     ).toEqual(
       {
-        users: [{ user: 'Run the users tests' }],
+        students: [{ student: 'Run the students tests' }],
         error: false,
         loading: false
       }
@@ -30,8 +30,8 @@ describe('usersReducer', () => {
 
   it('should handle fetchClassesError()', () => {
     expect(
-      usersReducer({}, {
-        type: types.FETCH_USERS_ERROR,
+      studentsReducer({}, {
+        type: types.FETCH_STUDENTS_ERROR,
       })
     ).toEqual(
       {
@@ -43,8 +43,8 @@ describe('usersReducer', () => {
 
   it('should handle fetchClassesRequest()', () => {
     expect(
-      usersReducer({}, {
-        type: types.FETCH_USERS_REQUEST,
+      studentsReducer({}, {
+        type: types.FETCH_STUDENTS_REQUEST,
       })
     ).toEqual(
       {
