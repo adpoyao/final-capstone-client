@@ -32,6 +32,16 @@ describe('async actions', () => {
     });
   });
 
+  it('catches error when fetchClass() throws an error', () => {
+    const store = mockStore();
+
+    return store.dispatch(actions.fetchClasses()).then(() => {
+      let outcome = store.getActions()[1]
+      expect(outcome).toHaveProperty('err');
+      expect(outcome.type).toEqual("FETCH_CLASSES_ERROR");
+    });
+  });
+
 });
 
 

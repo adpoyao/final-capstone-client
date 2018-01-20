@@ -8,7 +8,7 @@ describe('studentsReducer', () => {
       {
         students: [],
         loading: false,
-        error: undefined,
+        error: false,
       }
     );
   });
