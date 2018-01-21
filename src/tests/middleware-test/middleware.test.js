@@ -14,6 +14,7 @@ describe('thunk middleware', () => {
   it('should return sync actions to be an instance of an Object', () => {
     expect(actions.fetchClassesSuccess()).toBeInstanceOf(Object);
     expect(actions.fetchStudentsSuccess()).toBeInstanceOf(Object);
+    expect(actions.toggleView()).toBeInstanceOf(Object);
   })
 
 });
