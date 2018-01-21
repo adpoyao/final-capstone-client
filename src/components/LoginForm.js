@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class LoginForm extends Component {
+export class LoginForm extends React.Component {
+
   render() {
     return(
-      <h1>LoginForm</h1>
+      <h1>Login Form</h1>
     )
   }
 }

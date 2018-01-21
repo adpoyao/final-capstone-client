@@ -16,16 +16,35 @@ export class Nav extends Component {
     if(this.props.currentView === 'landing-page'){
       landingPageTabs = (
         <div className="nav-button">
-          <Link id='features' to="/feature" style={{ textDecoration: 'none' }}>
-            <button 
-              className="features" 
-              // TODO: Need test
-              onClick={()=>this.handleChangeView('features')}>
-              Features
-            </button>
+          <Link id='features' to="/features" style={{ textDecoration: 'none' }}>
+            <button className="features">Features</button>
           </Link>
           <Link to="/signup" style={{ textDecoration: 'none' }}><button className="signup">Signup</button></Link>
           <Link to="/login" style={{ textDecoration: 'none' }}><button className="login">Login</button></Link>
+        </div>
+      )
+    }
+
+    if(this.props.currentView === 'signup'){
+      landingPageTabs = (
+        <div className="nav-button">
+          <Link id='features' to="/features" style={{ textDecoration: 'none' }}>
+            <button className="features">Features</button>
+          </Link>
+          <Link to="/signup" style={{ textDecoration: 'none' }}><button className="signup active-nav-button">Signup*</button></Link>
+          <Link to="/login" style={{ textDecoration: 'none' }}><button className="login">Login</button></Link>
+        </div>
+      )
+    }
+
+    if(this.props.currentView === 'login'){
+      landingPageTabs = (
+        <div className="nav-button">
+          <Link id='features' to="/features" style={{ textDecoration: 'none' }}>
+            <button className="features">Features</button>
+          </Link>
+          <Link to="/signup" style={{ textDecoration: 'none' }}><button className="signup">Signup</button></Link>
+          <Link to="/login" style={{ textDecoration: 'none' }}><button className="login active-nav-button">Login*</button></Link>
         </div>
       )
     }
@@ -79,7 +98,7 @@ export class Nav extends Component {
       <div className="header-bar">
         <Link to="/" className="logo-container" style={{ textDecoration: 'none' }}>
             {/* TODO: Need test */}
-            <h1 className="site-name" onClick={()=>this.handleChangeView('landing-page')}><span className="logo">☁️ </span><span className="mood-cloud">Mood Cloud</span></h1>
+            <h1 className="site-name"><span className="logo">☁️ </span><span className="mood-cloud">Mood Cloud</span></h1>
         </Link>
         {landingPageTabs}
         {featuresTabs1}

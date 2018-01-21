@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import adapter from '../../setupTests';
 
 import * as actions from '../../actions';
-import connectedNav, { Nav } from '../../components/Nav';
+import { Nav } from '../../components/Nav';
 
 describe('Nav component', () => {
 
