@@ -1,9 +1,8 @@
 import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 import * as actions from '../../actions';
 import * as types from '../../actions/actionType';
-
 import fetchMock from 'fetch-mock';
-import thunk from 'redux-thunk';
 import expect from 'expect';
 
 const middlewares = [thunk];
@@ -17,7 +16,7 @@ describe('async actions', () => {
 
   it('creates FETCH_CLASSES_REQUEST & FETCH_CLASSES_SUCCESS when fetchClasses() has been called', () => {
     fetchMock
-        .getOnce(`begin:http://localhost:3000/api/classes/search/`, { body: { classes: ['do something'] },
+        .getOnce('http://localhost:3000/api/classes', { body: { classes: ['do something'] },
         headers: { 'content-type': 'application/json' },
       });
 
@@ -31,17 +30,6 @@ describe('async actions', () => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
-
-  it('catches error when fetchClass() throws an error', () => {
-    const store = mockStore();
-
-    return store.dispatch(actions.fetchClasses()).then(() => {
-      let outcome = store.getActions()[1]
-      expect(outcome).toHaveProperty('err');
-      expect(outcome.type).toEqual("FETCH_CLASSES_ERROR");
-    });
-  });
-
 });
 
 
