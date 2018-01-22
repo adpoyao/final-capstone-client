@@ -6,13 +6,19 @@ import Features from './components/Features';
 import LoginPage from './components/LoginPage';
 import LandingPage from './components/LandingPage';
 import RegistrationPage from './components/RegistrationPage';
+import DashboardStudent from './components/Dashboard-Student';
+import DashboardTeacher from './components/Dashboard-Teacher';
+import ClassesStudent from './components/Classes-Student';
+import ClassesTeacher from './components/Classes-Teacher';
+import MoodCloud from './components/MoodCloud';
+import Students from './components/Students';
+
 
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      // <Router>
         <div className="App">
           <Nav />
           <Switch>
@@ -20,9 +26,19 @@ class App extends Component {
             <Route exact path="/features" component={Features} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={RegistrationPage} />
+
+            {/* Student View */}
+            <Route exact path="/student/dashboard/:studentId" component={DashboardStudent} />
+            <Route exact path="/student/classes/:studentId" component={ClassesStudent} />
+            <Route exact path="/student/moodcloud/:studentId" component={MoodCloud} />
+
+            {/* Teacher View */}
+            <Route exact path="/teacher/dashboard/:teacherId" component={DashboardTeacher} />
+            <Route exact path="/teacher/classes/:teacherId" component={ClassesTeacher} />
+            <Route exact path="/teacher/students/:teacherId" component={Students} />
+
           </Switch>
         </div>
-      // </Router>
     );
   }
 }

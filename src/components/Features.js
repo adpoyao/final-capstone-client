@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import { toggleView } from '../actions/views';
 
 export class Features extends Component {
+  componentDidMount() {
+    this.props.dispatch(toggleView('features'));
+  }
   
   render() {
     return(
@@ -13,3 +18,5 @@ export class Features extends Component {
     )
   }
 }
+
+export default connect()(Features);

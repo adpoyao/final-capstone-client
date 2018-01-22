@@ -24,6 +24,6 @@ describe('Features component', () => {
     const instance = wrapper.instance();
     instance.componentDidMount('features');
     expect(dispatch).toHaveBeenCalledWith(actions.toggleView('features'));
-
   })
+  
 });
