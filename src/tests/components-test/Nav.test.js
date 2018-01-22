@@ -11,15 +11,4 @@ describe('Nav component', () => {
     shallow(<Nav />)
   })
 
-  it('should handle handleChangeView method', () => {
-    const dispatch = jest.fn();
-    const wrapper = shallow(
-        <Nav dispatch={dispatch} />
-    );
-    dispatch.mockClear();
-    const instance = wrapper.instance();
-    instance.handleChangeView('landing-page');
-    expect(dispatch).toHaveBeenCalledWith(actions.toggleView('landing-page'));
-
-  })
 });

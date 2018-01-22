@@ -7,19 +7,13 @@ import App from '../../App';
 import Nav from '../../components/Nav';
 import Features from '../../components/Features';
 
-import {Provider} from 'react-redux';
-import store from '../../store';
-
 describe('<App />', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
-      <Provider store={store}>
-        <Router>
-          <App />
-        </Router>
-      </Provider>
-      , div);
+      <Router>
+        <App />
+      </Router>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
