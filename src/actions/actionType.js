@@ -14,3 +14,4 @@ export const FETCH_STUDENTS_ERROR = 'FETCH_STUDENTS_ERROR';
 
 // Views
 export const TOGGLE_VIEW = 'TOGGLE_VIEW';
+
