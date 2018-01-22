@@ -19,7 +19,9 @@ describe('redux store', () => {
     expect(state).toEqual(
       {"classes": {
         "classes": [], "error": false, "loading": false}, 
-        "students": {"error": false, "loading": false, "students": []}}
+        "students": {"error": false, "loading": false, "students": []},
+        "form": {},
+        "view": {"selectedView": "landing-page"}}
     );
   })
 })

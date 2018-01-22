@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default class RegistrationForm extends Component {
+export class RegistrationForm extends React.Component {
+
   render() {
-    return(
-      <h1>Registration Form</h1>
-    )
+    return (
+      <h1>Signup Form</h1>
+    );
   }
 }

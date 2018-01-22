@@ -2,7 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import adapter from '../../setupTests';
 
-import Nav from '../../components/Nav';
+import * as actions from '../../actions';
+import { Nav } from '../../components/Nav';
 
 describe('Nav component', () => {
 
