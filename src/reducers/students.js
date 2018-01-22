@@ -1,25 +1,25 @@
 import * as types from '../actions/actionType';
 
 const initialState = {
-  users: [],
+  students: [],
   loading: false,
   error: false,
 };
 
-const usersReducer = (state = initialState, action) => {
+const studentsReducer = (state = initialState, action) => {
   switch (action.type){
-    case types.FETCH_USERS_SUCCESS:
+    case types.FETCH_STUDENTS_SUCCESS:
       return Object.assign({}, state, {
-        users: action.users,
+        students: action.students,
         loading: false,
         error: false,
       });
-    case types.FETCH_USERS_REQUEST:
+    case types.FETCH_STUDENTS_REQUEST:
       return Object.assign({}, state, {
         loading: true,
         error: false,
       });
-    case types.FETCH_USERS_ERROR:
+    case types.FETCH_STUDENTS_ERROR:
       return Object.assign({}, state, {
         loading: false,
         error: action.err,
@@ -28,4 +28,4 @@ const usersReducer = (state = initialState, action) => {
   return state;
 };
 
-export default usersReducer;
+export default studentsReducer;
