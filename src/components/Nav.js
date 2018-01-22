@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 
 import { toggleView } from '../actions/views';
 
@@ -66,30 +69,33 @@ export class Nav extends Component {
       )
     }
 
-    // If(role === student)
-    studentTabs = (
-      <div className="student-tabs">
-        <button className="nav-student-dashboard">Dashboard</button>
-        <button className="nav-student-classes">Classes</button>
-        <button className="nav-student-mood-cloud">Mood Cloud</button>
-      </div>
-    )
+    if(this.props.currentView === 'student'){
+      studentTabs = (
+        <div className="student-tabs">
+          <button className="nav-student-dashboard">Dashboard</button>
+          <button className="nav-student-classes">Classes</button>
+          <button className="nav-student-mood-cloud">Mood Cloud</button>
+        </div>
+      )
+    }
+    
+    if(this.props.currentView === 'teacher'){
+      teacherTabs = (
+        <div className="teacher-tabs">
+          <button className="nav-teacher-dashboard">Dashboard</button>
+          <button className="nav-teacher-classes">Classes</button>
+          <button className="nav-teacher-students">Students</button>
+        </div>
+      )
+    }
 
-    // If(role === teacher)
-    teacherTabs = (
-      <div className="teacher-tabs">
-        <button className="nav-teacher-dashboard">Dashboard</button>
-        <button className="nav-teacher-classes">Classes</button>
-        <button className="nav-teacher-students">Students</button>
-      </div>
-    )
-
-    // If(loggedIn)
-    logoutTab = (
-      <div className="student-tabs">
-        <Link to="/"><button className="logout">Logout</button></Link>
-      </div>
-    )
+    if(this.props.currentView === 'teacher' || this.props.currentView === 'student'){
+      logoutTab = (
+        <div className="student-tabs">
+          <Link to="/"><button className="logout">Logout</button></Link>
+        </div>
+      )
+    }
 
     return(
       // <h1>Nav</h1>
@@ -101,10 +107,16 @@ export class Nav extends Component {
         {landingPageTabs}
         {featuresTabs1}
         {featuresTabs2}
-        {/* {studentTabs}
+        {studentTabs}
         {teacherTabs}
-        {logoutTab} */}
+        {logoutTab}
       </div>
     )
   }
 }
+
+const mapStateToProps = state => ({
+  currentView: state.view.selectedView
+})
+
+export default connect(mapStateToProps)(Nav)
