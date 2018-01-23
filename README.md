@@ -39,7 +39,7 @@ AS a ***STUDENT***, you will be able to:
 * Passport: Local and JWT authentication
 
 ## DATA PERSISTENCE:
-* PostgreSQL
+* MongoDB
 * ElephantSQL
 * D3
 
