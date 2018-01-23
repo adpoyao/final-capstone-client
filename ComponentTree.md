@@ -10,12 +10,11 @@ x = added
 - Classes-Student x
 	- ClassDetail-Student x
 	- SearchClass x
-	- ClassesResult x
+		- ClassesResult x
 
 - Classes-Teacher x
 	- ClassDetail-Teacher x
 	- AddClass x
-	- AddClassConfirmation x
 
 - Dashboard-Student x
 	- MoodSelections x
@@ -29,7 +28,10 @@ x = added
 	- EmotionAlert x
 	- EmotionAlertDetail x
 
-- MoodCloud x
+- MoodDash x
+	- MoodSelections x
+	- MoodCaptions x
+	- MoodForm x
 
 - Students x
 	- StudentListByClass x
@@ -39,3 +41,5 @@ x = added
 	- EmotionsList x
 	- EmotionsDetail x
 	- MoodReport x
+
+- MoodCloud

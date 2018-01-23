@@ -2,14 +2,32 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { toggleView } from '../actions/views';
 
+import EmotionAlert from './EmotionAlert';
+
 export class DashboardTeacher extends Component {
   componentDidMount() {
     this.props.dispatch(toggleView('teacher'));
   }
 
   render() {
+    let teacherDash;
+    // Condition: if teacher-user has no class created
+    teacherDash = (
+    <div className='no-class-teacher-container'>
+      <p>You don't have any classes open yet.</p>
+      <img src='#'/>
+      <p>Let's get you started.</p>
+      <button className='get-started'>Create a class</button>
+    </div>
+    )
+    // Condition: if teacher-user has class(es) enrolled
+    // teacherDash = <EmotionAlert />
+
     return(
-      <h1>Dashboard Teacher</h1>
+      <div className='dashboard-teacher-container'>
+      {teacherDash}
+      <EmotionAlert />
+      </div>
     )
   }
 }

@@ -28,14 +28,14 @@ class App extends Component {
             <Route exact path="/signup" component={RegistrationPage} />
 
             {/* Student View */}
-            <Route exact path="/student/dashboard/:studentId" component={DashboardStudent} />
-            <Route exact path="/student/classes/:studentId" component={ClassesStudent} />
-            <Route exact path="/student/moodcloud/:studentId" component={MoodCloud} />
+            <Route exact path="/student/dashboard" component={DashboardStudent} />
+            <Route exact path="/student/classes" component={ClassesStudent} />
+            <Route exact path="/student/moodcloud" component={MoodCloud} />
 
             {/* Teacher View */}
-            <Route exact path="/teacher/dashboard/:teacherId" component={DashboardTeacher} />
-            <Route exact path="/teacher/classes/:teacherId" component={ClassesTeacher} />
-            <Route exact path="/teacher/students/:teacherId" component={Students} />
+            <Route exact path="/teacher/dashboard" component={DashboardTeacher} />
+            <Route exact path="/teacher/classes" component={ClassesTeacher} />
+            <Route exact path="/teacher/students" component={Students} />
 
           </Switch>
         </div>

@@ -3,13 +3,15 @@ import MoodForm from './MoodForm';
 import MoodCaptions from './MoodCaptions';
 import MoodSelections from './MoodSelections';
 
-export default class MoodCloud extends Component {
+export default class MoodDash extends Component {
   render() {
     return(
-      <div className='moodcloud-container'>
-        <h1>MoodCLoud</h1>
-        <p>D3 goes here</p>
-      </div>
+      <form>
+        <p>*User*, how are you feeling right now?</p>
+        <MoodSelections/>
+        <MoodCaptions/>
+        <MoodForm/>
+      </form>
     )
   }
 }
