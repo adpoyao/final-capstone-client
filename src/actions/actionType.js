@@ -16,6 +16,7 @@ export const FETCH_STUDENTS = 'FETCH_STUDENTS';
 export const FETCH_STUDENTS_SUCCESS = 'FETCH_STUDENTS_SUCCESS';
 export const FETCH_STUDENTS_REQUEST = 'FETCH_STUDENTS_REQUEST';
 export const FETCH_STUDENTS_ERROR = 'FETCH_STUDENTS_ERROR';
+export const ENROLL_STUDENT = 'ENROLL_STUDENT';
 
 // Views
 export const TOGGLE_VIEW = 'TOGGLE_VIEW';
@@ -27,3 +28,5 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 export const CLEAR_AUTH = 'CLEAR_AUTH';
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 
+// Teachers
+export const CREATE_CLASS = 'CREATE_CLASS';
