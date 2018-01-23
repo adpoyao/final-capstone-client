@@ -28,7 +28,7 @@ export const enrollStudent = (enrolledClasses) => ({
 // STUDENT: Retrieve all classes students searched for by TeacherName
 export const fetchClasses = teacherName => (dispatch, getState) => {
   dispatch(fetchClassesRequest());
-  return fetch(`http://localhost:3000/api/classes/search/${teacherName}`)
+  return fetch(`http://localhost:8080/api/classes/search/${teacherName}`)
   .then(res => res.json())
   .then(searchedClasses => dispatch(fetchClassesSuccess(searchedClasses)))
   .catch((err) => {

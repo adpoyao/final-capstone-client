@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import ClassesResult from './ClassesResult';
 import { connect } from 'react-redux';
+import { fetchClasses } from '../actions/classes';
 
 export class SearchClass extends Component {
 
   handleSearch = (e) => {
     e.preventDefault();
     const value = this.input.value;
-    console.log(value);
+    this.props.dispatch(fetchClasses(value));
     this.input.value = '';
   }
-  
+
   render() {
 
     return(
@@ -18,7 +19,7 @@ export class SearchClass extends Component {
         <form onSubmit={e => this.handleSearch(e)}>
           <legend>Find your class</legend>
           <label htmlFor='search-teacher'>Enter your teacher's name</label>
-          <input 
+          <input
             type='text'
             name='search-teacher'
             id='search-teacher'
