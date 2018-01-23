@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom'
 import { toggleView } from '../actions/views';
 
 import MoodView from './MoodView';
@@ -17,7 +18,7 @@ export class DashboardStudent extends Component {
       <p>You don't have a class yet!</p>
       <img src='#'/>
       <p>Let's get you started.</p>
-      <button className='get-started'>Add a class</button>
+      <Link to='/student/classes'><button className='get-started'>Add a class</button></Link>
     </div>
     )
     // Condition: if student-user has class(es) enrolled

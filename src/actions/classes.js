@@ -1,4 +1,5 @@
 import * as types from './actionType';
+import { normalizeResponseErrors } from './utils';
 
 export const fetchClassesSuccess = (classes, enrolledClasses) => ({
   type: types.FETCH_CLASSES_SUCCESS,
