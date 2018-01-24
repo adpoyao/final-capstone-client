@@ -26,6 +26,18 @@ const classesReducer = (state = initialState, action) => {
         loading: false,
         error: action.err,
       });
+    case types.FETCH_STUDENT_ENROLLED_CLASSES:
+      return Object.assign({}, state, {
+        createdClasses: action.enrolledClasses,
+        loading: false,
+        error: false,
+      });
+    case types.FETCH_TEACHER_CLASSES:
+      return Object.assign({}, state, {
+        searchedClasses: action.searchedClasses,
+        loading: false,
+        error: false,
+      });
     case types.CREATE_CLASS:
       return Object.assign({}, state, {
         createdClasses: action.createdClasses,

@@ -15,6 +15,16 @@ export const fetchClassesError = (err) => ({
   err,
 });
 
+export const fetchTeacherClasses = (searchedClasses) => ({
+  type: types.FETCH_TEACHER_CLASSES,
+  searchedClasses,
+});
+
+export const fetchStudentEnrolledClasses = (enrolledClasses) => ({
+  type: types.FETCH_STUDENT_ENROLLED_CLASSES,
+  enrolledClasses,
+});
+
 export const createClass = (createdClasses) => ({
   type: types.CREATE_CLASS,
   createdClasses,
@@ -36,10 +46,10 @@ export const fetchClasses = teacherName => (dispatch, getState) => {
   });
 };
 
-// Retrieve all classes a student is enrolled in
+// STUDENT: Retrieve all classes a student is enrolled in
 export const fetchEnrolledClasses = studentID => (dispatch, getState) => {
   dispatch(fetchClassesRequest());
-  return fetch(`http://localhost:3000/api/classes/student/${studentID}`)
+  return fetch(`http://localhost:8080/api/classes/student/${studentID}`)
   .then(res => res.json())
   .then(enrolledClasses => dispatch(fetchClassesSuccess(enrolledClasses)))
   .catch((err) => {
@@ -50,7 +60,7 @@ export const fetchEnrolledClasses = studentID => (dispatch, getState) => {
 // Retrieves all classes a teacher has created
 export const fetchClassesByTeacher = teacherID => (dispatch, getState) => {
   dispatch(fetchClassesRequest());
-  return fetch(`http://localhost:3000/api/classes/teacher/${teacherID}`)
+  return fetch(`http://localhost:8080/api/classes/teacher/${teacherID}`)
   .then(res => res.json())
   .then(searchedClasses => dispatch(fetchClassesSuccess(searchedClasses)))
   .catch((err) => {
@@ -58,9 +68,9 @@ export const fetchClassesByTeacher = teacherID => (dispatch, getState) => {
   });
 };
 
-//Creates a new class by a teacher
+// Creates a new class by a teacher
 export const createNewClass = (data) => (dispatch, getState) => {
-  return fetch('http://localhost:3000/api/classes/teacher/create'), {
+  return fetch('http://localhost:8080/api/classes/teacher/create'), {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
@@ -75,9 +85,9 @@ export const createNewClass = (data) => (dispatch, getState) => {
     });
 };
 
-//Student enrolls to an existing class
+// Student enrolls to an existing class
 export const enrollExistingClass = (data) => (dispatch, getState) => {
-  return fetch(`http://localhost:3000/api/classes/student/enroll`), {
+  return fetch(`http://localhost:8080/api/classes/student/enroll`), {
         method: 'PUT',
         headers: {
             'content-type': 'application/json',
