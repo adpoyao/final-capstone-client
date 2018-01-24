@@ -42,7 +42,7 @@ export const fetchStudents = teacherID => (dispatch, getState) => {
 
 // Retrieves detail of student and mood
 export const fetchStudentDetail = studentID => (dispatch, getState) => {
-  dispatch(fetchStudentsDetailRequest());
+  dispatch(fetchStudentDetailRequest());
   return fetch(`http://localhost:8080/api/students/detail/${studentID}`)
   .then(res => res.json())
   .then(students => dispatch(fetchStudentDetailSuccess(students)))
