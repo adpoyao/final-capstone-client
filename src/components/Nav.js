@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 import { toggleView } from '../actions/views';
 
+import './Nav.css';
+
 export class Nav extends Component {
 
   handleChangeView = (selectedView) => {
@@ -51,7 +53,6 @@ export class Nav extends Component {
     }
     
     if(this.props.currentView === 'features'){
-      // TODO: Need test
       featuresTabs1 = (
         <div className="features-tabs-1">
           <button className="features">Feature 1</button>
@@ -60,7 +61,6 @@ export class Nav extends Component {
         </div>
       )
       
-      // TODO: Need test
       featuresTabs2 = (
         <div className="features-tabs-1">
           <Link to="/signup" style={{ textDecoration: 'none' }}><button className="signup">signup</button></Link>
@@ -98,11 +98,9 @@ export class Nav extends Component {
     }
 
     return(
-      // <h1>Nav</h1>
-      <div className="header-bar">
+      <div className="nav-bar">
         <Link to="/" className="logo-container" style={{ textDecoration: 'none' }}>
-            {/* TODO: Need test */}
-            <h1 className="site-name"><span className="logo">☁️ </span><span className="mood-cloud">Mood Cloud</span></h1>
+            <h2 className="site-name"><span className="logo">☁️ </span><span className="mood-cloud">Mood Cloud</span></h2>
         </Link>
         {landingPageTabs}
         {featuresTabs1}

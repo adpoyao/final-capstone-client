@@ -14,14 +14,39 @@ export const fetchStudentsError = (err) => ({
   err,
 });
 
-// Retrieve all enrolled students of the requesting teacher by TeacherID
+export const fetchStudentDetailSuccess = (student) => ({
+  type: types.FETCH_STUDENT_DETAIL_SUCCESS,
+  student,
+})
+
+export const fetchStudentDetailRequest = () => ({
+  type: types.FETCH_STUDENT_DETAIL_REQUEST,
+});
+
+export const fetchStudentDetailError = (err) => ({
+  type: types.FETCH_STUDENT_DETAIL_ERROR,
+  err,
+});
+
+
+// Retrieves all enrolled students of a teacher
 export const fetchStudents = teacherID => (dispatch, getState) => {
   dispatch(fetchStudentsRequest());
-  return fetch(`http://localhost:3000/api/students/${teacherID}`)
+  return fetch(`http://localhost:8080/api/students/${teacherID}`)
   .then(res => res.json())
   .then(students => dispatch(fetchStudentsSuccess(students)))
   .catch((err) => {
     dispatch(fetchStudentsError(err));
   });
+};
 
+// Retrieves detail of student and mood
+export const fetchStudentDetail = studentID => (dispatch, getState) => {
+  dispatch(fetchStudentDetailRequest());
+  return fetch(`http://localhost:8080/api/students/detail/${studentID}`)
+  .then(res => res.json())
+  .then(students => dispatch(fetchStudentDetailSuccess(students)))
+  .catch((err) => {
+    dispatch(fetchStudentDetailError(err));
+  });
 };
