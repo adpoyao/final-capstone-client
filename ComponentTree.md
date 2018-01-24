@@ -38,8 +38,8 @@ x = added
 	- StudentListDetail x
 	- StudentSearch x
 	- StudentDetail x
-	- EmotionsList x
-	- EmotionsDetail x
-	- MoodReport x
+		- EmotionsList x
+		- EmotionsDetail x
+		- MoodReport x
 
 - MoodCloud

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class StudentListDetail extends Component {
   render() {
     return(
-      <h1>Student List Detail</h1>
+      <p>Student List Detail. Mapping happens here</p>
     )
   }
 }

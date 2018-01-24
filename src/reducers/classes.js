@@ -10,12 +10,6 @@ const initialState = {
 
 const classesReducer = (state = initialState, action) => {
   switch (action.type){
-    case types.FETCH_CLASSES_SUCCESS:
-      return Object.assign({}, state, {
-        searchedClasses: action.searchedClasses,
-        loading: false,
-        error: false,
-      });
     case types.FETCH_CLASSES_REQUEST:
       return Object.assign({}, state, {
         loading: true,
@@ -26,27 +20,21 @@ const classesReducer = (state = initialState, action) => {
         loading: false,
         error: action.err,
       });
-    case types.FETCH_STUDENT_ENROLLED_CLASSES:
+    case types.SEARCH_CLASSES_SUCCESS:
       return Object.assign({}, state, {
-        createdClasses: action.enrolledClasses,
+        searchedClasses: action.classes,
         loading: false,
         error: false,
       });
-    case types.FETCH_TEACHER_CLASSES:
+    case types.FETCH_CLASSES_BY_STUDENT_SUCCESS:
       return Object.assign({}, state, {
-        searchedClasses: action.searchedClasses,
+        enrolledClasses: action.classes,
         loading: false,
         error: false,
       });
-    case types.CREATE_CLASS:
+    case types.FETCH_CLASSES_BY_TEACHER:
       return Object.assign({}, state, {
-        createdClasses: action.createdClasses,
-        loading: false,
-        error: false,
-      });
-    case types.ENROLL_STUDENT:
-      return Object.assign({}, state, {
-        enrolledClasses: action.enrolledClasses,
+        createdClasses: action.classes,
         loading: false,
         error: false,
       });

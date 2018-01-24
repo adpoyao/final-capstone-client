@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import ClassesResult from './ClassesResult';
 import { connect } from 'react-redux';
-import { fetchClasses } from '../actions/classes';
+import { searchClasses } from '../actions/classes';
 
 export class SearchClass extends Component {
 
   handleSearch = (e) => {
     e.preventDefault();
     const value = this.input.value;
-    this.props.dispatch(fetchClasses(value));
+    this.props.dispatch(searchClasses(value));
     this.input.value = '';
   }
 
