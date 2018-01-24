@@ -17,9 +17,10 @@ x = added
 	- AddClass x
 
 - Dashboard-Student x
-	- MoodSelections x
-	- MoodCaptions x
-	- MoodForm x
+  - MoodView x
+	 - MoodSelections x
+	 - MoodCaptions x
+	 - MoodForm x
 	- PanicButton x
 
 - Dashboard-Teacher x
@@ -27,11 +28,6 @@ x = added
 	- PanicAlertDetail x
 	- EmotionAlert x
 	- EmotionAlertDetail x
-
-- MoodDash x
-	- MoodSelections x
-	- MoodCaptions x
-	- MoodForm x
 
 - Students x
 	- StudentListByClass x
@@ -42,4 +38,7 @@ x = added
 		- EmotionsDetail x
 		- MoodReport x
 
-- MoodCloud
+- MoodCloud x
+
+- No Home:
+- StudentList (Component and Test)
