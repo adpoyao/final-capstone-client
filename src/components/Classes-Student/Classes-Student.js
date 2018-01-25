@@ -12,8 +12,6 @@ export default class ClassesStudent extends Component {
     <div className='enrolled-classes-container'>
       <h3>Current Term</h3>
       <ClassDetailStudent/>
-      <ClassDetailStudent/>
-      <ClassDetailStudent/>
     </div>
     )
 
