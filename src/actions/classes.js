@@ -13,6 +13,10 @@ export const fetchClassesError = (err) => ({
   err,
 });
 
+export const fetchClassesSuccess = () => ({
+  type: types.FETCH_CLASSES_SUCCESS,
+})
+
 // STUDENT: Search class by teacher name
 export const searchClassesSuccess = (classes) => ({
   type: types.SEARCH_CLASSES_SUCCESS,
@@ -33,10 +37,10 @@ export const fetchClassesByTeacherSuccess = (classes) => ({
 
 //----- STUDENT: ASYNC ACTIONS  -----//
 
-// STUDENT: Search class by teacher name
-export const searchClasses = teacherName => (dispatch, getState) => {
+// STUDENT: Search class by teacher name // CONNECTED
+export const searchClasses = lastName => (dispatch, getState) => {
   dispatch(fetchClassesRequest());
-  return fetch(`http://localhost:8080/api/classes/search/${teacherName}`)
+  return fetch(`http://localhost:8080/api/classes/search/${lastName}`)
   .then(res => res.json())
   .then(classes => dispatch(searchClassesSuccess(classes)))
   .catch((err) => {
@@ -44,30 +48,32 @@ export const searchClasses = teacherName => (dispatch, getState) => {
   });
 };
 
-// STUDENT: Enroll to an existing class
+// STUDENT: Enroll to an existing class // CONNECTED
 export const enrollClass = (data) => (dispatch, getState) => {
 
-  return fetch(`http://localhost:8080/api/classes/student/enroll`), {
+  return fetch(`http://localhost:8080/api/classes/student/enroll/${data.classID}`, {
         method: 'PUT',
         headers: {
-            'content-type': 'application/json',
+            'Content-Type': 'application/json', 
+            'Accept': 'application/json',
           },
         body: JSON.stringify(data),
-      }
+      })
      .then(res => normalizeResponseErrors(res))
-     .then(res => res.json())
-     .then(classes => dispatch(fetchClassesByStudent(data.studentID)))
+    //  .then(res => {res.json()})
+     .then(() => dispatch(fetchClassesByStudent(data.studentID)))
      .catch((err) => {
       dispatch(fetchClassesError(err));
     });
 };
 
-// STUDENT: Retrieve all enrolled classes
+// STUDENT: Retrieve all enrolled classes // CONNECTED
 export const fetchClassesByStudent = studentID => (dispatch, getState) => {
   dispatch(fetchClassesRequest());
   return fetch(`http://localhost:8080/api/classes/student/${studentID}`)
   .then(res => res.json())
   .then(classes => dispatch(fetchClassesByStudentSuccess(classes)))
+  // .then(() => dispatch(fetchClassesSuccess()))
   .catch((err) => {
     dispatch(fetchClassesError(err));
   });
@@ -75,25 +81,26 @@ export const fetchClassesByStudent = studentID => (dispatch, getState) => {
 
 //----- TEACHER: ASYNC ACTIONS  -----//
 
-// TEACHER: Create a new class
+// TEACHER: Create a new class // CONNECTED
 export const createClass = (data) => (dispatch, getState) => {
   dispatch(fetchClassesRequest());
-  return fetch('http://localhost:8080/api/classes/teacher/create'), {
+  return fetch('http://localhost:8080/api/classes/teacher/create', {
         method: 'POST',
         headers: {
-            'content-type': 'application/json',
+            'Content-Type': 'application/json', 
+            'Accept': 'application/json',
           },
         body: JSON.stringify(data),
-      }
+      })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then(() => dispatch(fetchClassesByTeacher(data.teacherID)))
+    .then(() => dispatch(fetchClassesByTeacher(data.id)))
     .catch((err) => {
       dispatch(fetchClassesError(err));
     });
 };
 
-// TEACHER: Retrieves all created classes
+// TEACHER: Retrieves all created classes // CONNECTED
 export const fetchClassesByTeacher = teacherID => (dispatch, getState) => {
   dispatch(fetchClassesRequest());
   return fetch(`http://localhost:8080/api/classes/teacher/${teacherID}`)

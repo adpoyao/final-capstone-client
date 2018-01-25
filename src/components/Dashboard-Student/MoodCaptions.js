@@ -1,9 +1,30 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import './MoodCaptions.css';
 
-export default class MoodCaptions extends Component {
+export class MoodCaptions extends Component {
   render() {
+
+    let caption;
+
+    if(!this.props.selectedMood){
+      caption =   <p className='mood-caption'>How You Feeling?</p>
+    }
+    else {
+      caption =  <p className='mood-caption'>{this.props.selectedMood}</p>
+    }
+
     return(
-      <h1>Mood Captions</h1>
+      <div className='mood-captions-container'>
+        {caption}
+      </div>
     )
   }
 }
+
+
+const mapStateToProps = state => ({
+  selectedMood: state.moods.selectedMood
+})
+
+export default connect(mapStateToProps)(MoodCaptions)

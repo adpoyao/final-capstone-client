@@ -15,10 +15,17 @@ export class DashboardTeacher extends Component {
     // Condition: if teacher-user has no class created
     teacherDash = (
     <div className='no-class-teacher-container'>
-      <p>You don't have any classes open yet.</p>
-      <img src='#'/>
-      <p>Let's get you started.</p>
-      <Link to='/teacher/classes'><button className='get-started'>Create a class</button></Link>
+
+      <div id="clouds">
+        <div class="cloud x1"></div>
+        <div class="cloud x2"></div>
+        <div class="cloud x3"></div>
+        <div class="cloud x4"></div>
+        <div class="cloud x5"></div>
+      </div>
+
+      <p>You do not have classes created yet.</p>
+      <Link to='/teacher/classes' style={{ textDecoration: 'none' }}><p className='get-started'>Let's get you started.</p></Link>
     </div>
     )
     // Condition: if teacher-user has class(es) enrolled

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { enrollClass } from '../../actions/classes';
+
 export class ClassesResult extends Component {
   handleEnrollClass = (classID) => {
     let studentID = this.props.student.id;
-    let studentFirstName = this.props.student.firstName
-    let studentLastName = this.props.student.lastName;
-    const data = {classID, studentID, studentFirstName, studentLastName}
-    console.log(data)
+    const data = {classID, studentID}
+    this.props.dispatch(enrollClass(data))
   }
   
   render() {
@@ -21,7 +21,7 @@ export class ClassesResult extends Component {
     <li key={index} className='course'>
       <p>Class Name: {item.className}</p>
       <p>Teacher Name: {item.teacherName}</p>
-      <button onClick={()=>this.handleEnrollClass(item.classID)}>➕</button>
+      <button onClick={()=>this.handleEnrollClass(item._id)}>➕</button>
     </li>
   );
 

@@ -4,12 +4,15 @@ import { reducer as formReducer } from 'redux-form';
 import classesReducer from './classes';
 import viewReducer from './views';
 import authReducer from './auth';
-import protectedDataReducer from './protected-data';
 import alertReducer from './alert';
+import moodsReducer from './moods';
+import protectedDataReducer from './protected-data';
+
 
 const rootReducer = combineReducers({
   classes: classesReducer,
   form: formReducer,
+  moods: moodsReducer,
   view: viewReducer,
   auth: authReducer,
   alert: alertReducer,
