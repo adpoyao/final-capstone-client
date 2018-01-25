@@ -6,6 +6,8 @@ export default class MoodForm extends Component {
   handleSaveMood = (e) => {
     e.preventDefault();
     // Set a conditional case for empty entry
+    // Dispatch to save new Mood
+    // Link to Mood Cloud Page
     console.log('placeholder');
   }
 
