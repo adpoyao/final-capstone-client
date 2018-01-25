@@ -15,6 +15,11 @@ const classesReducer = (state = initialState, action) => {
         loading: true,
         error: false,
       });
+    case types.FETCH_CLASSES_SUCCESS:
+      return Object.assign({}, state, {
+        loading: false,
+        error: false,
+      });
     case types.FETCH_CLASSES_ERROR:
       return Object.assign({}, state, {
         loading: false,
@@ -32,7 +37,7 @@ const classesReducer = (state = initialState, action) => {
         loading: false,
         error: false,
       });
-    case types.FETCH_CLASSES_BY_TEACHER:
+    case types.FETCH_CLASSES_BY_TEACHER_SUCCESS:
       return Object.assign({}, state, {
         createdClasses: action.classes,
         loading: false,

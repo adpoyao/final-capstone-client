@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { createClass } from '../../actions/classes';
+
 export class AddClass extends Component {
 
   handleAdd = (e) => {
     e.preventDefault();
     const value = {
       className: this.classNameInput.value,
-      email: this.emailContactInput.value
+      id: this.props.currentUser.id,
     }
-    console.log(value);
+    this.props.dispatch(createClass(value));
     this.classNameInput.value = '';
     this.emailContactInput.value = '';
   }
@@ -44,5 +46,9 @@ export class AddClass extends Component {
   }
 }
 
+// Refactor to Backend;
+const mapStateToProps = state => ({
+  currentUser: state.auth.currentUser
+})
 
-export default connect()(AddClass)
+export default connect(mapStateToProps)(AddClass)
