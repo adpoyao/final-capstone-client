@@ -1,0 +1,17 @@
+.landing-page-midsection {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%
+}
+
+.landing-page-left,
+.landing-page-right {
+  flex: 1 100%
+}
+
+.landing-page-left {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  justify-content: center;
+}

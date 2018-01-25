@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { toggleView } from '../../actions/views';
 
+import Footer from './Footer';
+
 export class Features extends Component {
   componentDidMount() {
     this.props.dispatch(toggleView('features'));
@@ -14,6 +16,7 @@ export class Features extends Component {
         <p>Feature 1</p>
         <p>Feature 2</p>
         <p>Feature 3</p>
+        <Footer />
       </div>
     )
   }

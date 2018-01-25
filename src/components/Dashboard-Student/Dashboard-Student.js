@@ -5,6 +5,8 @@ import { toggleView } from '../../actions/views';
 
 import MoodView from './MoodView';
 
+import './Dashboard-Student.css';
+
 export class DashboardStudent extends Component {
   componentDidMount() {
     this.props.dispatch(toggleView('student'));
@@ -15,10 +17,17 @@ export class DashboardStudent extends Component {
     // Condition: if student-user has no class enrolled
     studentDash = (
     <div className='no-class-student-container'>
-      <p>You don't have a class yet!</p>
-      <img src='#'/>
-      <p>Let's get you started.</p>
-      <Link to='/student/classes'><button className='get-started'>Add a class</button></Link>
+
+      <div id="clouds">
+        <div class="cloud x1"></div>
+        <div class="cloud x2"></div>
+        <div class="cloud x3"></div>
+        <div class="cloud x4"></div>
+        <div class="cloud x5"></div>
+      </div>
+
+      <p>You're not enrolled in any classes.</p>
+      <Link to='/student/classes' style={{ textDecoration: 'none' }}><p className='get-started'>Let's get you started.</p></Link>
     </div>
     )
     // Condition: if student-user has class(es) enrolled

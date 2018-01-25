@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
+import './MoodCaptions.css';
+
 export default class MoodCaptions extends Component {
   render() {
     return(
-      <h1>Mood Captions</h1>
+      <div className='mood-captions-container'>
+        <p className='mood-caption'>Mood Caption</p>
+      </div>
     )
   }
 }
