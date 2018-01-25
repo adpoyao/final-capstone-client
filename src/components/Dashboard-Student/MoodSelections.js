@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import * as mood from '../../moodBank/moodBank';
-
+import { updateMoodCaption } from '../../actions/moods';
 import './MoodSelections.css';
 
-export default class MoodSelections extends Component {
+export class MoodSelections extends Component {
   handleClick = (e) => {
-    console.log(e.target.name);
+    this.props.dispatch(updateMoodCaption(e.target.name));
   }
 
   render() {
@@ -74,3 +75,6 @@ export default class MoodSelections extends Component {
     )
   }
 }
+
+
+export default connect()(MoodSelections)
