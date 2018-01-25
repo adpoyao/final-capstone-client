@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
-import {reducer as formReducer} from 'redux-form'
+import { reducer as formReducer } from 'redux-form';
 
 import classesReducer from './classes';
 import viewReducer from './views';
 import authReducer from './auth';
-import protectedDataReducer from './protected-data';
+import alertReducer from './alert';
 import moodsReducer from './moods';
+import protectedDataReducer from './protected-data';
+
 
 const rootReducer = combineReducers({
   classes: classesReducer,
@@ -13,7 +15,8 @@ const rootReducer = combineReducers({
   moods: moodsReducer,
   view: viewReducer,
   auth: authReducer,
-  protectedData: protectedDataReducer
+  alert: alertReducer,
+  protectedData: protectedDataReducer,
 });
 
 export default rootReducer;
