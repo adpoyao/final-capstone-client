@@ -19,7 +19,7 @@ export class AddClass extends Component {
       <div className='AddClass'>
         <form onSubmit={e => this.handleAdd(e)}>
           <legend>Create a class</legend>
-          <label htmlFor='search-teacher'>Class Name</label>
+          <label htmlFor='search-teacher'>Class Name: </label>
           <input 
             type='text'
             name='class-name'
