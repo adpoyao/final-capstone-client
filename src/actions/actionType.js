@@ -37,3 +37,6 @@ export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const CLEAR_AUTH = 'CLEAR_AUTH';
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
+
+//Moods
+export const UPDATE_MOOD_CAPTION = 'UPDATE_MOOD_CAPTION';
