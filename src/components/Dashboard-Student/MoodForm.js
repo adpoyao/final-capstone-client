@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import  {saveMood} from '../../actions/moods';
 
 import './MoodForm.css';
 
-export default class MoodForm extends Component {
+export class MoodForm extends Component {
   handleSaveMood = (e) => {
     e.preventDefault();
-    // Set a conditional case for empty entry
-    // Dispatch to save new Mood
-    // Link to Mood Cloud Page
+    console.log(this.props.selectedMood);
+    console.log(this.props.id)
     console.log('placeholder');
+    let mood = {moodType: this.props.selectedMood, studentID: this.props.id}
+    this.props.dispatch(saveMood(mood))
   }
 
   render() {
@@ -20,3 +23,11 @@ export default class MoodForm extends Component {
     )
   }
 }
+
+
+const mapStateToProps = state => ({
+  selectedMood: state.moods.selectedMood,
+  id: state.auth.currentUser.id
+})
+
+export default connect(mapStateToProps)(MoodForm)
