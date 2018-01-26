@@ -1,9 +1,17 @@
 .mood-square {
   width: 36px;
   height: 36px;
-  margin: 4px;
+  margin: 5px;
   border-radius: 50%;
-  outline: none
+  outline: none;
+  opacity: 0.9;
+  border-radius: 50% 50% 50% 0;
+  border: 1px solid #fff;
+  box-shadow: 0 0 0 3px rgb(216, 216, 216);
+}
+
+.mood-square:hover {
+  /* box-shadow: 0 0 0 2px rgb(163, 163, 163); */
 }
 
 .enraged {

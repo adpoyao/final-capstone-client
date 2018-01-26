@@ -11,7 +11,6 @@ export class MoodDash extends Component {
   render() {
     return(
       <form className="mood-view-container">
-        <p className="how-are-you"><span className="user-first-name">{this.props.firstName}</span>, how are you feeling right now?</p>
         <MoodSelections/>
         <MoodCaptions/>
         <MoodForm/>
@@ -20,8 +19,4 @@ export class MoodDash extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  firstName: state.auth.currentUser.firstName,
-})
-
-export default connect(mapStateToProps)(MoodDash)
+export default connect()(MoodDash)

@@ -27,14 +27,6 @@ export class DashboardStudent extends Component {
       studentDash = (
       <div className='no-class-student-container'>
 
-        <div id="clouds">
-          <div className="cloud x1"></div>
-          <div className="cloud x2"></div>
-          <div className="cloud x3"></div>
-          <div className="cloud x4"></div>
-          <div className="cloud x5"></div>
-        </div>
-
         <div className="not-enrolled">
           <p>You're not enrolled in any classes.</p>
           <Link to='/student/classes' style={{ textDecoration: 'none' }}><p className='get-started'>Let's get you started.</p></Link>
@@ -44,13 +36,32 @@ export class DashboardStudent extends Component {
     }
     // Condition: if student-user has class(es) enrolled
     else if(this.props.hasEnrolledClasses){
-      studentDash = <MoodView />
+      studentDash = (
+      <div className='student-with-classes-dashboard'>
+        <div className='enrolled'>
+          <p>Hello there, {this.props.firstName}.</p>
+          <h3 className='user-first-name'>How are you feeling right now?</h3>
+        
+          <MoodView />
+          <PanicButton />
+        </div>
+      </div>
+      )
     }
 
     return(
       <div className='dashboard-student-container'>
+        
+        <div id="clouds">
+          <div className="cloud x1"></div>
+          <div className="cloud x2"></div>
+          <div className="cloud x3"></div>
+          <div className="cloud x4"></div>
+          <div className="cloud x5"></div>
+        </div>
+
         {studentDash}
-        <PanicButton />
+        
       </div>
     )
   }
@@ -58,6 +69,7 @@ export class DashboardStudent extends Component {
 
 const mapStateToProps = state => ({
   userId: state.auth.currentUser ? state.auth.currentUser.id : 0,
+  firstName: state.auth.currentUser.firstName,
   hasEnrolledClasses: state.classes.enrolledClasses,
   loading: state.classes.loading,
 })

@@ -5,7 +5,16 @@
   right: 0;
 }
 
-.get-started {
+.enrolled {
+  position: relative;
+  top: -250px;
+  left: 0;
+  right: 0;
+}
+
+
+.get-started,
+.user-first-name {
   font-size: 2em;
   color: rgb(70, 133, 214);
   margin-top: 15px;
