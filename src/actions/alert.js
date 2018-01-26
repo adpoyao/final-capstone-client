@@ -5,7 +5,7 @@ import { normalizeResponseErrors } from './utils';
 
 // Request all alerts
 export const fetchAlertsRequest = () => ({
-  type: types.SEARCH_ALERTS_REQUEST,
+  type: types.FETCH_ALERTS_REQUEST,
 });
 
 // Request Student Alerts
@@ -20,7 +20,7 @@ export const fetchAlertsByTeacherRequest = () => ({
 
 // All Alerts Successfully Retrieved
 export const fetchAlertsSuccess = (alerts) => ({
-  type: types.SEARCH_ALERTS_SUCCESS,
+  type: types.FETCH_ALERTS_SUCCESS,
   alerts,
 });
 
@@ -40,6 +40,10 @@ export const fetchAlertsByTeacherSuccess = (alerts) => ({
 export const fetchAlertsError = (err) => ({
   type: types.FETCH_ALERTS_ERROR,
   err,
+});
+
+export const fetchUntoggleAlertsSuccess = () => ({
+  type: types.FETCH_UNTOGGLE_ALERTS_SUCCESS,
 });
 
 //----- STUDENT: ASYNC ACTIONS  -----//
@@ -72,11 +76,11 @@ export const toggleAlertOff = (panicID) => (dispatch, getState) => {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
           },
-        body: JSON.stringify(data),
+        body: JSON.stringify(panicID),
       })
      .then(res => normalizeResponseErrors(res))
      .then(res => res.json())
-     .then(classes => dispatch(fetchUntoggleAlertsSuccess(studentID.panicID)))
+     .then(classes => dispatch(fetchUntoggleAlertsSuccess()))
      .catch((err) => {
       dispatch(fetchAlertsError(err));
     });

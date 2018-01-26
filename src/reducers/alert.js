@@ -1,19 +1,18 @@
 import * as types from '../actions/actionType';
 
 const initialState = {
-  teachers: [],
-  students: [],
-  dateTime: [],
+  panicAlerts: [],
+  moodAlerts: [],
   panicToggled: false,
-  emotionAlert: false,
   loading: false,
   error: false,
 };
 
 const alertReducer = (state = initialState, action) => {
   switch (action.type){
-    case types.FETCH_ALERT_ERROR:
+    case types.FETCH_ALERTS_ERROR:
       return Object.assign({}, state, {
+        loading: false,
         error: action.err,
       });
     case types.FETCH_ALERTS_REQUEST:
@@ -23,44 +22,38 @@ const alertReducer = (state = initialState, action) => {
       });
     case types.FETCH_ALERTS_SUCCESS:
       return Object.assign({}, state, {
-        dateTime: [],
+        alerts: action.alerts,
         loading: false,
         error: false,
       });
-    case types.TOGGLE_ALERT_ON:
+    case types.FETCH_ALERTS_BY_STUDENT_REQUEST:
       return Object.assign({}, state, {
-        panicToggled: true,
-        dateTime: [],
+        loading: true,
         error: false,
       });
-    case types.TOGGLE_ALERT_OFF:
+    case types.FETCH_ALERTS_BY_TEACHER_REQUEST:
       return Object.assign({}, state, {
-        panicToggled: false,
-        error: false,
-      });
-    case types.DISMISS_ALERT:
-      return Object.assign({}, state, {
-        panicToggled: false,
-        error: false,
-      });
-    case types.FETCH_MOOD_ALERTS_BY_TEACHER:
-      return Object.assign({}, state, {
-        students: [],
-        dateTime: [],
+        loading: true,
         error: false,
       });
     case types.FETCH_ALERTS_BY_STUDENT_SUCCESS:
       return Object.assign({}, state, {
-        panicToggled: true,
-        dateTime: [],
+        panicAlerts: action.alerts,
+        loading: false,
+        error: false,
+      });
+    case types.FETCH_ALERTS_BY_TEACHER_SUCCESS:
+      return Object.assign({}, state, {
+        alerts: action.alerts,
+        loading: false,
         error: false,
       });
     case types.FETCH_UNTOGGLE_ALERTS_SUCCESS:
       return Object.assign({}, state, {
         panicToggled: false,
+        loading: false,
         error: false,
       });
-
   }
   return state;
 };
