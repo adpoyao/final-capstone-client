@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { toggleView } from '../../actions/views';
 
 import MoodView from './MoodView';
+import PanicButton from './PanicButton';
 import { fetchClassesByStudent } from '../../actions/classes';
 
 import './Dashboard-Student.css';
@@ -48,7 +49,8 @@ export class DashboardStudent extends Component {
 
     return(
       <div className='dashboard-student-container'>
-      {studentDash}
+        {studentDash}
+        <PanicButton />
       </div>
     )
   }
