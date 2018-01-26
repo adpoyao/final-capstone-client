@@ -4,23 +4,22 @@ import { Link } from 'react-router-dom'
 import { toggleView } from '../../actions/views';
 
 import { fetchClassesByTeacher } from '../../actions/classes';
-import EmotionAlert from './EmotionAlert';
+import AlertMain from './AlertMain';
 
 import './Dashboard-Teacher.css';
 
 export class DashboardTeacher extends Component {
   componentDidMount() {
     this.props.dispatch(toggleView('teacher'));
-  }
-
-  componentWillUpdate() {
-    if(this.props.hasEnrolledClasses.length === 0){
-      // console.log(this.props.userId);
-      this.props.dispatch(fetchClassesByTeacher(this.props.userId));
-    }
+    this.props.dispatch(fetchClassesByTeacher(this.props.userId));
   }
 
   render() {
+
+    if(this.props.loading){
+      return <div>Loading...</div>
+    }
+
     let teacherDash;
     // Condition: if teacher-user has no class created
     if(this.props.hasCreatedClasses.length === 0){
@@ -45,7 +44,7 @@ export class DashboardTeacher extends Component {
     }
     // Condition: if teacher-user has class(es) enrolled
     else if (this.props.hasCreatedClasses){
-      teacherDash = <EmotionAlert />
+      teacherDash = <AlertMain />
     }
 
     return(
@@ -59,6 +58,7 @@ export class DashboardTeacher extends Component {
 const mapStateToProps = state => ({
   userId: state.auth.currentUser.id,
   hasCreatedClasses: state.classes.createdClasses,
+  loading: state.classes.loading,
 })
 
 export default connect(mapStateToProps)(DashboardTeacher);

@@ -24,10 +24,9 @@ x = added
 	- PanicButton x
 
 - Dashboard-Teacher x
-	- PanicAlert x
-	- PanicAlertDetail x
-	- EmotionAlert x
-	- EmotionAlertDetail x
+	- AlertMain x
+		- PanicAlertDetail x
+		- EmotionAlertDetail x
 
 - Students x
 	- StudentListByClass x
