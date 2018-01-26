@@ -1,0 +1,32 @@
+
+.search-teacher-form {
+  display: flex;
+  flex-flow: column wrap;
+  margin-left: 20px;
+}
+
+.search-teacher-input {
+  border: none;
+  border-bottom: 1px solid grey;
+  height: 50px;
+  font-size: 0.8em;
+  outline: none;
+  padding-bottom: 0;
+  margin-bottom: 10px;
+}
+
+.add-teacher-submit {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: 200px;
+  height: 30px;
+  font-size: 1.1em; 
+  color: rgb(255, 255, 255);
+  background-color: rgb(8, 173, 202);
+  box-shadow: none;
+  text-shadow: none;
+  border:none;
+  border-radius: 2px;  
+  box-shadow:none;
+}

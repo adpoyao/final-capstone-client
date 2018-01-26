@@ -1,3 +1,9 @@
+.not-enrolled {
+  position: absolute;
+  top: 50vh;
+  left: 0;
+  right: 0;
+}
 
 .get-started {
   font-size: 2em;

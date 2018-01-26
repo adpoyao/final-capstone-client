@@ -3,3 +3,7 @@
   font-size: 3em;
   margin: 15px 0;
 }
+
+.nothing-selected {
+  height: 60px
+}

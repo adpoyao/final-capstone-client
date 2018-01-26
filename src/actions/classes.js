@@ -13,9 +13,15 @@ export const fetchClassesError = (err) => ({
   err,
 });
 
+// UNIVERSAL: Toggle Success
 export const fetchClassesSuccess = () => ({
   type: types.FETCH_CLASSES_SUCCESS,
 })
+
+export const clearClassesStore = () => ({
+  type: types.CLEAR_CLASSES_STORE,
+})
+
 
 // STUDENT: Search class by teacher name
 export const searchClassesSuccess = (classes) => ({
@@ -73,7 +79,6 @@ export const fetchClassesByStudent = studentID => (dispatch, getState) => {
   return fetch(`http://localhost:8080/api/classes/student/${studentID}`)
   .then(res => res.json())
   .then(classes => dispatch(fetchClassesByStudentSuccess(classes)))
-  // .then(() => dispatch(fetchClassesSuccess()))
   .catch((err) => {
     dispatch(fetchClassesError(err));
   });
@@ -104,8 +109,28 @@ export const createClass = (data) => (dispatch, getState) => {
 export const fetchClassesByTeacher = teacherID => (dispatch, getState) => {
   dispatch(fetchClassesRequest());
   return fetch(`http://localhost:8080/api/classes/teacher/${teacherID}`)
+  .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
   .then(classes => dispatch(fetchClassesByTeacherSuccess(classes)))
+  .catch((err) => {
+    dispatch(fetchClassesError(err));
+  });
+};
+
+// TEACHER: Delete selected class
+export const deleteClassByTeacher = data => (dispatch, getState) => {
+  dispatch(fetchClassesRequest());
+  return fetch(`http://localhost:8080/api/classes/teacher/close/${data.classID}`, {
+    method: 'DELETE',
+    headers: {
+        'Content-Type': 'application/json', 
+        'Accept': 'application/json',
+      }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  //TODO: Not rendering page?
+  .then(() => dispatch(fetchClassesByTeacher(data.teacherID)))
   .catch((err) => {
     dispatch(fetchClassesError(err));
   });

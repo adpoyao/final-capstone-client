@@ -2,14 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchClassesByStudent } from '../../actions/classes';
-// import { fetchProtectedData } from '../../actions/protected-data';
+
+import './ClassDetail-Student.css';
 
 export class ClassDetailStudent extends Component {
   componentDidMount(){
+<<<<<<< HEAD
     // this.props.dispatch(fetchProtectedData());
     // TODO: Solve timing issue
     console.log('Component DID mount', this.props.currentUser);
     this.props.dispatch(fetchClassesByStudent(this.props.currentUser))
+=======
+    this.props.dispatch(fetchClassesByStudent(this.props.userId))
+>>>>>>> master
   }
   
   handleRemoveClass = classID => {
@@ -18,15 +23,16 @@ export class ClassDetailStudent extends Component {
 
   render() {
 
-    if(this.props.loading){
-      return(
-        <div>
-          <p>Loading Classes...</p>
-        </div>
-      )
-    }
-
+    
     if(this.props.enrolledClasses.length === 0){
+      
+      if(this.props.loading){
+        return(
+          <div>
+            <p>Loading Classes...</p>
+          </div>
+        )
+      }  
       return(
         <div>
           <p>You're not enrolled in any classes.</p>
@@ -38,9 +44,9 @@ export class ClassDetailStudent extends Component {
 
     classList = this.props.enrolledClasses.map((item, index) => 
     <li key={index} className='enrolled-course'>
-      <p>Class Name: {item.className}</p>
-      <p>Teacher Name: {item.teacher.firstName} {item.teacher.lastName}</p>
-      <button onClick={()=>this.handleRemoveClass(item._id)}>Remove Class</button>
+      <p className="enrolled-class-list">Class Name: {item.className}</p>
+      <p className="enrolled-class-list">Instructor: {item.teacher.firstName} {item.teacher.lastName}</p>
+      <button className="delete-enrolled-button" onClick={()=>this.handleRemoveClass(item._id)}>Remove Class</button>
     </li>
   );
 
@@ -56,7 +62,7 @@ export class ClassDetailStudent extends Component {
 
 const mapStateToProps = state => ({
   loading: state.classes.loading,
-  currentUser: state.auth.currentUser,
+  userId: state.auth.currentUser ? state.auth.currentUser.id : 0,
   enrolledClasses: state.classes.enrolledClasses,
 })
 

@@ -1,6 +1,6 @@
 import * as types from './actionType';
 
-// SYNCS ACTIONS
+// SYNC ACTIONS
 
 export const updateMoodCaption = (mood) => ({
     type: types.UPDATE_MOOD_CAPTION,

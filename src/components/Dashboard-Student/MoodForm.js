@@ -14,7 +14,7 @@ export default class MoodForm extends Component {
   render() {
     return(
       <div className='moodform-container'>
-        <textarea className="text-area" rows='5' placeholder='I feel this way because: '>I feel this way because: </textarea>
+        <textarea className="text-area" rows='5' placeholder='I feel this way because: ' defaultValue="I feel this way because: " />
         <button className="save-mood" type='submit' onClick={(e)=>this.handleSaveMood(e)}>Save Mood</button>
       </div>
     )

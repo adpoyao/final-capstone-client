@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import AddClass from './AddClass';
 import ClassDetailTeacher from './ClassDetail-Teacher';
 
+import './Classes-Teacher.css';
+
 export default class ClassesTeacher extends Component {
   render() {
     let createdClasses;
@@ -11,8 +13,6 @@ export default class ClassesTeacher extends Component {
     createdClasses = (
     <div className='created-classes-container'>
       <h3>Current Term</h3>
-      <ClassDetailTeacher/>
-      <ClassDetailTeacher/>
       <ClassDetailTeacher/>
     </div>
     )

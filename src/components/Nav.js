@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import {clearAuth} from '../actions/auth';
+import {clearAuthToken} from '../local-storage';
 
 import { toggleView } from '../actions/views';
+import { clearClassesStore } from '../actions/classes';
 
 import './Nav.css';
 
@@ -13,6 +15,13 @@ export class Nav extends Component {
     this.props.dispatch(toggleView(selectedView));
   }
   
+  logOut() {
+    this.props.dispatch(clearAuth());
+    this.props.dispatch(clearClassesStore());
+    clearAuthToken();
+
+  }
+
   render() {
     let landingPageTabs, featuresTabs1, featuresTabs2, studentTabs, teacherTabs, logoutTab;
     
@@ -84,7 +93,7 @@ export class Nav extends Component {
         <div className="nav-button teacher-tabs center">
           <Link to="/teacher/dashboard"><button className="nav-teacher-dashboard">Dashboard</button></Link>
           <Link to="/teacher/classes"><button className="nav-teacher-classes">Classes</button></Link>
-          <Link to="/teacher/students"><button className="nav-teacher-students">Students</button></Link>
+          <Link to="/teacher/students"><button className="nav-teacher-students">Your Students</button></Link>
         </div>
       )
     }
@@ -92,7 +101,7 @@ export class Nav extends Component {
     if(this.props.currentView === 'teacher' || this.props.currentView === 'student'){
       logoutTab = (
         <div className="nav-button log-out-tabs right">
-          <Link to="/"><button className="logout">Logout</button></Link>
+          <Link to="/"><button className="logout" onClick={() => this.logOut()}>Logout</button></Link>
         </div>
       )
     }
