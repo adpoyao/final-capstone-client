@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { enrollClass } from '../../actions/classes';
 
+import './ClassesResult.css';
+
 export class ClassesResult extends Component {
   handleEnrollClass = (classID) => {
     let studentID = this.props.student.id;
@@ -18,9 +20,9 @@ export class ClassesResult extends Component {
     let classList;
 
     classList = this.props.result.map((item, index) => 
-    <li key={index} className='course'>
+    <li key={index} className='available-course'>
       <p>Class Name: {item.className}</p>
-      <p>Teacher Name: {item.teacherName}</p>
+      <p>Instructor: {item.teacher.firstName} {item.teacher.lastName}</p>
       <button onClick={()=>this.handleEnrollClass(item._id)}>➕</button>
     </li>
   );
@@ -28,7 +30,7 @@ export class ClassesResult extends Component {
 
     return(
       <div className='classes-result-container'>
-        <ul>
+        <ul className='classes-result-ul'>
           {classList}
         </ul>
       </div>

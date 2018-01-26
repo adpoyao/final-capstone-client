@@ -1,0 +1,15 @@
+.classes-result-ul {
+  margin-left: 20px;
+}
+
+.available-course {
+  width: 400px;
+  background: rgb(226, 225, 225);
+  border-left: rgb(231, 204, 47) 5px solid;
+  padding-bottom: 10px;
+  margin: 5px
+}
+
+.available-course:nth-child(odd) {
+  /* border-left: rgb(121, 82, 194) 5px solid; */
+}

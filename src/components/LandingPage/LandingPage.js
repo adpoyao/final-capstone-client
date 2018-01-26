@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { toggleView } from '../../actions/views';
+import { Redirect } from 'react-router-dom';
+
 
 import Footer from './Footer';
 
@@ -12,6 +14,16 @@ export class LandingPage extends Component {
   }
 
   render() {
+
+    if (this.props.loggedIn) {
+      if(this.props.user.role === 'student'){
+      return <Redirect to="/student/dashboard" />;
+      } 
+      else if(this.props.user.role === 'teacher'){
+        return <Redirect to="/teacher/dashboard" />
+      }
+    }
+
     return(
       <div className="landing-page-container">
         <div className="landing-page-midsection">
@@ -29,4 +41,9 @@ export class LandingPage extends Component {
   }
 }
 
-export default connect()(LandingPage);
+const mapStateToProps = state => ({
+  loggedIn: state.auth.currentUser !== null,
+  user: state.auth.currentUser,
+})
+
+export default connect(mapStateToProps)(LandingPage);

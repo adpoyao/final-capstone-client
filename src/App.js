@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Route, Switch, Router } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Route, Switch, Router, withRouter } from 'react-router-dom';
 
 import Nav from './components/Nav';
 import Features from './components/LandingPage/Features';
@@ -15,9 +16,12 @@ import MoodCloud from './components/MoodCloud/MoodCloud';
 import Students from './components/Students/Students';
 
 import './App.css';
+import { join } from 'path';
 
-class App extends Component {
+export class App extends Component {
+
   render() {
+
     return (
         <div className="App">
           <Nav />
@@ -44,4 +48,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(connect()(App));

@@ -10,6 +10,6 @@ const moodsReducer = (state=initialState, action) => {
                 selectedMood: action.mood
             })
     }
-    return state
+    return state;
 }
 export default moodsReducer;

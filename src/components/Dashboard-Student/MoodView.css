@@ -1,0 +1,17 @@
+.mood-view-container {
+  /* background: -webkit-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+	background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
+  background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%); */
+}
+
+.how-are-you {
+  font-size: 1.4em;
+  padding-top: 40px;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+.user-first-name {
+  color: rgb(70, 133, 214);
+  font-family: 'Capriola', sans-serif;
+}
