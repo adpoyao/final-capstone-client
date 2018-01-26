@@ -121,3 +121,45 @@ body {
 	0% {margin-left: 1000px;}
 	100% {margin-left: -1000px;}
 }
+
+/* RED CLOUDS */
+#clouds2{
+  padding: 120px 0 0 0;
+  margin-bottom: -100px;
+	background: #c9dbe9;
+	background: -webkit-linear-gradient(top, #d65959 0%, #fff 100%);
+	background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
+	background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+}
+
+.cloud2 {
+	width: 200px; height: 60px;
+	background: #fff;
+	
+	border-radius: 200px;
+	-moz-border-radius: 200px;
+	-webkit-border-radius: 200px;
+	
+	position: relative; 
+}
+
+.cloud2:before, .cloud2:after {
+	content: '';
+	position: absolute; 
+	background: #fff;
+	width: 100px; height: 80px;
+	position: absolute; top: -15px; left: 10px;
+	
+	border-radius: 100px;
+	-moz-border-radius: 100px;
+	-webkit-border-radius: 100px;
+	
+	-webkit-transform: rotate(30deg);
+	transform: rotate(30deg);
+	-moz-transform: rotate(30deg);
+}
+
+.cloud2:after {
+	width: 120px; height: 120px;
+	top: -55px; left: auto; right: 15px;
+}

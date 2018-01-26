@@ -1,0 +1,10 @@
+.emotion-alert-detail-container {
+  background: white;
+  -webkit-box-shadow: 1px 4px 24px 2px rgba(138,138,138,1);
+  -moz-box-shadow: 1px 4px 24px 2px rgba(138,138,138,1);
+  box-shadow: 1px 4px 24px 2px rgba(138,138,138,1);
+}
+
+.mood-alert-label {
+
+}

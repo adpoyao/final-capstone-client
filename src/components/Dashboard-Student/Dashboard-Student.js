@@ -11,12 +11,7 @@ import './Dashboard-Student.css';
 export class DashboardStudent extends Component {
   componentDidMount() {
     this.props.dispatch(toggleView('student'));
-  }
-
-  componentWillUpdate() {
-    if(this.props.hasEnrolledClasses.length === 0){
-      this.props.dispatch(fetchClassesByStudent(this.props.userId));
-    }
+    this.props.dispatch(fetchClassesByStudent(this.props.userId));
   }
 
   render() {
