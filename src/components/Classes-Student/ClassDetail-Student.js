@@ -7,14 +7,7 @@ import './ClassDetail-Student.css';
 
 export class ClassDetailStudent extends Component {
   componentDidMount(){
-<<<<<<< HEAD
-    // this.props.dispatch(fetchProtectedData());
-    // TODO: Solve timing issue
-    console.log('Component DID mount', this.props.currentUser);
-    this.props.dispatch(fetchClassesByStudent(this.props.currentUser))
-=======
     this.props.dispatch(fetchClassesByStudent(this.props.userId))
->>>>>>> master
   }
   
   handleRemoveClass = classID => {
