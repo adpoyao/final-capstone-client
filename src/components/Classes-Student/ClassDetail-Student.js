@@ -9,7 +9,7 @@ export class ClassDetailStudent extends Component {
     // this.props.dispatch(fetchProtectedData());
     // TODO: Solve timing issue
     console.log('Component DID mount', this.props.currentUser);
-    // this.props.dispatch(fetchClassesByStudent(this.props.currentUser.id))
+    this.props.dispatch(fetchClassesByStudent(this.props.currentUser))
   }
   
   handleRemoveClass = classID => {
