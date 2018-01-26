@@ -7,9 +7,22 @@ import {SubmissionError} from 'redux-form';
 export const updateMoodCaption = (mood) => ({
     type: types.UPDATE_MOOD_CAPTION,
     mood
-})
+});
 
+export const fetchMoodRequest = () => ({
+    type: types.FETCH_MOOD_REQUEST
+});
 
+// Retrieve all of a student's moods
+export const fetchMoodSuccess = (mood) => ({
+    type: types.FETCH_MOOD_SUCCESS,
+    mood
+});
+
+export const fetchMoodError = (err) => ({
+    type: types.FETCH_MOOD_ERROR,
+    err
+});
 
 //----- MOOD: ASYNC ACTIONS  -----//
 export const saveMood = (mood) => (dispatch, getState) => {
@@ -35,3 +48,16 @@ export const saveMood = (mood) => (dispatch, getState) => {
         }
     });
   };
+
+//  MOOD: Retrieves all of a student's moods //
+export const fetchStudentMoods = studentID => (dispatch, getState) => {
+    dispatch(fetchMoodRequest());  
+    console.log('fetch answer working')
+    return fetch(`http://localhost:8080/api/mood/${studentID}`)
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(moods => dispatch(fetchMoodSuccess(moods)))
+    .catch((err) => {
+        dispatch(fetchMoodError(err));
+    });
+};
