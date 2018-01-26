@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm, focus } from 'redux-form';
 
@@ -12,13 +12,21 @@ export class RegistrationForm extends React.Component {
   onSubmit(values) {
     const { username, password, firstName, lastName, role } = values;
     const user = { username, password, firstName, lastName, role };
-    console.log(user);
     return this.props
       .dispatch(registerUser(user))
       .then(() => this.props.dispatch(login(username, password)));
   }
 
   render() {
+    if (this.props.loggedIn) {
+      if(this.props.user.role === 'student'){
+      return <Redirect to="/student/dashboard" />;
+      } 
+      else if(this.props.user.role === 'teacher'){
+        return <Redirect to="/teacher/dashboard" />
+      }
+    }
+
     let { selectedRole } = this.props
 
     let successMessage;
@@ -103,7 +111,9 @@ export class RegistrationForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  selectedRole: state.form.registration.values.role
+  selectedRole: state.form.registration.values.role,
+  loggedIn: state.auth.currentUser !== null,
+  user: state.auth.currentUser,
 })
 
 RegistrationForm = connect(

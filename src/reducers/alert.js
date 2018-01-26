@@ -12,7 +12,7 @@ const initialState = {
 
 const alertReducer = (state = initialState, action) => {
   switch (action.type){
-    case types.FETCH_ALERT_ERROR:
+    case types.FETCH_ALERTS_ERROR:
       return Object.assign({}, state, {
         error: action.err,
       });

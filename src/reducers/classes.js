@@ -31,6 +31,9 @@ const classesReducer = (state = initialState, action) => {
         loading: false,
         error: false,
       });
+    case types.CLEAR_CLASSES_STORE:
+      return Object.assign({}, initialState
+      );
     case types.FETCH_CLASSES_BY_STUDENT_SUCCESS:
       return Object.assign({}, state, {
         enrolledClasses: action.classes,
