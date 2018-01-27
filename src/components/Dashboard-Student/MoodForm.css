@@ -35,8 +35,11 @@
 .save-mood:hover {
   cursor: pointer;
   background-color: rgb(13, 143, 167);
-  transition: all 0.3s ease;
-  
+  transition: all 0.3s ease; 
+}
+
+.save-mood:active {
+  background-color: rgb(12, 110, 128);
 }
 
 .save-mood-disabled,

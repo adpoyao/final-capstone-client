@@ -20,7 +20,7 @@ export class SearchClass extends Component {
       <div className='SearchClass'>
         <form className='search-teacher-form' onSubmit={e => this.handleSearch(e)}>
           <legend><h3>Find Your Class</h3></legend>
-          <label htmlFor='search-teacher'>Search by your teacher's last name</label>
+          <label className='search-teacher' htmlFor='search-teacher'>Search for classes by your instructor's last name:</label>
           <input
             className='search-teacher-input'
             type='text'

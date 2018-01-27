@@ -6,6 +6,7 @@ import {clearAuthToken} from '../local-storage';
 
 import { toggleView } from '../actions/views';
 import { clearClassesStore } from '../actions/classes';
+import { updateMoodCaption } from '../actions/moods';
 
 import './Nav.css';
 
@@ -18,6 +19,7 @@ export class Nav extends Component {
   logOut() {
     this.props.dispatch(clearAuth());
     this.props.dispatch(clearClassesStore());
+    this.props.dispatch(updateMoodCaption(''));
     clearAuthToken();
 
   }

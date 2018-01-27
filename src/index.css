@@ -127,7 +127,7 @@ body {
   padding: 120px 0 0 0;
   margin-bottom: -100px;
 	background: #c9dbe9;
-	background: -webkit-linear-gradient(top, #d65959 0%, #fff 100%);
+	background: -webkit-linear-gradient(top, #fd9c9c 0%, #fff 100%);
 	background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
 	background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
 }

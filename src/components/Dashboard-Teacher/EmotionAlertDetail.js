@@ -7,7 +7,7 @@ export default class EmotionAlertDetail extends Component {
     return(
       <div className='emotion-alert-detail-container'>
         <h3 className='mood-alert-label'>Mood Alerts</h3>
-        <p>The following student(s) submitted a mood update within 24hrs that requires your attention:</p>
+        <p className='following-students'>The following student(s) submitted a mood update <br/> within 24 hours that requires your attention:</p>
         <ul>
           <li>mapping happens here</li>
           <li>mapping happens here</li>

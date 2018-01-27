@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import { enrollClass } from '../../actions/classes';
 
@@ -21,9 +22,9 @@ export class ClassesResult extends Component {
 
     classList = this.props.result.map((item, index) => 
     <li key={index} className='available-course'>
-      <p>Class Name: {item.className}</p>
-      <p>Instructor: {item.teacher.firstName} {item.teacher.lastName}</p>
-      <button onClick={()=>this.handleEnrollClass(item._id)}><span role='img' aria-label="plus-sign">➕</span></button>
+      <p className='class-name-container'><span className='class-name'>Class Name: </span>{item.className}</p>
+      <p><span className='instructor'>Instructor:</span> {item.teacher.firstName} {item.teacher.lastName}</p>
+      <button onClick={()=>this.handleEnrollClass(item._id)}>ADD</button>
     </li>
   );
 
@@ -31,7 +32,12 @@ export class ClassesResult extends Component {
     return(
       <div className='classes-result-container'>
         <ul className='classes-result-ul'>
+        <ReactCSSTransitionGroup
+          transitionName="collapse"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>
           {classList}
+        </ReactCSSTransitionGroup>{classList}
         </ul>
       </div>
     )

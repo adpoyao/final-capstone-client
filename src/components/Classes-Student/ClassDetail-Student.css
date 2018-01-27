@@ -4,9 +4,28 @@
   background: rgb(226, 225, 225);
   border-left: rgb(70, 133, 214) 5px solid;
   padding-bottom: 10px;
-  margin: 5px
+  margin: 5px;
+  font-size: 0.75em;
 }
 
 .enrolled-course:nth-child(odd) {
   border-left: rgb(121, 82, 194) 5px solid;
+}
+
+.collapse-enter {
+  opacity: 0.01;
+}
+
+.collapse-enter.collapse-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.collapse-leave {
+  opacity: 1;
+}
+
+.collapse-leave.collapse-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }

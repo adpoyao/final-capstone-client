@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import { fetchClassesByStudent } from '../../actions/classes';
 
@@ -37,16 +38,21 @@ export class ClassDetailStudent extends Component {
 
     classList = this.props.enrolledClasses.map((item, index) => 
     <li key={index} className='enrolled-course'>
-      <p className="enrolled-class-list">Class Name: {item.className}</p>
-      <p className="enrolled-class-list">Instructor: {item.teacher.firstName} {item.teacher.lastName}</p>
-      <button className="delete-enrolled-button" onClick={()=>this.handleRemoveClass(item._id)}>Remove Class</button>
+      <p className='class-name-container'><span className='class-name'>Class Name: </span>{item.className}</p>
+      <p><span className='instructor'>Instructor: </span>{item.teacher.firstName} {item.teacher.lastName}</p>
+      <button className="delete-enrolled-button" onClick={()=>this.handleRemoveClass(item._id)}>Remove</button>
     </li>
   );
 
     return(
       <div className='class-detail-student-container'>
         <ul>
+        <ReactCSSTransitionGroup
+          transitionName="collapse"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>
           {classList}
+        </ReactCSSTransitionGroup>
         </ul>
       </div>
     )
