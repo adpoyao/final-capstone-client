@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import StudentListByClass from './StudentListByClass';
+import { toggleView } from '../../actions/views';
 
 import './Students.css';
 
-export default class Students extends Component {
+export class Students extends Component {
+  componentDidMount() {
+    this.props.dispatch(toggleView('teacher'));
+  }
+
   render() {
     let listByClass;
     // Condition: if student-user has no class enrolled
@@ -30,3 +37,5 @@ export default class Students extends Component {
     )
   }
 }
+
+export default connect()(Students);

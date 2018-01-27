@@ -6,6 +6,13 @@
   right: 0;
 }
 
+.alert-container {
+  position: relative;
+  top: -250px;
+  left: 0;
+  right: 0;
+}
+
 .rest-easy {
   font-size: 2em;
   color: rgb(70, 133, 214);

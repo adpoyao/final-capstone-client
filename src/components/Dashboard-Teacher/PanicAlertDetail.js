@@ -7,7 +7,7 @@ export default class PanicAlertDetail extends Component {
     return(
       <div className='panic-alert-detail'>
         <h3>Panic Alerts</h3>
-        <p>The following student(s) have an active alert. Click on student name to begin chat immediately.</p>
+        <p className='following-students'>The following student(s) have an active alert. <br/> Click on student name to begin chat immediately.</p>
         <ul>
           <li>mapping happens here</li>
           <li>mapping happens here</li>

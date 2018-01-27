@@ -4,6 +4,7 @@ const initialState = {
   createdClasses: [],
   enrolledClasses: [],
   searchedClasses: [],
+  initialSearch: false,
   loading: false,
   error: false,
 };
@@ -46,6 +47,11 @@ const classesReducer = (state = initialState, action) => {
         loading: false,
         error: false,
       });
+    case types.TOGGLE_INITIAL_SEARCH:
+      return Object.assign({}, state, {
+        initialSearch: true
+      });
+    default: break;
   }
   return state;
 };

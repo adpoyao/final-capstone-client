@@ -12,11 +12,12 @@
 .create-class-input {
   border: none;
   border-bottom: 1px solid grey;
-  height: 50px;
+  line-height: 30px;
   font-size: 0.8em;
   outline: none;
   padding-bottom: 0;
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .create-class-submit {
@@ -33,4 +34,15 @@
   border:none;
   border-radius: 2px;  
   box-shadow:none;
+  transition: all 0.3s ease;
+}
+
+.create-class-submit:hover {
+  cursor: pointer;
+  background-color: rgb(13, 143, 167);
+  transition: all 0.3s ease;
+}
+
+.create-class-submit:active {
+  background-color: rgb(12, 110, 128);
 }

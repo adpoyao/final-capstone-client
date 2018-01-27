@@ -5,7 +5,6 @@ export default class MoodReport extends Component {
     return(
       <div className='mood-report-container'>
         <h1>Mood Report</h1>
-        <img src="#"/>
       </div>
     )
   }

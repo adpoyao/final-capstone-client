@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import './MoodCaptions.css';
 
@@ -11,12 +12,17 @@ export class MoodCaptions extends Component {
       caption = <p className='mood-caption nothing-selected'></p>
     }
     else {
-      caption = <p className={'mood-caption ' + 'caption-' + this.props.selectedMood}>{this.props.selectedMood}</p>
+      caption = <p key='0' className={'mood-caption caption-' + this.props.selectedMood}>{this.props.selectedMood}</p>
     }
 
     return(
       <div className='mood-captions-container'>
-        {caption}
+        <ReactCSSTransitionGroup
+          transitionName="height"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>
+          {caption}
+        </ReactCSSTransitionGroup>
       </div>
     )
   }

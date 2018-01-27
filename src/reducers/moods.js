@@ -9,6 +9,7 @@ const moodsReducer = (state=initialState, action) => {
             return Object.assign({}, state, {
                 selectedMood: action.mood
             })
+        default: break;
     }
     return state;
 }

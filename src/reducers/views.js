@@ -11,6 +11,7 @@ const viewReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         selectedView: action.selectedView
       });
+      default: break;
   }
   return state;
 };

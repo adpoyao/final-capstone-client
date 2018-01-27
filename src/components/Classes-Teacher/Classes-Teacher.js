@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import AddClass from './AddClass';
 import ClassDetailTeacher from './ClassDetail-Teacher';
+import  {toggleView } from '../../actions/views';
 
 import './Classes-Teacher.css';
 
-export default class ClassesTeacher extends Component {
+export class ClassesTeacher extends Component {
+  componentDidMount() {
+    this.props.dispatch(toggleView('teacher'));
+  }
+
   render() {
     let createdClasses;
     // Condition: if teacher-user has class created
@@ -25,3 +31,5 @@ export default class ClassesTeacher extends Component {
     )
   }
 }
+
+export default connect()(ClassesTeacher);
