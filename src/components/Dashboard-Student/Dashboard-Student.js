@@ -11,6 +11,7 @@ import { fetchClassesByStudent } from '../../actions/classes';
 import './Dashboard-Student.css';
 
 export class DashboardStudent extends Component {
+
   componentDidMount() {
     this.props.dispatch(toggleView('student'));
     this.props.dispatch(fetchClassesByStudent(this.props.userId));
@@ -59,6 +60,7 @@ export class DashboardStudent extends Component {
             <p className='normal'><i className="fa fa-warning"> </i> Are you in trouble?</p>
             <p className='hover'>Alert your teachers.</p>
           </button>
+          <button className="question-button"><div id='cloud'><i class="fa fa-question-circle" aria-hidden="true"> </i> Navigation</div></button>
           {/* <PanicButton /> */}
         </div>
       </div>
@@ -88,6 +90,7 @@ const mapStateToProps = state => ({
   firstName: state.auth.currentUser.firstName,
   hasEnrolledClasses: state.classes.enrolledClasses,
   loading: state.classes.loading,
+  authLoading: state.auth.loading,
 })
 
 export default connect(mapStateToProps)(DashboardStudent);

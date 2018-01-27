@@ -37,7 +37,7 @@ export class ClassDetailTeacher extends Component {
       }
       return(
         <div>
-          <p>You've not created any classes.</p>
+          <p className='not-created-caption'><em>You've not created any classes.</em></p>
         </div>
       )
     }

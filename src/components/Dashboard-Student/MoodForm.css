@@ -12,10 +12,12 @@
   outline: none;
   border-bottom: 3px rgb(211, 211, 211) solid;
   line-height: 50px;
-  color: rgb(59, 59, 59)
+  color: rgb(59, 59, 59);
+  margin-top: -30px;
 }
 
 .save-mood {
+  margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;

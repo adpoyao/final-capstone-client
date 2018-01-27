@@ -34,6 +34,11 @@ list on same page view */
   border: 1px rgb(170, 17, 17) solid;
 }
 
+.not-created-caption{
+  font-size: 0.8em;
+  color: grey;
+}
+
 .collapse-enter {
   height: 0;
 }

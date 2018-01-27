@@ -2,7 +2,7 @@ import * as types from '../actions/actionType';
 
 const initialState = {
   authToken: null,
-  currentUser: null,
+  currentUser: '',
   loading: false,
   error: null
 };
