@@ -15,16 +15,36 @@
   padding-top: 15px
 }
 
-.class-name,
-.instructor {
-  /* color: rgb(119, 119, 119); */
-  /* font-size: 0.9em; */
+.add-class-button {
+  border-radius: 2px;
+  box-shadow: none;
+  transition: all 0.2s ease;
+  line-height: 20px;
+  padding-top: 2px;
+  border: 1px rgb(225, 225, 225) solid;
 }
 
+.add-class-button:hover {
+  background: rgb(225, 225, 225);
+  color: rgb(13, 143, 167);
+  border: 1px rgb(13, 143, 167) solid;
+  transition: all 0.2s ease;
+}
+
+.add-class-button:active {
+  color: rgb(12, 110, 128);
+  border: 1px rgb(12, 110, 128) solid;
+}
+
+.no-matching-result {
+  font-size: 0.8em;
+  color: grey;
+}
+
+/* 
 .available-course:nth-child(odd) {
-  /* border-left: rgb(121, 82, 194) 5px solid; */
-}
-
+  border-left: rgb(121, 82, 194) 5px solid;
+}  */
 
 .collapse-enter {
   opacity: 0.01;

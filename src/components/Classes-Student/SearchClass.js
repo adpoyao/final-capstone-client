@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import ClassesResult from './ClassesResult';
 import { connect } from 'react-redux';
+
 import { searchClasses } from '../../actions/classes';
+import { toggleInitialSearch } from '../../actions/classes';
 
 import './SearchClass.css';
 
@@ -10,7 +12,8 @@ export class SearchClass extends Component {
   handleSearch = (e) => {
     e.preventDefault();
     const value = this.input.value;
-    this.props.dispatch(searchClasses(value))
+    this.props.dispatch(searchClasses(value));
+    this.props.dispatch(toggleInitialSearch());
     this.input.value = '';
   }
 

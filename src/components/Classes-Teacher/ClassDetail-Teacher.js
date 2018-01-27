@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { ClipLoader } from 'react-spinners';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import { fetchClassesByTeacher, deleteClassByTeacher } from '../../actions/classes';
 
@@ -25,9 +27,12 @@ export class ClassDetailTeacher extends Component {
       
       if(this.props.loading){
         return(
-          <div>
-            <p>Loading Classes...</p>
-          </div>
+          <div className='loading'>
+            <ClipLoader
+            color={'#0D8FA7'}
+            loading={this.props.loading} 
+          />
+        </div>
         )
       }
       return(
@@ -41,17 +46,22 @@ export class ClassDetailTeacher extends Component {
 
     classList = this.props.createdClasses.map((item, index) => 
     <li key={index} className='created-course'>
-      <p>Class Name: {item.className}</p>
+      <p className='class-name-container'>Class Name: {item.className}</p>
       <p>Enrolled Students: {item.students.length}</p>
-      <button onClick={()=>this.handleEditClass(item._id)}>Edit</button>
-      <button onClick={()=>this.handleCloseClass(item._id)}>Remove</button>
+      {/* <button onClick={()=>this.handleEditClass(item._id)}>Edit</button> */}
+      <button className='remove-class-button' onClick={()=>this.handleCloseClass(item._id)}>Remove</button>
     </li>
   );
 
     return(
       <div className='class-detail-teacher-container'>
         <ul>
+        <ReactCSSTransitionGroup
+          transitionName="collapse"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>
           {classList}
+        </ReactCSSTransitionGroup>
         </ul>
       </div>
     )

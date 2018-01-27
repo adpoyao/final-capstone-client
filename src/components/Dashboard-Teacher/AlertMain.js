@@ -41,7 +41,7 @@ export default class AlertMain extends Component {
         
         {/* Mapping happens here */}
         <div className='alert-container'>
-          <p>You have received one more more alerts from your students.</p>
+          <p>You have received one or more more alerts from your students.</p>
           <p className='do-not-rest-easy'>See the alerts below.</p>
 
           <div className='alert-detail-container'>

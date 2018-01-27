@@ -35,6 +35,11 @@ export const fetchClassesByStudentSuccess = (classes) => ({
   classes,
 });
 
+// STUDENT: Toggle initial search
+export const toggleInitialSearch = () => ({
+  type: types.TOGGLE_INITIAL_SEARCH,
+});
+
 // TEACHER: Retrieve all created classes
 export const fetchClassesByTeacherSuccess = (classes) => ({
   type: types.FETCH_CLASSES_BY_TEACHER_SUCCESS,
@@ -84,6 +89,26 @@ export const fetchClassesByStudent = studentID => (dispatch, getState) => {
   });
 };
 
+// STUDENT: Delete selected class
+export const deleteClassByStudent = data => (dispatch, getState) => {
+  dispatch(fetchClassesRequest());
+  return fetch(`http://localhost:8080/api/classes/student/remove/${data.classID}`, {
+    method: 'PUT',
+    headers: {
+        'Content-Type': 'application/json', 
+        'Accept': 'application/json',
+        body: JSON.stringify(data),
+      }
+  })
+  .then(res => normalizeResponseErrors(res))
+  // .then(res => res.json())
+  .then(()=>console.log('it reaches here'))
+  .then(() => dispatch(fetchClassesByStudent(data.id)))
+  .catch((err) => {
+    dispatch(fetchClassesError(err));
+  });
+};
+
 //----- TEACHER: ASYNC ACTIONS  -----//
 
 // TEACHER: Create a new class // CONNECTED
@@ -117,7 +142,7 @@ export const fetchClassesByTeacher = teacherID => (dispatch, getState) => {
   });
 };
 
-// TEACHER: Delete selected class
+// TEACHER: Delete selected class // CONNECTED
 export const deleteClassByTeacher = data => (dispatch, getState) => {
   dispatch(fetchClassesRequest());
   return fetch(`http://localhost:8080/api/classes/teacher/close/${data.classID}`, {
@@ -128,8 +153,7 @@ export const deleteClassByTeacher = data => (dispatch, getState) => {
       }
   })
   .then(res => normalizeResponseErrors(res))
-  .then(res => res.json())
-  //TODO: Not rendering page?
+  // .then(res => res.json())
   .then(() => dispatch(fetchClassesByTeacher(data.teacherID)))
   .catch((err) => {
     dispatch(fetchClassesError(err));

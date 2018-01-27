@@ -11,7 +11,7 @@ export default class ClassesStudent extends Component {
     // Condition: if student-user has class enrolled
     enrolledClasses = (
     <div className='enrolled-classes-container'>
-      <h3>Current Term</h3>
+      <h3>Enrolled Classes</h3>
       <ClassDetailStudent/>
     </div>
     )

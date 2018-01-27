@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom'
+import { ClipLoader } from 'react-spinners';
 import { toggleView } from '../../actions/views';
 
 import MoodView from './MoodView';
@@ -18,7 +19,14 @@ export class DashboardStudent extends Component {
   render() {
 
     if(this.props.loading){
-      return <div>Loading...</div>
+      return (
+        <div className='loading'>
+          <ClipLoader
+            color={'#0D8FA7'}
+            loading={this.props.loading} 
+          />
+        </div>
+      )
     }
 
     let studentDash;
