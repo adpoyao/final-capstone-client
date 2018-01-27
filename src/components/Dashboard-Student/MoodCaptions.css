@@ -8,3 +8,14 @@
 .nothing-selected {
   /* height: 60px; */
 }
+
+.height-enter {
+  height: 0px;
+  opacity: 0.01;
+}
+
+.height-enter.height-enter-active {
+  height: 60px;
+  opacity: 1;
+  transition: height 250ms ease-in, opacity 500ms ease-in;
+}

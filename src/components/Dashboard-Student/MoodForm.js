@@ -9,7 +9,7 @@ import './MoodForm.css';
 
 export class MoodForm extends Component {
   handleSaveMood = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     let mood = {moodType: this.props.selectedMood, studentID: this.props.id, caption: this.textInput.value}
     this.props.dispatch(saveMood(mood));
     this.props.dispatch(updateMoodCaption(''));

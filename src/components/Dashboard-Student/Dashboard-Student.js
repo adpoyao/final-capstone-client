@@ -43,7 +43,15 @@ export class DashboardStudent extends Component {
           <h3 className='user-first-name'>How are you feeling right now?</h3>
         
           <MoodView />
-          <PanicButton />
+          {/* Revert Back before merging with Nate */}
+          {/* <button className="more-info" onClick={()=>{console.log('Panic Button Pressed')}}>
+          <i class="fa fa-question" aria-hidden="true"></i>
+          </button> */}
+          <button className="panic-button hoverable" onClick={()=>{console.log('Panic Button Pressed')}}>
+            <p className='normal'><i class="fa fa-warning"> </i> Are you in trouble?</p>
+            <p className='hover'>Alert your teachers.</p>
+          </button>
+          {/* <PanicButton /> */}
         </div>
       </div>
       )
