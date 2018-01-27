@@ -11,7 +11,7 @@ export class MoodCaptions extends Component {
       caption = <p className='mood-caption nothing-selected'></p>
     }
     else {
-      caption = <p className={'mood-caption ' + 'caption-' + this.props.selectedMood}>{this.props.selectedMood}</p>
+      caption = <p className={'mood-caption caption-' + this.props.selectedMood}>{this.props.selectedMood}</p>
     }
 
     return(

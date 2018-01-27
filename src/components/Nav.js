@@ -109,7 +109,7 @@ export class Nav extends Component {
     return(
       <div className="nav-bar">
         <Link to="/" className="logo-container" style={{ textDecoration: 'none' }}>
-            <h2 className="site-name"><img className="logo" src="https://www.startany.com/content/images/ogimage.png"/><span className="mood-cloud">MOOD CLOUD</span></h2>
+            <h2 className="site-name"><img className="logo" src="https://www.startany.com/content/images/ogimage.png" alt="logo-purple-cloud"/><span className="mood-cloud">MOOD CLOUD</span></h2>
         </Link>
         {landingPageTabs}
         {featuresTabs1}

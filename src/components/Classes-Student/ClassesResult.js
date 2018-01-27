@@ -23,7 +23,7 @@ export class ClassesResult extends Component {
     <li key={index} className='available-course'>
       <p>Class Name: {item.className}</p>
       <p>Instructor: {item.teacher.firstName} {item.teacher.lastName}</p>
-      <button onClick={()=>this.handleEnrollClass(item._id)}>➕</button>
+      <button onClick={()=>this.handleEnrollClass(item._id)}><span role='img' aria-label="plus-sign">➕</span></button>
     </li>
   );
 

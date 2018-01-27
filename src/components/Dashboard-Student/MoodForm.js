@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import  {saveMood} from '../../actions/moods';
 
+import  {saveMood} from '../../actions/moods';
 import { updateMoodCaption } from '../../actions/moods';
 
 import './MoodForm.css';
@@ -14,7 +14,6 @@ export class MoodForm extends Component {
     this.props.dispatch(saveMood(mood));
     this.props.dispatch(updateMoodCaption(''));
     this.textInput.value = '';
-    return <Redirect to="/student/moodcloud" />
   }
 
   render() {
@@ -26,7 +25,7 @@ export class MoodForm extends Component {
     }
     else {
       saveMoodButton = (
-        <button className="save-mood" type='submit' onClick={(e)=>this.handleSaveMood(e)}>Save Mood</button>
+        <Link to="/student/moodcloud"><button className="save-mood" type='submit' onClick={(e)=>this.handleSaveMood(e)}>Save Mood</button></Link>
       )
     }
 

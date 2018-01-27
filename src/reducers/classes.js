@@ -46,6 +46,7 @@ const classesReducer = (state = initialState, action) => {
         loading: false,
         error: false,
       });
+    default: break;
   }
   return state;
 };

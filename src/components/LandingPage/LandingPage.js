@@ -32,7 +32,7 @@ export class LandingPage extends Component {
             <p>...smaller captions goes here</p>
           </div>
           <div className="landing-page-right">
-            <img src="https://blogsimages.adobe.com/creativecloud/files/2015/06/ColorExplosion_Header-e1435350239810.jpg" />
+            <img src="https://blogsimages.adobe.com/creativecloud/files/2015/06/ColorExplosion_Header-e1435350239810.jpg" alt="rainbow-fart" />
           </div>
         </div>
         <Footer/>
