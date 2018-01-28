@@ -60,7 +60,7 @@ const alertReducer = (state = initialState, action) => {
         panicToggled: false,
         error: false,
       });
-
+    default: break;
   }
   return state;
 };

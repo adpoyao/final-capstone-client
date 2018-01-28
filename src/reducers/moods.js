@@ -12,6 +12,7 @@ const moodsReducer = (state=initialState, action) => {
             return Object.assign({}, state, {
                 selectedMood: action.mood
             })
+<<<<<<< HEAD
         case types.FETCH_MOOD_REQUEST:
             return Object.assign({}, state, {
                 loading: true,
@@ -26,6 +27,9 @@ const moodsReducer = (state=initialState, action) => {
                 loading: false,
                 error: true
             })
+=======
+        default: break;
+>>>>>>> master
     }
     return state;
 }

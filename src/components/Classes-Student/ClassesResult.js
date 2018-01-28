@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { ClipLoader } from 'react-spinners';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import { enrollClass } from '../../actions/classes';
 
@@ -14,24 +16,47 @@ export class ClassesResult extends Component {
   
   render() {
     if (this.props.loading) {
-      return <span className="loading">Searching...</span>
+      return (
+        <div className='loading'>
+          <ClipLoader
+            color={'#0D8FA7'}
+            loading={this.props.loading} 
+          />
+        </div>
+      )
     };
 
-    let classList;
+    let classList, resultHeader;
 
     classList = this.props.result.map((item, index) => 
     <li key={index} className='available-course'>
-      <p>Class Name: {item.className}</p>
-      <p>Instructor: {item.teacher.firstName} {item.teacher.lastName}</p>
-      <button onClick={()=>this.handleEnrollClass(item._id)}>➕</button>
+      <p className='class-name-container'><span className='class-name'>Class Name: </span>{item.className}</p>
+      <p><span className='instructor'>Instructor:</span> {item.teacher.firstName} {item.teacher.lastName}</p>
+      <button className='add-class-button' onClick={()=>this.handleEnrollClass(item._id)}>ADD</button>
     </li>
   );
 
+  if(this.props.result.length === 0 && this.props.initialSearch){
+    resultHeader = (
+      <p className='no-matching-result'><em>No Matching Result</em></p>
+    )
+  }
+  else if(this.props.result.length > 0){
+    resultHeader = (
+      <h3>Search Result</h3>
+    )
+  }
 
     return(
       <div className='classes-result-container'>
         <ul className='classes-result-ul'>
+        <ReactCSSTransitionGroup
+          transitionName="collapse"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>
+          {resultHeader}
           {classList}
+        </ReactCSSTransitionGroup>
         </ul>
       </div>
     )
@@ -40,6 +65,7 @@ export class ClassesResult extends Component {
 
 const mapStateToProps = state => ({
   loading: state.classes.loading,
+  initialSearch: state.classes.initialSearch,
   result: state.classes.searchedClasses,
   student: state.auth.currentUser
 });

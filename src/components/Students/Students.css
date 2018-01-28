@@ -1,0 +1,12 @@
+.no-student-list-container {
+  position: absolute;
+  top: 45vh;
+  left: 0;
+  right: 0;
+}
+
+.instruction-to-search {
+  font-size: 1.5em;
+  color: rgb(70, 133, 214);
+  margin-top: 15px;
+}

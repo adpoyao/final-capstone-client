@@ -1,13 +1,28 @@
 .mood-square {
-  width: 36px;
-  height: 36px;
-  margin: 4px;
+  width: 31px;
+  height: 31px;
+  margin: 6px;
   border-radius: 50%;
-  outline: none
+  outline: none;
+  opacity: 0.9;
+  border-radius: 50% 50% 50% 0;
+  border: 1px solid #fff;
+  box-shadow: 0 0 0 3px rgb(216, 216, 216);
+  transition: all 0.3s ease;
+}
+
+.mood-square:hover {
+  transition: all 0.3s ease;
+  transform: scale(1.2); 
+}
+
+.mood-square:active {
+  box-shadow: 0 0 0 3px rgb(252, 252, 252);
+  transition: all 0.1s ease;
 }
 
 .enraged {
-  background: rgb(249, 17, 29)
+  background: rgb(243, 25, 36)
 }
 
 .panicked {

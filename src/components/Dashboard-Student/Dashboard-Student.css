@@ -1,3 +1,7 @@
+.student-with-classes-dashboard {
+  height: 520px;
+}
+
 .not-enrolled {
   position: absolute;
   top: 50vh;
@@ -5,8 +9,156 @@
   right: 0;
 }
 
-.get-started {
+.enrolled {
+  position: relative;
+  top: -250px;
+  left: 0;
+  right: 0;
+}
+
+.get-started,
+.user-first-name {
   font-size: 2em;
   color: rgb(70, 133, 214);
   margin-top: 15px;
+}
+
+.user-first-name {
+  font-size: 1.8em;
+}
+
+.more-info {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  bottom: 85px;
+  right: 20px;
+
+  color: white;
+  background:tomato;
+  border-radius: 50%;
+
+  -webkit-box-shadow: 0px 0px 10px rgba(138,138,138,1);
+  -moz-box-shadow: 0px 0px 10px rgba(138,138,138,1);
+  box-shadow: 0px 0px 10px rgba(138,138,138,1);
+}
+
+.question-button {
+  position: fixed;
+  color: white;
+  background: none;
+  font-size: 1.2em;
+  transition: all 0.3s ease;
+}
+
+.panic-button {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+
+  color: white;
+  background: tomato;
+  width: 180px;
+  height: 50px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+
+  -webkit-box-shadow: 0px 0px 10px rgba(138,138,138,1);
+  -moz-box-shadow: 0px 0px 10px rgba(138,138,138,1);
+  box-shadow: 0px 0px 10px rgba(138,138,138,1);
+}
+
+.panic-button:hover {
+  cursor: pointer;
+  background-color: rgb(235, 65, 53);
+  transition: all 0.3s ease; 
+}
+
+.panic-button:active {
+  transition: all 0.1s ease;
+  -webkit-box-shadow: 0px 0px 0px;
+  -moz-box-shadow: 0px 0px 0px;
+  box-shadow: 0px 0px 0px;
+  background-color: rgb(196, 38, 27);
+}
+
+.hover {
+  display: none;
+}
+
+.hoverable:hover .normal {
+  display: none;
+}
+
+.hoverable:hover .hover {
+  display: inline;
+}
+
+.hoverable { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CLOUD BUTTON */
+
+#cloud {
+  line-height: 2.4;
+
+	width: 180px; height: 50px;
+	background: rgb(75, 170, 179);
+	
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	
+  position: fixed;
+  bottom: 80px;
+  right: 26px;
+
+  -webkit-box-shadow: 0px 0px 5px rgba(138,138,138,1);
+  -moz-box-shadow: 0px 0px 5px rgba(138,138,138,1);
+  box-shadow: 0px 0px 5px rgba(138,138,138,1);
+}
+
+#cloud:after, #cloud:before {
+	content: '';
+	position: absolute;
+	background: rgb(75, 170, 179);
+  z-index: -1;
+}
+
+#cloud:after {
+	width: 55px; height: 55px;
+	top: -26px; left: 27px;
+	
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+}
+
+#cloud:before {
+	width: 90px; height: 90px;
+	top: -40px; right: 27px;
+	
+	border-radius: 200px;
+	-webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
+}
+
+#cloud:hover,
+#cloud:hover:before,
+#cloud:hover:after {
+  background: #759cce;
+  transition: all 0.3s ease;
+}
+
+#cloud:active,
+#cloud:active:before,
+#cloud:active:after {
+  background: #6688b4;
+  -webkit-box-shadow: 0px 0px 0px;
+  -moz-box-shadow: 0px 0px 0px;
+  box-shadow: 0px 0px 0px;
+  transition: all 0.1s ease;
 }

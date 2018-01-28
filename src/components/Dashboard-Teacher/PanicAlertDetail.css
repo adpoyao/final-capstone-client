@@ -1,0 +1,13 @@
+.panic-alert-detail {
+  margin-right: 50px;
+  margin-left: 50px;
+  border-top: rgb(211, 67, 67) 10px solid;
+  background: white;
+  margin-top: 40px;
+}
+
+.following-students {
+  font-size: 0.8em;
+  line-height: 30px;
+  font-style: italic;
+}

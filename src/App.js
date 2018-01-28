@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch, Router, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 
 import Nav from './components/Nav';
 import Features from './components/LandingPage/Features';
@@ -16,7 +16,6 @@ import MoodCloud from './components/MoodCloud/MoodCloud';
 import Students from './components/Students/Students';
 
 import './App.css';
-import { join } from 'path';
 
 export class App extends Component {
 
