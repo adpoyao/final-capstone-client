@@ -91,19 +91,20 @@ export const fetchClassesByStudent = studentID => (dispatch, getState) => {
 
 // STUDENT: Delete selected class
 export const deleteClassByStudent = data => (dispatch, getState) => {
+  console.log('this is data', data)
   dispatch(fetchClassesRequest());
   return fetch(`http://localhost:8080/api/classes/student/remove/${data.classID}`, {
     method: 'PUT',
     headers: {
         'Content-Type': 'application/json', 
         'Accept': 'application/json',
-        body: JSON.stringify(data),
-      }
+        },
+        body: JSON.stringify(data)
   })
   .then(res => normalizeResponseErrors(res))
   // .then(res => res.json())
   .then(()=>console.log('it reaches here'))
-  .then(() => dispatch(fetchClassesByStudent(data.id)))
+  .then(() => dispatch(fetchClassesByStudent(data.studentID)))
   .catch((err) => {
     dispatch(fetchClassesError(err));
   });

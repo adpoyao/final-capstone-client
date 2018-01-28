@@ -56,7 +56,7 @@ export class ClassesResult extends Component {
           transitionLeaveTimeout={300}>
           {resultHeader}
           {classList}
-        </ReactCSSTransitionGroup>{classList}
+        </ReactCSSTransitionGroup>
         </ul>
       </div>
     )

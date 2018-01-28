@@ -15,7 +15,8 @@ export class ClassDetailStudent extends Component {
   }
   
   handleRemoveClass = classID => {
-    const data = {classID, id: this.props.userId };
+    console.log(classID)
+    const data = {classID, studentID: this.props.userId };
     this.props.dispatch(deleteClassByStudent(data));
   }
 

@@ -60,7 +60,7 @@ export class DashboardStudent extends Component {
             <p className='normal'><i className="fa fa-warning"> </i> Are you in trouble?</p>
             <p className='hover'>Alert your teachers.</p>
           </button>
-          <button className="question-button"><div id='cloud'><i class="fa fa-question-circle" aria-hidden="true"> </i> Navigation</div></button>
+          <button className="question-button"><div id='cloud'><i className="fa fa-question-circle" aria-hidden="true"> </i> Navigation</div></button>
           {/* <PanicButton /> */}
         </div>
       </div>
