@@ -2,6 +2,8 @@ import * as types from '../actions/actionType';
 
 const initialState = {
   students: [],
+  studentDetail: [],
+  initialSearch: false,
   loading: false,
   error: false,
 };
@@ -26,7 +28,7 @@ const studentsReducer = (state = initialState, action) => {
       });
     case types.FETCH_STUDENT_DETAIL_SUCCESS:
       return Object.assign({}, state, {
-        student: action.student,
+        studentDetail: action.studentDetail,
         loading: false,
         error: false,
       });
@@ -39,6 +41,10 @@ const studentsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         loading: false,
         error: action.err,
+      });
+    case types.TOGGLE_INITIAL_MOOD_SEARCH:
+      return Object.assign({}, state, {
+        initialSearch: action.boolean,
       });
   }
   return state;

@@ -8,12 +8,15 @@ import { toggleInitialSearch } from '../../actions/classes';
 import './SearchClass.css';
 
 export class SearchClass extends Component {
+  componentDidMount() {
+    this.props.dispatch(toggleInitialSearch(false));
+  }
 
   handleSearch = (e) => {
     e.preventDefault();
     const value = this.input.value;
     this.props.dispatch(searchClasses(value));
-    this.props.dispatch(toggleInitialSearch());
+    this.props.dispatch(toggleInitialSearch(true));
     this.input.value = '';
   }
 
