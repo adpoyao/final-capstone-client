@@ -49,7 +49,7 @@ const classesReducer = (state = initialState, action) => {
       });
     case types.TOGGLE_INITIAL_SEARCH:
       return Object.assign({}, state, {
-        initialSearch: true
+        initialSearch: action.boolean
       });
     default: break;
   }

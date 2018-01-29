@@ -6,6 +6,7 @@ import viewReducer from './views';
 import authReducer from './auth';
 import alertReducer from './alert';
 import moodsReducer from './moods';
+import studentsReducer from './students';
 import protectedDataReducer from './protected-data';
 
 
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   classes: classesReducer,
   form: formReducer,
   moods: moodsReducer,
+  yourStudents: studentsReducer,
   view: viewReducer,
   auth: authReducer,
   alert: alertReducer,

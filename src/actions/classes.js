@@ -36,8 +36,9 @@ export const fetchClassesByStudentSuccess = (classes) => ({
 });
 
 // STUDENT: Toggle initial search
-export const toggleInitialSearch = () => ({
+export const toggleInitialSearch = (boolean) => ({
   type: types.TOGGLE_INITIAL_SEARCH,
+  boolean
 });
 
 // TEACHER: Retrieve all created classes

@@ -14,9 +14,9 @@ export const fetchStudentsError = (err) => ({
   err,
 });
 
-export const fetchStudentDetailSuccess = (student) => ({
+export const fetchStudentDetailSuccess = (studentDetail) => ({
   type: types.FETCH_STUDENT_DETAIL_SUCCESS,
-  student,
+  studentDetail,
 })
 
 export const fetchStudentDetailRequest = () => ({
@@ -28,11 +28,16 @@ export const fetchStudentDetailError = (err) => ({
   err,
 });
 
+export const toggleInitialMoodSearch = (boolean) => ({
+  type: types.TOGGLE_INITIAL_MOOD_SEARCH,
+  boolean
+})
+
 
 // Retrieves all enrolled students of a teacher
 export const fetchStudents = teacherID => (dispatch, getState) => {
   dispatch(fetchStudentsRequest());
-  return fetch(`http://localhost:8080/api/students/${teacherID}`)
+  return fetch(`http://localhost:8080/api/yourStudents/${teacherID}`)
   .then(res => res.json())
   .then(students => dispatch(fetchStudentsSuccess(students)))
   .catch((err) => {
@@ -43,9 +48,10 @@ export const fetchStudents = teacherID => (dispatch, getState) => {
 // Retrieves detail of student and mood
 export const fetchStudentDetail = studentID => (dispatch, getState) => {
   dispatch(fetchStudentDetailRequest());
-  return fetch(`http://localhost:8080/api/students/detail/${studentID}`)
+  return fetch(`http://localhost:8080/api/yourStudents/detail/${studentID}`)
   .then(res => res.json())
-  .then(students => dispatch(fetchStudentDetailSuccess(students)))
+  .then(students => dispatch(fetchStudentDetailSuccess(students))
+  )
   .catch((err) => {
     dispatch(fetchStudentDetailError(err));
   });
