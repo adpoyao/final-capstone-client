@@ -54,16 +54,15 @@ export class Students extends Component {
     else if(this.props.studentList.length > 0){
       listByClass = (
         <div className='student-list-container'>
-          <h3>Your Enrolled Students</h3>
           <StudentListByClass />
+          <StudentDetail />
         </div>
       )
     }
   
     return(
       <div className='students-container'>
-      {listByClass}
-      <StudentDetail />
+        {listByClass}
       </div>
     )
   }

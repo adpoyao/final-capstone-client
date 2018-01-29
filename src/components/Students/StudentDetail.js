@@ -32,7 +32,7 @@ export class StudentDetail extends Component {
     }
 
     else if(this.props.moods.length === 0 && this.props.initialSearch) {
-      emotionDetail = <p>The selected student has no record of submitted mood update.</p>
+      emotionDetail = <p className='no-update'><em>The selected student has no record of submitted mood update.</em></p>
     }
     
     else if(this.props.moods.length > 0) {
@@ -40,7 +40,7 @@ export class StudentDetail extends Component {
         <li key={index} className={' detail-mood-li'}>
           <p className='detail-moodType'><span className='hash'>#</span>{item.moodType}</p>
           <p className='detail-dateTime'>Posted: {item.dateTime}</p>
-          <div className='detail-caption'><blockquote>{item.caption}</blockquote></div>
+          {item.caption ? <div className='detail-caption'><blockquote>{item.caption}</blockquote></div> : undefined}
         </li>
       );
       

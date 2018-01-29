@@ -1,6 +1,9 @@
 .student-detail-container {
   width: 100%;
   margin-left: 20px;
+  flex: 1 50%;
+  position: relative;
+  left: 10px;
 }
 
 .student-detail-full-name {
@@ -80,4 +83,9 @@ blockquote:after {
 
 blockquote p {
   display: inline;
+}
+
+.no-update {
+  font-size: 0.8em;
+  color: grey;
 }

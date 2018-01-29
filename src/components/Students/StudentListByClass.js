@@ -13,7 +13,7 @@ export class StudentListByClass extends Component {
   
   render() {
         
-    let result, pupils;
+    let result;
     result = this.props.studentList.map((course, index) => 
           <li className='class-name-2' key={index}>
             <p className='course-name'>{course.className}</p>
@@ -33,6 +33,7 @@ export class StudentListByClass extends Component {
   
     return(
       <div className='student-list-by-class-container'>
+        <h3>Your Enrolled Students</h3>
         <ul className='student-list-ul'>
           {result}
         </ul>
