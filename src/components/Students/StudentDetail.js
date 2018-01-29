@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ClipLoader } from 'react-spinners';
+// import { moment } from 'moment'
+import Moment from 'react-moment';
+// import 'moment-timezone';
 
 import { fetchStudentDetailSuccess, toggleInitialMoodSearch } from '../../actions/students';
 
@@ -25,7 +28,7 @@ export class StudentDetail extends Component {
       )
     }
 
-    let emotionDetail, studentName;
+    let emotionDetail, studentName, dateToFormat;
 
     if(this.props.moods.length === 0 && !this.props.initialSearch){
       emotionDetail = <p className='click-to-view'>Click on the student name to view their mood history.</p>
@@ -36,14 +39,15 @@ export class StudentDetail extends Component {
     }
     
     else if(this.props.moods.length > 0) {
-      emotionDetail = this.props.moods.map((item, index) =>        
+      emotionDetail = this.props.moods.map((item, index) =>    
         <li key={index} className={' detail-mood-li'}>
           <p className='detail-moodType'><span className='hash'>#</span>{item.moodType}</p>
-          <p className='detail-dateTime'>Posted: {item.dateTime}</p>
+          {/* <Moment className='detail-dateTime' format="MM/DD/YYYY HH:mm">{item.dateTime}</Moment> */}
+          <Moment className='detail-dateTime' fromNow>{item.dateTime}</Moment>
           {item.caption ? <div className='detail-caption'><blockquote>{item.caption}</blockquote></div> : undefined}
         </li>
       );
-      
+      // dateToFormat = `${this.props.moods[0].dateTime}`
       studentName = `${this.props.moods[0].studentID.firstName} ${this.props.moods[0].studentID.lastName}`
     }
     
@@ -52,6 +56,7 @@ export class StudentDetail extends Component {
       <div className='student-detail-container'>
         <h3>Student Detail</h3>
         <p className='student-detail-full-name'>{studentName}</p>
+       
         <ul>
           {emotionDetail}
         </ul>
