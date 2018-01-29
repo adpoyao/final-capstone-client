@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import MoodForm from '../Dashboard-Student/MoodForm';
 import MoodCaptions from '../Dashboard-Student/MoodCaptions';
 import MoodSelections from '../Dashboard-Student/MoodSelections';
+import WordCloud from 'react-d3-cloud';
 import { fetchStudentMoods } from '../../actions/moods'
 
 export class MoodCloud extends Component {
@@ -48,17 +49,8 @@ export class MoodCloud extends Component {
     )
   }
 }
-<<<<<<< HEAD
-
-const mapStateToProps = state => ({
-  studentId: state.auth.currentUser.id,
-  submittedMoods: state.moods.studentMoods,
-  loading: state.moods.loading
-})
-=======
 const mapStateToProps = state => ({
   id: state.auth.currentUser.id
 })
 
->>>>>>> master
 export default connect(mapStateToProps)(MoodCloud)
