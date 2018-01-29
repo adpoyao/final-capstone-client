@@ -1,10 +1,7 @@
 import * as types from '../actions/actionType';
 
 const initialState = {
-    selectedMood: '',
-    studentMoods: '',
-    loading: false,
-    error: false
+    selectedMood: ''
 }
 const moodsReducer = (state=initialState, action) => {
     switch (action.type) {
