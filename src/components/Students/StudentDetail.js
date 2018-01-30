@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ClipLoader } from 'react-spinners';
-// import { moment } from 'moment'
 import Moment from 'react-moment';
-// import 'moment-timezone';
 
 import { fetchStudentDetailSuccess, toggleInitialMoodSearch } from '../../actions/students';
 
@@ -47,7 +45,6 @@ export class StudentDetail extends Component {
           {item.caption ? <div className='detail-caption'><blockquote>{item.caption}</blockquote></div> : undefined}
         </li>
       );
-      // dateToFormat = `${this.props.moods[0].dateTime}`
       studentName = `${this.props.moods[0].studentID.firstName} ${this.props.moods[0].studentID.lastName}`
     }
     
