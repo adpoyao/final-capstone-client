@@ -9,14 +9,14 @@ export const fetchAlertsRequest = () => ({
 });
 
 // Teacher: Panic alerts Successfully Retrieved
-export const fetchPaicAlertsSuccess = (alerts) => ({
-  type: types.FETCH_ALERTS_SUCCESS,
+export const fetchPanicAlertsSuccess = (alerts) => ({
+  type: types.FETCH_PANIC_ALERTS_SUCCESS,
   alerts,
 });
 
 // Teacher: Mood alerts Successfully Retrieved
 export const fetchMoodAlertsSuccess = (alerts) => ({
-  type: types.FETCH_ALERTS_SUCCESS,
+  type: types.FETCH_MOOD_ALERTS_SUCCESS,
   alerts,
 });
 
