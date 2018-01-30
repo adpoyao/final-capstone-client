@@ -22,6 +22,8 @@ x = added
 	 - MoodCaptions x
 	 - MoodForm x
 	- PanicButton x
+	- Modal x
+	- Confirmation
 
 - Dashboard-Teacher x
 	- AlertMain x
@@ -30,12 +32,7 @@ x = added
 
 - Students x
 	- StudentListByClass x
-	- StudentListDetail x
-	- StudentSearch x
 	- StudentDetail x
-		- EmotionsList x
-		- EmotionsDetail x
-		- MoodReport x
 
 - MoodCloud x
 

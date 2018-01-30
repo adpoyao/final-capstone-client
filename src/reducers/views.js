@@ -1,8 +1,8 @@
 import * as types from '../actions/actionType';
 
 const initialState = {
-  // (1) landing-page, (2) features
   selectedView: 'landing-page',
+  modalToggle: false
 };
 
 const viewReducer = (state = initialState, action) => {
@@ -10,6 +10,10 @@ const viewReducer = (state = initialState, action) => {
     case types.TOGGLE_VIEW:
       return Object.assign({}, state, {
         selectedView: action.selectedView
+      });
+    case types.TOGGLE_MODAL:
+      return Object.assign({}, state, {
+        modalToggle: action.boolean
       });
       default: break;
   }

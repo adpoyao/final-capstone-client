@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom'
 import { ClipLoader } from 'react-spinners';
-import { toggleView } from '../../actions/views';
+import { toggleView, toggleModal } from '../../actions/views';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+import Modal from './Modal';
 import MoodView from './MoodView';
 import PanicButton from './PanicButton';
 import { fetchClassesByStudent } from '../../actions/classes';
@@ -11,10 +13,13 @@ import { fetchClassesByStudent } from '../../actions/classes';
 import './Dashboard-Student.css';
 
 export class DashboardStudent extends Component {
-
   componentDidMount() {
     this.props.dispatch(toggleView('student'));
     this.props.dispatch(fetchClassesByStudent(this.props.userId));
+  }
+
+  handleToggle = () => {
+    this.props.dispatch(toggleModal(!this.props.navigationModal));
   }
 
   render() {
@@ -30,7 +35,7 @@ export class DashboardStudent extends Component {
       )
     }
 
-    let studentDash;
+    let studentDash, navigationModal;
     // Condition: if student-user has no class enrolled
     if(this.props.hasEnrolledClasses.length === 0){
       studentDash = (
@@ -60,12 +65,19 @@ export class DashboardStudent extends Component {
             <p className='normal'><i className="fa fa-warning"> </i> Are you in trouble?</p>
             <p className='hover'>Alert your teachers.</p>
           </button>
-          <button className="question-button"><div id='cloud'><i className="fa fa-question-circle" aria-hidden="true"> </i> Navigation</div></button>
+          <button className="question-button" onClick={()=>this.handleToggle()}><div id='cloud'><i className="fa fa-question-circle" aria-hidden="true"> </i> Navigation</div></button>
           {/* <PanicButton /> */}
         </div>
       </div>
       )
     }
+
+    if(this.props.navigationModal){
+      navigationModal = (
+          <Modal />
+      )
+    }
+
 
     return(
       <div className='dashboard-student-container'>
@@ -79,7 +91,14 @@ export class DashboardStudent extends Component {
         </div>
 
         {studentDash}
-        
+
+        <ReactCSSTransitionGroup
+          transitionName="collapse2"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>
+          {navigationModal}
+        </ReactCSSTransitionGroup>
+
       </div>
     )
   }
@@ -89,6 +108,7 @@ const mapStateToProps = state => ({
   userId: state.auth.currentUser ? state.auth.currentUser.id : 0,
   firstName: state.auth.currentUser.firstName,
   hasEnrolledClasses: state.classes.enrolledClasses,
+  navigationModal: state.view.modalToggle,
   loading: state.classes.loading,
   authLoading: state.auth.loading,
 })
