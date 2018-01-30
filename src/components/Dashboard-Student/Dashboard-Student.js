@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom'
 import { ClipLoader } from 'react-spinners';
-import { toggleView, toggleModal } from '../../actions/views';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
+import { toggleView, toggleModal } from '../../actions/views';
+import { toggleView } from '../../actions/views';
+import { studentAlertTeachers, toggleAlertOff } from '../../actions/alert'
 
 import Modal from './Modal';
 import MoodView from './MoodView';
@@ -21,6 +24,19 @@ export class DashboardStudent extends Component {
   handleToggle = () => {
     this.props.dispatch(toggleModal(!this.props.navigationModal));
   }
+  
+  handleToggleOn = () => {
+    console.log('Panic Button Pressed')
+    let data = {studentID: this.props.userId, active: true}
+    this.props.dispatch(studentAlertTeachers(data));
+  };
+
+  handleToggleOff = () => {
+    console.log('TOGGLE OFF Button Pressed')
+    console.log('this is ALERT ID', this.props.alertID)
+    let data = {alertID: this.props.alertID, active: false}
+    this.props.dispatch(toggleAlertOff(data));
+  };
 
   render() {
 
@@ -61,12 +77,19 @@ export class DashboardStudent extends Component {
           {/* <button className="more-info" onClick={()=>{console.log('Panic Button Pressed')}}>
           <i class="fa fa-question" aria-hidden="true"></i>
           </button> */}
-          <button className="panic-button hoverable" onClick={()=>{console.log('Panic Button Pressed')}}>
+          <button className="panic-button hoverable" onClick={()=>{this.handleToggleOn()}}>
             <p className='normal'><i className="fa fa-warning"> </i> Are you in trouble?</p>
             <p className='hover'>Alert your teachers.</p>
           </button>
+    
           <button className="question-button" onClick={()=>this.handleToggle()}><div id='cloud'><i className="fa fa-question-circle" aria-hidden="true"> </i> Navigation</div></button>
+          <button className="turn-off-alert" onClick={()=>{this.handleToggleOff()}}>
+            <p className='normal'><i className="fa fa-warning"> </i>turn of alert</p>
+          </button>
+          <button className="question-button"><div id='cloud'><i className="fa fa-question-circle" aria-hidden="true"> </i> Navigation</div></button>
+
           {/* <PanicButton /> */}
+
         </div>
       </div>
       )
@@ -111,6 +134,7 @@ const mapStateToProps = state => ({
   navigationModal: state.view.modalToggle,
   loading: state.classes.loading,
   authLoading: state.auth.loading,
+  alertID: state.alert.panicStudents[0] ? state.alert.panicStudents[0]._id : 0
 })
 
 export default connect(mapStateToProps)(DashboardStudent);
