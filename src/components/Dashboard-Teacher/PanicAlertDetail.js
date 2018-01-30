@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import {fetchPanicAlertsByTeacher} from '../../actions/alert';
+import {connect} from 'react-redux';
 
 import './PanicAlertDetail.css';
 
-export default class PanicAlertDetail extends Component {
+export class PanicAlertDetail extends Component {
+
+  componentDidMount() {
+    this.props.dispatch(fetchPanicAlertsByTeacher(this.props.userId))
+  }
   render() {
     return(
       <div className='panic-alert-detail'>
@@ -17,3 +23,12 @@ export default class PanicAlertDetail extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  userId: state.auth.currentUser.id,
+  hasCreatedClasses: state.classes.createdClasses,
+  loading: state.classes.loading,
+})
+
+export default connect(mapStateToProps)(PanicAlertDetail);
+
