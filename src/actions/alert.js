@@ -146,15 +146,15 @@ export const fetchPanicAlertsByTeacher = teacherID => (dispatch, getState) => {
 };
 
 // // TEACHER: Dismisses a panic alert
-export const dismissAlert = (panicID, teacherID) => (dispatch, getState) => {
+export const dismissAlert = (data) => (dispatch, getState) => {
   dispatch(fetchAlertsRequest());
-  return fetch(`http://localhost:8080/api/alert/panic/dismiss/${panicID}`, {
+  return fetch(`http://localhost:8080/api/alert/panic/dismiss/${data.panicID}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
           },
-        body: JSON.stringify({teacherID}),
+        body: JSON.stringify(data),
       })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
