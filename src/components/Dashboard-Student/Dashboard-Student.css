@@ -52,7 +52,8 @@
   z-index: 1000
 }
 
-.panic-button {
+.panic-button,
+.panic-button-on {
   position: fixed;
   bottom: 15px;
   right: 20px;
@@ -81,6 +82,25 @@
   -moz-box-shadow: 0px 0px 0px;
   box-shadow: 0px 0px 0px;
   background-color: rgb(196, 38, 27);
+}
+
+.panic-button-on {
+  background: rgb(255, 235, 53);
+  color: rgb(41, 41, 41);
+}
+
+.panic-button-on:hover {
+  cursor: pointer;
+  background-color: rgb(233, 211, 12);
+  transition: all 0.3s ease; 
+}
+
+.panic-button-on:active {
+  transition: all 0.1s ease;
+  -webkit-box-shadow: 0px 0px 0px;
+  -moz-box-shadow: 0px 0px 0px;
+  box-shadow: 0px 0px 0px;
+  background-color: rgb(216, 201, 64);
 }
 
 .hover {
