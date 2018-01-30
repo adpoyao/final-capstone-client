@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom'
 import { ClipLoader } from 'react-spinners';
 import { toggleView } from '../../actions/views';
+import { studentAlertTeachers, toggleAlertOff } from '../../actions/alert'
 
 import MoodView from './MoodView';
 import PanicButton from './PanicButton';
@@ -16,6 +17,19 @@ export class DashboardStudent extends Component {
     this.props.dispatch(toggleView('student'));
     this.props.dispatch(fetchClassesByStudent(this.props.userId));
   }
+
+  handleToggleOn = () => {
+    console.log('Panic Button Pressed')
+    let data = {studentID: this.props.userId, active: true}
+    this.props.dispatch(studentAlertTeachers(data));
+  };
+
+  handleToggleOff = () => {
+    console.log('TOGGLE OFF Button Pressed')
+    console.log('this is ALERT ID', this.props.alertID)
+    let data = {alertID: this.props.alertID, active: false}
+    this.props.dispatch(toggleAlertOff(data));
+  };
 
   render() {
 
@@ -56,9 +70,12 @@ export class DashboardStudent extends Component {
           {/* <button className="more-info" onClick={()=>{console.log('Panic Button Pressed')}}>
           <i class="fa fa-question" aria-hidden="true"></i>
           </button> */}
-          <button className="panic-button hoverable" onClick={()=>{console.log('Panic Button Pressed')}}>
+          <button className="panic-button hoverable" onClick={()=>{this.handleToggleOn()}}>
             <p className='normal'><i className="fa fa-warning"> </i> Are you in trouble?</p>
             <p className='hover'>Alert your teachers.</p>
+          </button>
+          <button className="turn-off-alert" onClick={()=>{this.handleToggleOff()}}>
+            <p className='normal'><i className="fa fa-warning"> </i>turn of alert</p>
           </button>
           <button className="question-button"><div id='cloud'><i className="fa fa-question-circle" aria-hidden="true"> </i> Navigation</div></button>
           {/* <PanicButton /> */}
@@ -91,6 +108,7 @@ const mapStateToProps = state => ({
   hasEnrolledClasses: state.classes.enrolledClasses,
   loading: state.classes.loading,
   authLoading: state.auth.loading,
+  alertID: state.alert.panicStudents[0] ? state.alert.panicStudents[0]._id : 0
 })
 
 export default connect(mapStateToProps)(DashboardStudent);
