@@ -6,9 +6,6 @@ import './PanicAlertDetail.css';
 
 export class PanicAlertDetail extends Component {
 
-  componentDidMount() {
-    this.props.dispatch(fetchPanicAlertsByTeacher(this.props.userId))
-  }
   render() {
     return(
       <div className='panic-alert-detail'>

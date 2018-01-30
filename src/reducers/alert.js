@@ -22,14 +22,14 @@ const alertReducer = (state = initialState, action) => {
       });
     case types.FETCH_PANIC_ALERTS_SUCCESS:
       return Object.assign({}, state, {
-        panicStudents: [...state.panicStudents, action.alerts],
+        panicStudents: action.alerts,
         loading: false,
         error: false,
         panicToggled: true
       });
     case types.FETCH_MOOD_ALERTS_SUCCESS:
       return Object.assign({}, state, {
-        moodAlertStudents: [...state.panicStudents, action.alerts],
+        moodAlertStudents: action.alerts,
         loading: false,
         error: false,
       });

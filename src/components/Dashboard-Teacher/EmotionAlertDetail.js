@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-
+import {fetchMoodAlertsByTeacher} from '../../actions/alert';
+import {connect} from 'react-redux';
 import './EmotionAlertDetail.css';
 
-export default class EmotionAlertDetail extends Component {
+export class EmotionAlertDetail extends Component {
+  
   render() {
     return(
       <div className='emotion-alert-detail-container'>
@@ -17,3 +19,12 @@ export default class EmotionAlertDetail extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  userId: state.auth.currentUser.id,
+  hasCreatedClasses: state.classes.createdClasses,
+  loading: state.classes.loading,
+})
+
+export default connect(mapStateToProps)(EmotionAlertDetail);
+

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom'
 import { ClipLoader } from 'react-spinners';
 import { toggleView } from '../../actions/views';
+import {fetchMoodAlertsByTeacher, fetchPanicAlertsByTeacher} from '../../actions/alert';
 
 import { fetchClassesByTeacher } from '../../actions/classes';
 import AlertMain from './AlertMain';
@@ -13,7 +14,10 @@ export class DashboardTeacher extends Component {
   componentDidMount() {
     this.props.dispatch(toggleView('teacher'));
     this.props.dispatch(fetchClassesByTeacher(this.props.userId));
+    this.props.dispatch(fetchMoodAlertsByTeacher(this.props.userId));
+    this.props.dispatch(fetchPanicAlertsByTeacher(this.props.userId))
   }
+  
 
   render() {
 
@@ -66,6 +70,6 @@ const mapStateToProps = state => ({
   userId: state.auth.currentUser.id,
   hasCreatedClasses: state.classes.createdClasses,
   loading: state.classes.loading,
-})
+ })
 
 export default connect(mapStateToProps)(DashboardTeacher);
