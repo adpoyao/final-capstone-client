@@ -1,11 +1,9 @@
 import * as types from '../actions/actionType';
 
 const initialState = {
-  teachers: [],
-  students: [],
-  dateTime: [],
+  panicStudents: [],
+  moodAlertStudents: [],
   panicToggled: false,
-  emotionAlert: false,
   loading: false,
   error: false,
 };
@@ -23,7 +21,7 @@ const alertReducer = (state = initialState, action) => {
       });
     case types.FETCH_ALERTS_SUCCESS:
       return Object.assign({}, state, {
-        dateTime: [],
+        panicStudents: [...state.panicStudents, action.alerts],
         loading: false,
         error: false,
       });
@@ -57,8 +55,9 @@ const alertReducer = (state = initialState, action) => {
       });
     case types.FETCH_UNTOGGLE_ALERTS_SUCCESS:
       return Object.assign({}, state, {
-        panicToggled: false,
+        panicStudents: [],
         error: false,
+        loading: false
       });
     default: break;
   }
