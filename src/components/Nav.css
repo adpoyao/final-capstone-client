@@ -5,6 +5,7 @@
   border-bottom: 1px solid grey;
   font-family: 'PT Sans Narrow', sans-serif;
   height: 80px;
+  z-index: 100000
 }
 
 .nav-bar > * {
@@ -27,15 +28,16 @@
 .site-name {
   display: flex;
   align-items: center;
-  color: rgb(88, 88, 88);
   text-decoration: none;
-  margin: 10px 0;
-  font-size: 2em
+  margin: -5px;
+  font-size: 1.6em
 }
 
 .logo-container {
   margin-left: 10px;
   display: flex;
+  text-decoration: none;
+  color: rgb(88, 88, 88);
   align-items: center;
 }
 
@@ -58,4 +60,30 @@ button {
   width: 300px;
   display: flex;
   justify-content: space-around
+}
+
+.nav-bttn {
+  text-decoration: none;
+  color: black;
+  font-size: 1.1em;
+
+}
+
+.nav-bttn:hover {
+  cursor: pointer;
+  color: rgb(226, 35, 35);
+}
+
+.nav-bttn:active {
+  color: rgb(170, 17, 17);
+}
+
+.nav-bttn-login {
+  color: rgb(226, 35, 35);
+  border-bottom: 1px solid rgb(226, 35, 35);
+}
+
+.nav-bttn-signup {
+  color: rgb(226, 35, 35);
+  border-bottom: 1px solid rgb(226, 35, 35);
 }

@@ -1,15 +1,18 @@
 .students-container {
-  width: 70%;
+  /* width: 70%;
   margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: center;
+  margin-right: auto; */
+  /* display: flex;
+  justify-content: center; */
 }
 
 .student-list-container {
+  width: 70%;
   display: flex;
   flex-flow: row;
-  width: 100%;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 /* 
 .student-list-container > * {

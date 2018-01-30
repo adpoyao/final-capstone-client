@@ -6,7 +6,7 @@
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
-  margin-top: 140px;
+  margin-top: 20px;
   color: rgb(85, 85, 85);
 }
 
@@ -23,15 +23,15 @@ ul {
 }
 
 li {
-  line-height: 20px;
-  font-size: 0.6em;
+  line-height: 30px;
+  font-size: 0.65em;
   font-weight: 100;
 
 }
 
 .footer-category {
   padding-top: 30px;
-  font-size: 0.8em;
+  font-size: 1em;
   margin-bottom: -10px;
 }
 

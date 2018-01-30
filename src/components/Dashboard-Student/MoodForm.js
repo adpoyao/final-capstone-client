@@ -25,7 +25,7 @@ export class MoodForm extends Component {
     }
     else {
       saveMoodButton = (
-        <Link to="/student/moodcloud"><button className="save-mood" type='submit' onClick={(e)=>this.handleSaveMood(e)}>Save Mood</button></Link>
+        <Link to="/student/confirmation"><button className="save-mood" type='submit' onClick={(e)=>this.handleSaveMood(e)}>Save Mood</button></Link>
       )
     }
 

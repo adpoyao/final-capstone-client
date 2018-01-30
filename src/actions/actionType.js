@@ -33,6 +33,7 @@ export const SELECT_ROLE = 'SELECT_ROLE';
 
 // Views
 export const TOGGLE_VIEW = 'TOGGLE_VIEW';
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 
 // Misc: Auth
 export const AUTH_REQUEST = 'AUTH_REQUEST';
