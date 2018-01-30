@@ -24,6 +24,7 @@ const alertReducer = (state = initialState, action) => {
         panicStudents: [...state.panicStudents, action.alerts],
         loading: false,
         error: false,
+        panicToggled: true
       });
     case types.TOGGLE_ALERT_ON:
       return Object.assign({}, state, {

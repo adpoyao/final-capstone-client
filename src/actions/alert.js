@@ -126,7 +126,10 @@ export const fetchPanicAlertsByTeacher = teacherID => (dispatch, getState) => {
   dispatch(fetchAlertsRequest());
   return fetch(`http://localhost:8080/api/alert/panic/${teacherID}`)
   .then(res => res.json())
-  .then(alerts => dispatch(fetchAlertsSuccess(alerts)))
+  .then(alerts => {
+    console.log(alerts)
+    dispatch(fetchAlertsSuccess(alerts[0]))
+  })
   .catch((err) => {
     dispatch(fetchAlertsError(err));
   });
