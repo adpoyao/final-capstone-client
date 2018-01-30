@@ -157,8 +157,8 @@ export const dismissAlert = (data) => (dispatch, getState) => {
         body: JSON.stringify(data),
       })
     .then(res => normalizeResponseErrors(res))
-    .then(res => res.json())
-    //.then((res) => dispatch(fetchPanicAlertsByTeacher(res)))
+    //.then(res => res.json())
+    .then(() => dispatch(fetchPanicAlertsByTeacher(data.teacherID)))
     .catch((err) => {
       dispatch(fetchAlertsError(err));
     });
