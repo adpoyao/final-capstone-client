@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
+import {fetchPanicAlertsSuccess,fetchMoodAlertsSuccess} from '../actions/alert';
 
 import { toggleView, toggleModal } from '../actions/views';
 import { clearClassesStore } from '../actions/classes';
@@ -21,6 +22,8 @@ export class Nav extends Component {
     this.props.dispatch(clearClassesStore());
     this.props.dispatch(updateMoodCaption(''));
     this.props.dispatch(toggleModal(false));
+    this.props.dispatch(fetchPanicAlertsSuccess([]));
+    this.props.dispatch(fetchMoodAlertsSuccess([]));
     clearAuthToken();
 
   }

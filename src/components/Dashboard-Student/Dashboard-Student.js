@@ -31,6 +31,7 @@ export class DashboardStudent extends Component {
   };
 
   handleToggleOff = () => {
+    console.log('ALERTIDDDD',this.props.alertID)
     let data = {alertID: this.props.alertID, active: false}
     this.props.dispatch(toggleAlertButton(!this.props.alertActive));
     this.props.dispatch(toggleAlertOff(data));
@@ -144,7 +145,7 @@ const mapStateToProps = state => ({
   navigationModal: state.view.modalToggle,
   loading: state.classes.loading,
   authLoading: state.auth.loading,
-  alertID: state.alert.panicStudents[0] ? state.alert.panicStudents[0]._id : 0,
+  alertID: state.alert.userPanic[0] ? state.alert.userPanic[0]._id : 0,
   alertActive: state.alert.panicToggled,
 })
 

@@ -94,7 +94,7 @@ export const fetchAlert = (studentID, alertID) => (dispatch, getState) => {
   return fetch(`http://localhost:8080/api/alert/${studentID}/${alertID}`)
   .then(res => res.json())
   .then(alerts => {
-    dispatch(submitAlertSuccess(alerts[0]))
+    dispatch(submitAlertSuccess(alerts))
   })
   .catch((err) => {
     dispatch(fetchAlertsError(err));
@@ -139,7 +139,7 @@ export const fetchPanicAlertsByTeacher = teacherID => (dispatch, getState) => {
   dispatch(fetchAlertsRequest());
   return fetch(`http://localhost:8080/api/alert/panic/${teacherID}`)
   .then(res => res.json())
-  .then(alerts => dispatch(fetchPanicAlertsSuccess(alerts[0])))
+  .then(alerts => dispatch(fetchPanicAlertsSuccess(alerts)))
   .catch((err) => {
     dispatch(fetchAlertsError(err));
   });
@@ -148,8 +148,8 @@ export const fetchPanicAlertsByTeacher = teacherID => (dispatch, getState) => {
 // // TEACHER: Dismisses a panic alert
 export const dismissAlert = (data) => (dispatch, getState) => {
   dispatch(fetchAlertsRequest());
-  return fetch('http://localhost:8080/api/alert/panic/dismiss', {
-        method: 'POST',
+  return fetch(`http://localhost:8080/api/alert/panic/dismiss/${data.panicID}`, {
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -158,7 +158,7 @@ export const dismissAlert = (data) => (dispatch, getState) => {
       })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then((res) => dispatch(fetchPanicAlertsByTeacher(res)))
+    //.then((res) => dispatch(fetchPanicAlertsByTeacher(res)))
     .catch((err) => {
       dispatch(fetchAlertsError(err));
     });
