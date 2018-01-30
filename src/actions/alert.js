@@ -3,52 +3,71 @@ import { normalizeResponseErrors } from './utils';
 
 //----- SYNC ACTIONS -----//
 
-//Request all alerts
+// All: Request all alerts
 export const fetchAlertsRequest = () => ({
-  type: types.SEARCH_ALERTS_REQUEST,
+  type: types.FETCH_ALERTS_REQUEST,
 });
 
-// Request Student Alerts
-export const fetchAlertsByStudentRequest = () => ({
-  type: types.FETCH_ALERTS_BY_STUDENT_REQUEST,
-});
-
-// Request Teacher Alerts
-export const fetchAlertsByTeacherRequest = () => ({
-  type: types.FETCH_ALERTS_BY_TEACHER_REQUEST,
-});
-
-// All Alerts Successfully Retrieved
-export const fetchAlertsSuccess = (alerts) => ({
+// Teacher: Panic alerts Successfully Retrieved
+export const fetchPaicAlertsSuccess = (alerts) => ({
   type: types.FETCH_ALERTS_SUCCESS,
   alerts,
 });
 
-// Student Alerts Successfully Retrieved
-export const fetchAlertsByStudentSuccess = (alerts) => ({
-  type: types.FETCH_ALERTS_BY_STUDENT_SUCCESS,
+// Teacher: Mood alerts Successfully Retrieved
+export const fetchMoodAlertsSuccess = (alerts) => ({
+  type: types.FETCH_ALERTS_SUCCESS,
   alerts,
 });
 
-// Teacher Alerts Successfully Retrieved
-export const fetchAlertsByTeacherSuccess = (alerts) => ({
-  type: types.FETCH_ALERTS_BY_TEACHER_SUCCESS,
-  alerts,
-});
-
-export const fetchUntoggleAlertsSuccess = () => ({
-  type: types.FETCH_UNTOGGLE_ALERTS_SUCCESS,
-  
-});
-// UNIVERSAL: Toggle Error
+// All: Toggle Error
 export const fetchAlertsError = (err) => ({
   type: types.FETCH_ALERTS_ERROR,
   err,
 });
 
+// Student: Successfully submits panic
+export const submitAlertSuccess = (alert) => ({
+  type: types.SUBMIT_ALERT_SUCCESS,
+  alert
+})
+
+// Student: Toggles Alert Button
+export const toggleAlertButton = boolean => ({
+  type: types.TOGGLE_ALERT_BUTTON,
+  boolean,
+})
+
+// Student: Dismisses Panic alert
+export const fetchUntoggleAlertsSuccess = () => ({
+  type: types.FETCH_UNTOGGLE_ALERTS_SUCCESS,
+});
+
+// // Request Student Alerts
+// export const fetchAlertsByStudentRequest = () => ({
+//   type: types.FETCH_ALERTS_BY_STUDENT_REQUEST,
+// });
+
+// // Request Teacher Alerts
+// export const fetchAlertsByTeacherRequest = () => ({
+//   type: types.FETCH_ALERTS_BY_TEACHER_REQUEST,
+// });
+
+// Student Alerts Successfully Retrieved
+// export const fetchAlertsByStudentSuccess = (alerts) => ({
+//   type: types.FETCH_ALERTS_BY_STUDENT_SUCCESS,
+//   alerts,
+// });
+
+// // Teacher Alerts Successfully Retrieved
+// export const fetchAlertsByTeacherSuccess = (alerts) => ({
+//   type: types.FETCH_ALERTS_BY_TEACHER_SUCCESS,
+//   alerts,
+// });
+
 //----- STUDENT: ASYNC ACTIONS  -----//
 
-// STUDENT: toggle panic alert on
+// STUDENT: Toggle panic alert on
 export const studentAlertTeachers = (data) => (dispatch, getState) => {
   dispatch(fetchAlertsRequest());
   return fetch('http://localhost:8080/api/alert/panic/on', {
@@ -61,9 +80,7 @@ export const studentAlertTeachers = (data) => (dispatch, getState) => {
       })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    // .then(() => dispatch(fetchAlertsByStudentSuccess()))
     .then((result) => {
-      console.log('THIS IS RESULT',result)
       dispatch(fetchAlert(result.studentID, result.alertID))
     })
     .catch((err) => {
@@ -77,17 +94,15 @@ export const fetchAlert = (studentID, alertID) => (dispatch, getState) => {
   return fetch(`http://localhost:8080/api/alert/${studentID}/${alertID}`)
   .then(res => res.json())
   .then(alerts => {
-    console.log('This is the COMING BACK ALERTS',alerts)
-    dispatch(fetchAlertsSuccess(alerts[0]))
+    dispatch(submitAlertSuccess(alerts[0]))
   })
   .catch((err) => {
     dispatch(fetchAlertsError(err));
   });
 }
 
-// STUDENT: toggle panic alert off
+// STUDENT: Toggle panic alert off
 export const toggleAlertOff = (data) => (dispatch, getState) => {
-  console.log('TOGGLEOFF DISPATCHING HERE')
   dispatch(fetchAlertsRequest());
   return fetch(`http://localhost:8080/api/alert/panic/off`, {
         method: 'PUT',
@@ -99,7 +114,6 @@ export const toggleAlertOff = (data) => (dispatch, getState) => {
       })
      .then(res => normalizeResponseErrors(res))
      .then(() => {
-       console.log('FETCHING UNTOGGLE SUCCESS HERE')
       dispatch(fetchUntoggleAlertsSuccess())
      })
      .catch((err) => {
@@ -114,34 +128,22 @@ export const fetchMoodAlertsByTeacher = teacherID => (dispatch, getState) => {
   dispatch(fetchAlertsRequest());
   return fetch(`http://localhost:8080/api/alert/mood/${teacherID}`)
   .then(res => res.json())
-  .then(alerts => dispatch(fetchAlertsSuccess(alerts)))
+  .then(alerts => dispatch(fetchMoodAlertsSuccess(alerts)))
   .catch((err) => {
     dispatch(fetchAlertsError(err));
   });
 };
-
 
 // // TEACHER: Retrieves all panic alerts attached to studentID
 export const fetchPanicAlertsByTeacher = teacherID => (dispatch, getState) => {
   dispatch(fetchAlertsRequest());
   return fetch(`http://localhost:8080/api/alert/panic/${teacherID}`)
   .then(res => res.json())
-  .then(alerts => dispatch(fetchAlertsSuccess(alerts)))
+  .then(alerts => dispatch(fetchPanicAlertsSuccess(alerts)))
   .catch((err) => {
     dispatch(fetchAlertsError(err));
   });
 };
-
-// // TEACHER: Retrieves all critical moods of a student
-// export const fetchCriticalMoodsByStudent = studentID => (dispatch, getState) => {
-//   dispatch(fetchAlertsByStudentRequest());
-//   return fetch(`http://localhost:8080/api/alert/panic/${studentID}`)
-//   .then(res => res.json())
-//   .then(alerts => dispatch(fetchAlertsSuccess(alerts)))
-//   .catch((err) => {
-//     dispatch(fetchAlertsError(err));
-//   });
-// };
 
 // // TEACHER: Dismisses a panic alert
 export const dismissAlert = (data) => (dispatch, getState) => {
@@ -161,3 +163,14 @@ export const dismissAlert = (data) => (dispatch, getState) => {
       dispatch(fetchAlertsError(err));
     });
 };
+
+// // TEACHER: Retrieves all critical moods of a student
+// export const fetchCriticalMoodsByStudent = studentID => (dispatch, getState) => {
+//   dispatch(fetchAlertsByStudentRequest());
+//   return fetch(`http://localhost:8080/api/alert/panic/${studentID}`)
+//   .then(res => res.json())
+//   .then(alerts => dispatch(fetchAlertsSuccess(alerts)))
+//   .catch((err) => {
+//     dispatch(fetchAlertsError(err));
+//   });
+// };
