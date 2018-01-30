@@ -5,7 +5,6 @@ import { ClipLoader } from 'react-spinners';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import { toggleView, toggleModal } from '../../actions/views';
-import { toggleView } from '../../actions/views';
 import { studentAlertTeachers, toggleAlertOff } from '../../actions/alert'
 
 import Modal from './Modal';
