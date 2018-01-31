@@ -8,6 +8,7 @@ import alertReducer from './alert';
 import moodsReducer from './moods';
 import studentsReducer from './students';
 import protectedDataReducer from './protected-data';
+import conversationsReducer from './conversations';
 
 
 const rootReducer = combineReducers({
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   alert: alertReducer,
   protectedData: protectedDataReducer,
+  conversations: conversationsReducer,
 });
 
 export default rootReducer;
