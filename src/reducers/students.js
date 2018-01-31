@@ -46,6 +46,7 @@ const studentsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         initialSearch: action.boolean,
       });
+    default: break;
   }
   return state;
 };

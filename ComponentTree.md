@@ -35,6 +35,3 @@ x = added
 	- StudentDetail x
 
 - MoodCloud x
-
-- No Home:
-- StudentList (Component and Test)

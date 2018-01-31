@@ -31,12 +31,19 @@
   font-size: 1.2em;
 }
 
+.moodType-dateTime {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .detail-dateTime {
   color: grey;
   display: flex;
   align-items: center;
   padding-top: 5px;
-  flex: 1 50%;
+  /* flex: 1 50%; */
+  margin-left: 10px;
 }
 
 .detail-moodType {
@@ -44,7 +51,7 @@
   font-weight: 900;
   display: flex;
   justify-content: flex-start;
-  flex: 1 50%;
+  /* flex: 1 50%; */
 }
 
 .hash {

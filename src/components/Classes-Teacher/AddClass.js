@@ -12,15 +12,15 @@ export class AddClass extends Component {
     const value = {
       className: this.classNameInput.value,
       classPeriod: this.classPeriodInput.value,
-      emailContact: this.emailContactInput.value,
-      contactNumber: this.contactNumberInput.value,
+      // email: this.emailContactInput.value,
+      // phone: this.contactNumberInput.value,
       id: this.props.currentUser.id,
     }
     this.props.dispatch(createClass(value));
     this.classNameInput.value = '';
     this.classPeriodInput.value = '';
-    this.emailContactInput.value = '';
-    this.contactNumberInput.value = '';
+    // this.emailContactInput.value = '';
+    // this.contactNumberInput.value = '';
   }
 
   render() {
@@ -48,7 +48,7 @@ export class AddClass extends Component {
             ref={input => this.classPeriodInput = input}
             />
 
-          <label htmlFor='search-teacher'></label>
+          {/* <label htmlFor='search-teacher'></label>
           <input 
             className="create-class-input" 
             type='text'
@@ -66,7 +66,7 @@ export class AddClass extends Component {
             id='contact-phone'
             placeholder='Contact Number'
             ref={input => this.contactNumberInput = input}
-            />
+            /> */}
 
           
 

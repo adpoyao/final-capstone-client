@@ -43,28 +43,6 @@ export const fetchUntoggleAlertsSuccess = () => ({
   type: types.FETCH_UNTOGGLE_ALERTS_SUCCESS,
 });
 
-// // Request Student Alerts
-// export const fetchAlertsByStudentRequest = () => ({
-//   type: types.FETCH_ALERTS_BY_STUDENT_REQUEST,
-// });
-
-// // Request Teacher Alerts
-// export const fetchAlertsByTeacherRequest = () => ({
-//   type: types.FETCH_ALERTS_BY_TEACHER_REQUEST,
-// });
-
-// Student Alerts Successfully Retrieved
-// export const fetchAlertsByStudentSuccess = (alerts) => ({
-//   type: types.FETCH_ALERTS_BY_STUDENT_SUCCESS,
-//   alerts,
-// });
-
-// // Teacher Alerts Successfully Retrieved
-// export const fetchAlertsByTeacherSuccess = (alerts) => ({
-//   type: types.FETCH_ALERTS_BY_TEACHER_SUCCESS,
-//   alerts,
-// });
-
 //----- STUDENT: ASYNC ACTIONS  -----//
 
 // STUDENT: Toggle panic alert on
@@ -88,7 +66,7 @@ export const studentAlertTeachers = (data) => (dispatch, getState) => {
     });
 };
 
-// // TEACHER: Retrieves all panic alerts attached to studentID
+// STUDENT: Submit Alert
 export const fetchAlert = (studentID, alertID) => (dispatch, getState) => {
   dispatch(fetchAlertsRequest());
   return fetch(`http://localhost:8080/api/alert/${studentID}/${alertID}`)
@@ -163,14 +141,3 @@ export const dismissAlert = (data) => (dispatch, getState) => {
       dispatch(fetchAlertsError(err));
     });
 };
-
-// // TEACHER: Retrieves all critical moods of a student
-// export const fetchCriticalMoodsByStudent = studentID => (dispatch, getState) => {
-//   dispatch(fetchAlertsByStudentRequest());
-//   return fetch(`http://localhost:8080/api/alert/panic/${studentID}`)
-//   .then(res => res.json())
-//   .then(alerts => dispatch(fetchAlertsSuccess(alerts)))
-//   .catch((err) => {
-//     dispatch(fetchAlertsError(err));
-//   });
-// };

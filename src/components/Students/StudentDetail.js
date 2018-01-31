@@ -26,7 +26,7 @@ export class StudentDetail extends Component {
       )
     }
 
-    let emotionDetail, studentName, dateToFormat;
+    let emotionDetail, studentName;
 
     if(this.props.moods.length === 0 && !this.props.initialSearch){
       emotionDetail = <p className='click-to-view'>Click on the student name to view their mood history.</p>
@@ -39,9 +39,11 @@ export class StudentDetail extends Component {
     else if(this.props.moods.length > 0) {
       emotionDetail = this.props.moods.map((item, index) =>    
         <li key={index} className={' detail-mood-li'}>
+          <div className='moodType-dateTime'>
           <p className='detail-moodType'><span className='hash'>#</span>{item.moodType}</p>
-          {/* <Moment className='detail-dateTime' format="MM/DD/YYYY HH:mm">{item.dateTime}</Moment> */}
-          <Moment className='detail-dateTime' fromNow>{item.dateTime}</Moment>
+            <Moment className='detail-dateTime' fromNow>{item.dateTime}</Moment>
+            {/* <Moment className='detail-dateTime' format="MM/DD/YYYY HH:mm">{item.dateTime}</Moment> */}
+          </div>
           {item.caption ? <div className='detail-caption'><blockquote>{item.caption}</blockquote></div> : undefined}
         </li>
       );
