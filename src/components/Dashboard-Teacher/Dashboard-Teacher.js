@@ -17,7 +17,6 @@ export class DashboardTeacher extends Component {
   }
   
   render() {
-    console.log('USERIDDDDD',this.props.userId)
     if(this.props.loading){
       return (
       <div className='loading'>

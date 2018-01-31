@@ -17,9 +17,9 @@ export class ClassDetailTeacher extends Component {
     this.props.dispatch(deleteClassByTeacher(data));
   }
 
-  handleEditClass = classID => {
-    console.log('Editing ', classID);
-  }
+  // handleEditClass = classID => {
+  //   console.log('Editing ', classID);
+  // }
 
   render() {
 
