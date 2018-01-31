@@ -1,4 +1,5 @@
 import * as types from './actionType';
+import { API_BASE_URL } from './../config';
 
 export const fetchStudentsSuccess = (students) => ({
   type: types.FETCH_STUDENTS_SUCCESS,
@@ -37,7 +38,7 @@ export const toggleInitialMoodSearch = (boolean) => ({
 // Retrieves all enrolled students of a teacher
 export const fetchStudents = teacherID => (dispatch, getState) => {
   dispatch(fetchStudentsRequest());
-  return fetch(`http://localhost:8080/api/yourStudents/${teacherID}`)
+  return fetch(`${API_BASE_URL}/yourStudents/${teacherID}`)
   .then(res => res.json())
   .then(students => dispatch(fetchStudentsSuccess(students)))
   .catch((err) => {
@@ -48,7 +49,7 @@ export const fetchStudents = teacherID => (dispatch, getState) => {
 // Retrieves detail of student and mood
 export const fetchStudentDetail = studentID => (dispatch, getState) => {
   dispatch(fetchStudentDetailRequest());
-  return fetch(`http://localhost:8080/api/yourStudents/detail/${studentID}`)
+  return fetch(`${API_BASE_URL}/yourStudents/detail/${studentID}`)
   .then(res => res.json())
   .then(students => dispatch(fetchStudentDetailSuccess(students))
   )

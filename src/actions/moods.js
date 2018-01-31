@@ -1,4 +1,5 @@
 import * as types from './actionType';
+import { API_BASE_URL } from './../config';
 import { normalizeResponseErrors } from './utils';
 import {SubmissionError} from 'redux-form';
 
@@ -26,7 +27,7 @@ export const fetchMoodError = (err) => ({
 
 //----- MOOD: ASYNC ACTIONS  -----//
 export const saveMood = (mood) => (dispatch, getState) => {
-    return fetch('http://localhost:8080/api/mood', {
+    return fetch(`${API_BASE_URL}/mood`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json', 
@@ -52,7 +53,7 @@ export const saveMood = (mood) => (dispatch, getState) => {
 //  MOOD: Retrieves all of a student's moods //
 export const fetchStudentMoods = studentID => (dispatch, getState) => {
     dispatch(fetchMoodRequest());  
-    return fetch(`http://localhost:8080/api/mood/${studentID}`)
+    return fetch(`${API_BASE_URL}/mood/${studentID}`)
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(moods => dispatch(fetchMoodSuccess(moods)))
