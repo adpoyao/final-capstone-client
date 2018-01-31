@@ -42,11 +42,10 @@ export const sendReply = (composedMessage) => {
     //     type: types.SEND_REPLY,
     //     composedMessage
     // }
-
 }
 
 export const chatError = (err) => ({
-    type: CHAT_ERROR,
+    type:types.CHAT_ERROR,
     err,
 })
 
