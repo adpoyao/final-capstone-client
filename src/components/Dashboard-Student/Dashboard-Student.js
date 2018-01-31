@@ -5,7 +5,6 @@ import { ClipLoader } from 'react-spinners';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import { toggleView, toggleModal } from '../../actions/views';
-import { studentAlertTeachers, toggleAlertOff, toggleAlertButton } from '../../actions/alert'
 
 import Modal from './Modal';
 import MoodView from './MoodView';
@@ -23,18 +22,6 @@ export class DashboardStudent extends Component {
   handleToggle = () => {
     this.props.dispatch(toggleModal(!this.props.navigationModal));
   }
-  
-  handleToggleOn = () => {
-    let data = {studentID: this.props.userId, active: true}
-    this.props.dispatch(toggleAlertButton(!this.props.alertActive));
-    this.props.dispatch(studentAlertTeachers(data));
-  };
-
-  handleToggleOff = () => {
-    let data = {alertID: this.props.alertID, active: false}
-    this.props.dispatch(toggleAlertButton(!this.props.alertActive));
-    this.props.dispatch(toggleAlertOff(data));
-  };
 
   render() {
 
@@ -49,7 +36,7 @@ export class DashboardStudent extends Component {
       )
     }
 
-    let studentDash, navigationModal, helpButton;
+    let studentDash, navigationModal;
     // Condition: if student-user has no class enrolled
     if(this.props.hasEnrolledClasses.length === 0){
       studentDash = (
@@ -65,23 +52,7 @@ export class DashboardStudent extends Component {
 
     // Condition: if student-user has class(es) enrolled
     else if(this.props.hasEnrolledClasses){
-      if(!this.props.alertActive) {
-        helpButton = (
-          <button className="panic-button hoverable" onClick={()=>{this.handleToggleOn()}}>
-            <p className='normal'><i className="fa fa-warning"> </i> Are you in trouble?</p>
-            <p className='hover'>Alert your teachers.</p>
-          </button>
-        )
-      }
-      else {
-        helpButton = (
-        <button className="panic-button-on hoverable" onClick={()=>{this.handleToggleOff()}}>
-          <p className='normal'><i className="fa fa-warning"> </i> Alert is on.</p>
-          <p className='hover'>Turn off alert.</p>
-        </button>
-        )
-      }
-
+      
       studentDash = (
       <div className='student-with-classes-dashboard'>
         <div className='enrolled'>
@@ -89,16 +60,11 @@ export class DashboardStudent extends Component {
           <p className='user-first-name'>How are you feeling right now?</p>
         
           <MoodView />
-          
-          {helpButton}
+          <PanicButton />
     
           <button className="question-button" onClick={()=>{this.handleToggle()}}>
             <div id='cloud'><i className="fa fa-question-circle" aria-hidden="true"> </i> Navigation</div>
           </button>
-          
-          
-
-          {/* <PanicButton /> */}
 
         </div>
       </div>
@@ -110,7 +76,6 @@ export class DashboardStudent extends Component {
           <Modal />
       )
     }
-
 
     return(
       <div className='dashboard-student-container'>

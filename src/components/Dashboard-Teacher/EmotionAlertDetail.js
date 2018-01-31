@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
+
+import { fetchStudentDetail } from '../../actions/students'
 
 import './EmotionAlertDetail.css';
 
 export class EmotionAlertDetail extends Component {
-  
+  handleMoodHistory = (studentID) => {
+    this.props.dispatch(fetchStudentDetail(studentID));
+  }
+
+
   render() {
     if(this.props.moodAlerts.length === 0){
       return null;
@@ -19,7 +26,9 @@ export class EmotionAlertDetail extends Component {
           <p className='mood-alert-li-mood'><span className='hash'>#</span>{value.moodType}</p>
           <Moment className='mood-alert-li-date-time' fromNow>{value.dateTime}</Moment>
           {value.caption ? <div className='mood-alert-li-caption'><blockquote className='mood-alert-li-blockquote'>{value.caption}</blockquote></div> : undefined}
-          <button className='mood-alert-li-view-history'>View Mood History</button>
+          <button className='mood-alert-li-view-history' onClick={()=>this.handleMoodHistory(value.studentID._id)}>
+            <Link to={`/teacher/students/history/${value.studentID._id}`}>View Mood History</Link>
+          </button>
         </li>
     )
     return(
