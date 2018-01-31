@@ -3,6 +3,7 @@ import * as types from '../actions/actionType';
 const initialState = {
   panicStudents: [],
   moodAlertStudents: [],
+  userPanic: [],
   panicToggled: false,
   loading: false,
   error: false,
@@ -19,39 +20,27 @@ const alertReducer = (state = initialState, action) => {
         loading: true,
         error: false,
       });
-    case types.FETCH_ALERTS_SUCCESS:
+    case types.FETCH_PANIC_ALERTS_SUCCESS:
       return Object.assign({}, state, {
-        panicStudents: [...state.panicStudents, action.alerts],
+        panicStudents: action.alerts,
         loading: false,
         error: false,
       });
-    case types.TOGGLE_ALERT_ON:
+    case types.FETCH_MOOD_ALERTS_SUCCESS:
       return Object.assign({}, state, {
-        panicToggled: true,
-        dateTime: [],
+        moodAlertStudents: action.alerts,
+        loading: false,
         error: false,
       });
-    case types.TOGGLE_ALERT_OFF:
+    case types.SUBMIT_ALERT_SUCCESS:
       return Object.assign({}, state, {
-        panicToggled: false,
+        userPanic: action.alert,
+        loading: true,
         error: false,
       });
-    case types.DISMISS_ALERT:
+    case types.TOGGLE_ALERT_BUTTON:
       return Object.assign({}, state, {
-        panicToggled: false,
-        error: false,
-      });
-    case types.FETCH_MOOD_ALERTS_BY_TEACHER:
-      return Object.assign({}, state, {
-        students: [],
-        dateTime: [],
-        error: false,
-      });
-    case types.FETCH_ALERTS_BY_STUDENT_SUCCESS:
-      return Object.assign({}, state, {
-        panicToggled: true,
-        dateTime: [],
-        error: false,
+        panicToggled: action.boolean,
       });
     case types.FETCH_UNTOGGLE_ALERTS_SUCCESS:
       return Object.assign({}, state, {
@@ -59,6 +48,26 @@ const alertReducer = (state = initialState, action) => {
         error: false,
         loading: false
       });
+    // case types.TOGGLE_ALERT_OFF:
+    //   return Object.assign({}, state, {
+    //     panicToggled: false,
+    //     error: false,
+    //   });
+    // case types.DISMISS_ALERT:
+    //   return Object.assign({}, state, {
+    //     panicToggled: false,
+    //     error: false,
+    //   });
+    // case types.FETCH_MOOD_ALERTS_BY_TEACHER:
+    //   return Object.assign({}, state, {
+    //     students: [],
+    //     error: false,
+    //   });
+    // case types.FETCH_ALERTS_BY_STUDENT_SUCCESS:
+    //   return Object.assign({}, state, {
+    //     panicToggled: true,
+    //     error: false,
+    //   });
     default: break;
   }
   return state;

@@ -5,7 +5,6 @@ import { ClipLoader } from 'react-spinners';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import { toggleView, toggleModal } from '../../actions/views';
-import { studentAlertTeachers, toggleAlertOff } from '../../actions/alert'
 
 import Modal from './Modal';
 import MoodView from './MoodView';
@@ -23,19 +22,6 @@ export class DashboardStudent extends Component {
   handleToggle = () => {
     this.props.dispatch(toggleModal(!this.props.navigationModal));
   }
-  
-  handleToggleOn = () => {
-    console.log('Panic Button Pressed')
-    let data = {studentID: this.props.userId, active: true}
-    this.props.dispatch(studentAlertTeachers(data));
-  };
-
-  handleToggleOff = () => {
-    console.log('TOGGLE OFF Button Pressed')
-    console.log('this is ALERT ID', this.props.alertID)
-    let data = {alertID: this.props.alertID, active: false}
-    this.props.dispatch(toggleAlertOff(data));
-  };
 
   render() {
 
@@ -63,8 +49,10 @@ export class DashboardStudent extends Component {
       </div>
       )
     }
+
     // Condition: if student-user has class(es) enrolled
     else if(this.props.hasEnrolledClasses){
+      
       studentDash = (
       <div className='student-with-classes-dashboard'>
         <div className='enrolled'>
@@ -72,22 +60,11 @@ export class DashboardStudent extends Component {
           <p className='user-first-name'>How are you feeling right now?</p>
         
           <MoodView />
-          {/* Revert Back before merging with Nate */}
-          {/* <button className="more-info" onClick={()=>{console.log('Panic Button Pressed')}}>
-          <i class="fa fa-question" aria-hidden="true"></i>
-          </button> */}
-          <button className="panic-button hoverable" onClick={()=>{this.handleToggleOn()}}>
-            <p className='normal'><i className="fa fa-warning"> </i> Are you in trouble?</p>
-            <p className='hover'>Alert your teachers.</p>
-          </button>
+          <PanicButton />
     
-          <button className="question-button" onClick={()=>this.handleToggle()}><div id='cloud'><i className="fa fa-question-circle" aria-hidden="true"> </i> Navigation</div></button>
-          <button className="turn-off-alert" onClick={()=>{this.handleToggleOff()}}>
-            <p className='normal'><i className="fa fa-warning"> </i>turn of alert</p>
+          <button className="question-button" onClick={()=>{this.handleToggle()}}>
+            <div id='cloud'><i className="fa fa-question-circle" aria-hidden="true"> </i> Navigation</div>
           </button>
-          <button className="question-button"><div id='cloud'><i className="fa fa-question-circle" aria-hidden="true"> </i> Navigation</div></button>
-
-          {/* <PanicButton /> */}
 
         </div>
       </div>
@@ -99,7 +76,6 @@ export class DashboardStudent extends Component {
           <Modal />
       )
     }
-
 
     return(
       <div className='dashboard-student-container'>
@@ -133,7 +109,8 @@ const mapStateToProps = state => ({
   navigationModal: state.view.modalToggle,
   loading: state.classes.loading,
   authLoading: state.auth.loading,
-  alertID: state.alert.panicStudents[0] ? state.alert.panicStudents[0]._id : 0
+  alertID: state.alert.userPanic[0] ? state.alert.userPanic[0]._id : 0,
+  alertActive: state.alert.panicToggled,
 })
 
 export default connect(mapStateToProps)(DashboardStudent);

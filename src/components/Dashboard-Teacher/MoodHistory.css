@@ -1,27 +1,10 @@
-.add-class {
-  position: relative;
-  left: 20px
+.student-history-container {
+  max-width: 505px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.add-class-form {
-  display: flex;
-  flex-flow: column wrap;
-  margin-left: 20px;
-}
-
-.create-class-input {
-  border: none;
-  border-bottom: 1px solid grey;
-  line-height: 30px;
-  font-size: 0.8em;
-  outline: none;
-  padding-bottom: 0;
-  margin-bottom: 10px;
-  margin-top: 20px;
-  width: 100%;
-}
-
-.create-class-submit {
+.return-to-dashboard {
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
@@ -38,12 +21,26 @@
   transition: all 0.3s ease;
 }
 
-.create-class-submit:hover {
+.return-to-dashboard:hover {
   cursor: pointer;
   background-color: rgb(13, 143, 167);
   transition: all 0.3s ease;
 }
 
-.create-class-submit:active {
+.return-to-dashboard:active {
   background-color: rgb(12, 110, 128);
+}
+
+.return-to-dashboard-link {
+  color: white;
+  text-decoration: none;
+}
+
+.student-history-name {
+  border-top: 5px solid rgb(70, 133, 214);
+  padding-top: 25px;
+}
+
+.student-history-em {
+  font-size: 0.9em;
 }

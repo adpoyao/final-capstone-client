@@ -1,4 +1,5 @@
 import * as types from './actionType';
+import { API_BASE_URL } from './../config';
 import { normalizeResponseErrors } from './utils';
 
 //----- SYNC ACTIONS -----//
@@ -52,7 +53,7 @@ export const fetchClassesByTeacherSuccess = (classes) => ({
 // STUDENT: Search class by teacher name // CONNECTED
 export const searchClasses = lastName => (dispatch, getState) => {
   dispatch(fetchClassesRequest());
-  return fetch(`http://localhost:8080/api/classes/search/${lastName}`)
+  return fetch(`${API_BASE_URL}/classes/search/${lastName}`)
   .then(res => res.json())
   .then(classes => dispatch(searchClassesSuccess(classes)))
   .catch((err) => {
@@ -63,7 +64,7 @@ export const searchClasses = lastName => (dispatch, getState) => {
 // STUDENT: Enroll to an existing class // CONNECTED
 export const enrollClass = (data) => (dispatch, getState) => {
 
-  return fetch(`http://localhost:8080/api/classes/student/enroll/${data.classID}`, {
+  return fetch(`${API_BASE_URL}/classes/student/enroll/${data.classID}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json', 
@@ -82,7 +83,7 @@ export const enrollClass = (data) => (dispatch, getState) => {
 // STUDENT: Retrieve all enrolled classes // CONNECTED
 export const fetchClassesByStudent = studentID => (dispatch, getState) => {
   dispatch(fetchClassesRequest());
-  return fetch(`http://localhost:8080/api/classes/student/${studentID}`)
+  return fetch(`${API_BASE_URL}/classes/student/${studentID}`)
   .then(res => res.json())
   .then(classes => dispatch(fetchClassesByStudentSuccess(classes)))
   .catch((err) => {
@@ -92,9 +93,8 @@ export const fetchClassesByStudent = studentID => (dispatch, getState) => {
 
 // STUDENT: Delete selected class
 export const deleteClassByStudent = data => (dispatch, getState) => {
-  console.log('this is data', data)
   dispatch(fetchClassesRequest());
-  return fetch(`http://localhost:8080/api/classes/student/remove/${data.classID}`, {
+  return fetch(`${API_BASE_URL}/classes/student/remove/${data.classID}`, {
     method: 'PUT',
     headers: {
         'Content-Type': 'application/json', 
@@ -104,7 +104,6 @@ export const deleteClassByStudent = data => (dispatch, getState) => {
   })
   .then(res => normalizeResponseErrors(res))
   // .then(res => res.json())
-  .then(()=>console.log('it reaches here'))
   .then(() => dispatch(fetchClassesByStudent(data.studentID)))
   .catch((err) => {
     dispatch(fetchClassesError(err));
@@ -116,7 +115,7 @@ export const deleteClassByStudent = data => (dispatch, getState) => {
 // TEACHER: Create a new class // CONNECTED
 export const createClass = (data) => (dispatch, getState) => {
   dispatch(fetchClassesRequest());
-  return fetch('http://localhost:8080/api/classes/teacher/create', {
+  return fetch(`${API_BASE_URL}/classes/teacher/create`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json', 
@@ -135,7 +134,7 @@ export const createClass = (data) => (dispatch, getState) => {
 // TEACHER: Retrieves all created classes // CONNECTED
 export const fetchClassesByTeacher = teacherID => (dispatch, getState) => {
   dispatch(fetchClassesRequest());
-  return fetch(`http://localhost:8080/api/classes/teacher/${teacherID}`)
+  return fetch(`${API_BASE_URL}/classes/teacher/${teacherID}`)
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
   .then(classes => dispatch(fetchClassesByTeacherSuccess(classes)))
@@ -147,7 +146,7 @@ export const fetchClassesByTeacher = teacherID => (dispatch, getState) => {
 // TEACHER: Delete selected class // CONNECTED
 export const deleteClassByTeacher = data => (dispatch, getState) => {
   dispatch(fetchClassesRequest());
-  return fetch(`http://localhost:8080/api/classes/teacher/close/${data.classID}`, {
+  return fetch(`${API_BASE_URL}/classes/teacher/close/${data.classID}`, {
     method: 'DELETE',
     headers: {
         'Content-Type': 'application/json', 
