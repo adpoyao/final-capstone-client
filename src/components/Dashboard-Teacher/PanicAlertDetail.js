@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {fetchPanicAlertsByTeacher} from '../../actions/alert';
 import {connect} from 'react-redux';
+import Moment from 'react-moment';
+
 import {dismissAlert} from '../../actions/alert';
 
 import './PanicAlertDetail.css';
@@ -11,20 +12,27 @@ export class PanicAlertDetail extends Component {
     this.props.dispatch(dismissAlert(data))
   }
   render() {
+    if(this.props.panicAlerts.length === 0){
+      return null;
+    }
     
     let panics;
     panics = this.props.panicAlerts.map((value, index) => 
-      <li key={index} className="panic">
-        <p>{value.studentID.firstName} {value.studentID.lastName}</p>
-        <p>{value.dateTime}</p>
-        <button onClick={() => this.handleDismiss(value._id)}>Dismiss</button>
+      <li key={index} className="panic-alert-li">
+        <div className='divider'></div>
+        <p className='panic-alert-li-name'>{value.studentID.firstName} {value.studentID.lastName}</p>
+        <Moment className='panic-alert-li-date-time' fromNow>{value.dateTime}</Moment>
+        <div className='panic-alert-li-buttons'>
+          <button className='panic-alert-li-chat'>Chat</button>
+          <button className='panic-alert-li-dismiss' onClick={() => this.handleDismiss(value._id)}>Dismiss</button>
+        </div>
       </li>
     )
     
     return(
       <div className='panic-alert-detail'>
         <h3>Panic Alerts</h3>
-        <p className='following-students'>The following student(s) have an active alert. <br/> Click on student name to begin chat immediately.</p>
+        <p className='following-students'>The following student(s) have an active alert. <br/> Click below to begin chat with student immediately.</p>
         <ul>
           {panics}
         </ul>

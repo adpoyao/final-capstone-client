@@ -4,8 +4,6 @@
   right: 10px;
 }
 
-
-
 .class-name-2 {
   width: 400px;
   margin: 10px auto 10px;
@@ -13,21 +11,31 @@
   background: rgb(226, 225, 225);
 }
 
-.course-name {
-  margin-top: 5px;
+.course-name-period {
+  display: flex;
+  justify-content: space-around;
+}
+
+.course-name, .course-period {
+  margin-top: 15px;
   margin-bottom: 15px;
   font-size: 1.8em;
+  font-weight: 300;
+}
+
+.label {
+  font-size: 0.8em;
+  color: rgb(146, 146, 146);
+  position: relative;
+  top: -5px;
 }
 
 .student-name-2 {
+  border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   font-size: 1.2em;
   padding: 10px;
   transition: all 0.3s ease;
-}
-   
-.student-name-2:last-child {
-  border: none;
 }
 
 .student-name-2:hover {

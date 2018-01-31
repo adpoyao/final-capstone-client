@@ -50,6 +50,31 @@ export class MoodCloud extends Component {
     }
 
     if(this.props.moodCloudData.length > 0){
+      let pattern;
+      if(this.props.moodCloudData.length <= 3){
+        pattern = <p className='pattern'>Everything begins small. Keep logging your mood.</p>
+      }
+      else if(this.props.moodCloudData.length <= 5){
+        pattern = <p className='pattern'>Your cloud is beginning to take shape.</p>
+      }
+      else if(this.props.moodCloudData.length > 5){
+        if(this.props.moodCloudData.length % 5 === 0){
+          pattern = <p className='pattern'>Where is your mood taking you today?</p>
+        }
+        else if(this.props.moodCloudData.length % 3 === 0){
+          pattern = <p className='pattern'>What patterns do you notice?</p>
+        }
+        else if(this.props.moodCloudData.length % 2 === 0){
+          pattern = <p className='pattern'>Where do you want your emotions to shift?</p>
+        }
+        else {
+          pattern = <p className='pattern'>Are you finding any shapes?</p>
+        }
+      }
+      
+      // const fontSizeMapper = word => Math.log2(word.value) * 5;
+      // const rotate = word => word.value % 360;
+
       wordCloud = (
       <div className='word-cloud-container'> 
 
@@ -63,21 +88,18 @@ export class MoodCloud extends Component {
 
         <div className='word-cloud-text-wrapper'>
           <p className='this-is-your-mood-cloud'> This is your mood cloud.</p>
-          <p className='pattern'>What pattern do you notice?</p>
+          {pattern}
           <WordCloud 
             data={this.props.moodCloudData} 
-            fontSizeMapper={fontSizeMapper}
+            // fontSizeMapper={fontSizeMapper}
+            // rotate={rotate}
             height= "500"
-            font="arial"
-            rotate={rotate} />
+            font="arial"/>
         </div>
         <div className='cloud-background'></div>
       </div>
       )
     }
-
-    const fontSizeMapper = word => Math.log2(word.value) * 5;
-    const rotate = word => word.value % 360;
 
     return(
       <div className='moodcloud-container'>

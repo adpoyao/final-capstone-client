@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
-import {fetchPanicAlertsSuccess,fetchMoodAlertsSuccess} from '../actions/alert';
 
-import { toggleView, toggleModal } from '../actions/views';
-import { clearClassesStore } from '../actions/classes';
-import { updateMoodCaption } from '../actions/moods';
+import * as actions from '../actions';
 
 import './Nav.css';
 
 export class Nav extends Component {
 
   handleChangeView = (selectedView) => {
-    this.props.dispatch(toggleView(selectedView));
+    this.props.dispatch(actions.toggleView(selectedView));
   }
   
   logOut() {
-    this.props.dispatch(clearAuth());
-    this.props.dispatch(clearClassesStore());
-    this.props.dispatch(updateMoodCaption(''));
-    this.props.dispatch(toggleModal(false));
-    this.props.dispatch(fetchPanicAlertsSuccess([]));
-    this.props.dispatch(fetchMoodAlertsSuccess([]));
+    if(this.props.alertID){
+      let data = {alertID: this.props.alertID, active: false}
+      this.props.dispatch(actions.toggleAlertOff(data));
+    }
+    this.props.dispatch(actions.clearAuth());
+    this.props.dispatch(actions.clearClassesStore());
+    this.props.dispatch(actions.updateMoodCaption(''));
+    this.props.dispatch(actions.toggleModal(false));
+    this.props.dispatch(actions.fetchPanicAlertsSuccess([]));
+    this.props.dispatch(actions.fetchMoodAlertsSuccess([]));
+    this.props.dispatch(actions.toggleAlertButton(false));
     clearAuthToken();
-
   }
 
   render() {
@@ -123,7 +123,8 @@ export class Nav extends Component {
 }
 
 const mapStateToProps = state => ({
-  currentView: state.view.selectedView
+  currentView: state.view.selectedView,
+  alertID: state.alert.userPanic[0] ? state.alert.userPanic[0]._id : 0,
 })
 
 export default connect(mapStateToProps)(Nav)
