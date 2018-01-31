@@ -13,7 +13,7 @@ export class StudentListByClass extends Component {
   
   render() {
         
-    let result;
+    let result, objectArray;
     result = this.props.studentList.map((course, index) => {
       let noStudent, classPeriod;
       if(course.students.length === 0 ){
@@ -22,6 +22,13 @@ export class StudentListByClass extends Component {
       else if(course.classPeriod.length > 0){
         classPeriod = <p className='course-period'><span className='label'>period </span> {course.classPeriod}</p>
       }
+      objectArray = course.students;
+      objectArray.sort(function(a, b) {
+        let textA = a.lastName;
+        let textB = b.lastName;
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    })
+
       return (
       <li className='class-name-2' key={index}>
         <div className='course-name-period'>
@@ -30,7 +37,7 @@ export class StudentListByClass extends Component {
         </div>
         {noStudent}
         <ul className='students-ul'>
-          {course.students.map((student, index2) =>
+          {objectArray.map((student, index2) =>
             <li key={index2} className='student-name-2' onClick={()=>this.handleStudentDetail(student._id)}>
               <p className='pupil-name'>{student.lastName}, {student.firstName}</p>
             </li>
