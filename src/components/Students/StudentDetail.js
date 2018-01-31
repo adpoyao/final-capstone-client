@@ -26,7 +26,7 @@ export class StudentDetail extends Component {
       )
     }
 
-    let emotionDetail, studentName, dateToFormat;
+    let emotionDetail, studentName;
 
     if(this.props.moods.length === 0 && !this.props.initialSearch){
       emotionDetail = <p className='click-to-view'>Click on the student name to view their mood history.</p>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {clearAuthToken} from '../local-storage';
-import {fetchPanicAlertsSuccess,fetchMoodAlertsSuccess} from '../actions/alert';
 
 import * as actions from '../actions';
 
@@ -15,10 +14,10 @@ export class Nav extends Component {
   }
   
   logOut() {
-    // if(this.props.alertID){
-    //   let data = {alertID: this.props.alertID, active: false}
-    //   this.props.dispatch(actions.toggleAlertOff(data));
-    // }
+    if(this.props.alertID){
+      let data = {alertID: this.props.alertID, active: false}
+      this.props.dispatch(actions.toggleAlertOff(data));
+    }
     this.props.dispatch(actions.clearAuth());
     this.props.dispatch(actions.clearClassesStore());
     this.props.dispatch(actions.updateMoodCaption(''));

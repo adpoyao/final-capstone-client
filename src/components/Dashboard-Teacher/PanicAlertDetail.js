@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import Moment from 'react-moment';
 
 import {dismissAlert} from '../../actions/alert';
-import {fetchPanicAlertsByTeacher} from '../../actions/alert';
 
 import './PanicAlertDetail.css';
 

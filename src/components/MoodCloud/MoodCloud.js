@@ -72,6 +72,9 @@ export class MoodCloud extends Component {
         }
       }
       
+      // const fontSizeMapper = word => Math.log2(word.value) * 5;
+      // const rotate = word => word.value % 360;
+
       wordCloud = (
       <div className='word-cloud-container'> 
 
@@ -88,18 +91,15 @@ export class MoodCloud extends Component {
           {pattern}
           <WordCloud 
             data={this.props.moodCloudData} 
-            fontSizeMapper={fontSizeMapper}
+            // fontSizeMapper={fontSizeMapper}
+            // rotate={rotate}
             height= "500"
-            font="arial"
-            rotate={rotate} />
+            font="arial"/>
         </div>
         <div className='cloud-background'></div>
       </div>
       )
     }
-
-    const fontSizeMapper = word => Math.log2(word.value) * 5;
-    const rotate = word => word.value % 360;
 
     return(
       <div className='moodcloud-container'>
