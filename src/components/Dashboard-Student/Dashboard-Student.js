@@ -31,7 +31,6 @@ export class DashboardStudent extends Component {
   };
 
   handleToggleOff = () => {
-    console.log('ALERTIDDDD',this.props.alertID)
     let data = {alertID: this.props.alertID, active: false}
     this.props.dispatch(toggleAlertButton(!this.props.alertActive));
     this.props.dispatch(toggleAlertOff(data));
@@ -93,7 +92,7 @@ export class DashboardStudent extends Component {
           
           {helpButton}
     
-          <button className="question-button" onClick={()=>this.handleToggle()}>
+          <button className="question-button" onClick={()=>{this.handleToggle()}}>
             <div id='cloud'><i className="fa fa-question-circle" aria-hidden="true"> </i> Navigation</div>
           </button>
           

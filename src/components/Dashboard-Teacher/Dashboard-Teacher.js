@@ -2,23 +2,20 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom'
 import { ClipLoader } from 'react-spinners';
-import { toggleView } from '../../actions/views';
-import {fetchMoodAlertsByTeacher, fetchPanicAlertsByTeacher} from '../../actions/alert';
 
-import { fetchClassesByTeacher } from '../../actions/classes';
+import * as actions from '../../actions';
 import AlertMain from './AlertMain';
 
 import './Dashboard-Teacher.css';
 
 export class DashboardTeacher extends Component {
   componentDidMount() {
-    this.props.dispatch(toggleView('teacher'));
-    this.props.dispatch(fetchClassesByTeacher(this.props.userId));
-    this.props.dispatch(fetchMoodAlertsByTeacher(this.props.userId));
-    this.props.dispatch(fetchPanicAlertsByTeacher(this.props.userId))
+    this.props.dispatch(actions.toggleView('teacher'));
+    this.props.dispatch(actions.fetchClassesByTeacher(this.props.userId));
+    this.props.dispatch(actions.fetchMoodAlertsByTeacher(this.props.userId));
+    this.props.dispatch(actions.fetchPanicAlertsByTeacher(this.props.userId))
   }
   
-
   render() {
 
     if(this.props.loading){

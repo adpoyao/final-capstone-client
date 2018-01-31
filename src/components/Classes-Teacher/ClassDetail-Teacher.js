@@ -47,10 +47,13 @@ export class ClassDetailTeacher extends Component {
 
     classList = this.props.createdClasses.map((item, index) => 
     <li key={index} className='created-course'>
-      <p className='class-name-container'>Class Name: {item.className}</p>
-      <p>Enrolled Students: {item.students.length}</p>
+      <p className='class-name-container course-name'><span className='label'>class</span> {item.className}</p>
+      {item.classPeriod ? <p className='class-name-container course-period'><span className='label'>period</span> {item.classPeriod}</p> : undefined}
+      <p className='enrolled-students class-name-container'><span className='label'># of students</span> {item.students.length}</p>
       {/* <button onClick={()=>this.handleEditClass(item._id)}>Edit</button> */}
-      <button className='remove-class-button' onClick={()=>this.handleCloseClass(item._id)}>Remove</button>
+      <div className='remove-class-button-wrapper'>
+        <button className='remove-class-button' onClick={()=>this.handleCloseClass(item._id)}>Remove</button>
+      </div>
     </li>
   );
 

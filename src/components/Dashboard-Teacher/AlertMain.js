@@ -23,7 +23,7 @@ export class AlertMain extends Component {
           </div>
   
           <div className='rest-easy-container'>
-            <p>There are no student with any critical alerts at this time.</p>
+            <p>There are no student with alerts at this time.</p>
             <p className='rest-easy'>You may rest assured.</p>
           </div>
   
@@ -46,7 +46,7 @@ export class AlertMain extends Component {
           
           {/* Mapping happens here */}
           <div className='alert-container'>
-            <p>You have received one or more more alerts from your students.</p>
+            <p>You have received one or more alerts from your students.</p>
             <p className='do-not-rest-easy'>See the alerts below.</p>
   
             <div className='alert-detail-container'>

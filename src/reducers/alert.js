@@ -25,7 +25,6 @@ const alertReducer = (state = initialState, action) => {
         panicStudents: action.alerts,
         loading: false,
         error: false,
-        panicToggled: true
       });
     case types.FETCH_MOOD_ALERTS_SUCCESS:
       return Object.assign({}, state, {

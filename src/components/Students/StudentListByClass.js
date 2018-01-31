@@ -14,21 +14,32 @@ export class StudentListByClass extends Component {
   render() {
         
     let result;
-    result = this.props.studentList.map((course, index) => 
-          <li className='class-name-2' key={index}>
-            <p className='course-name'>{course.className}</p>
-            <ul className='students-ul'>
-              {course.students.map((student, index2) =>
-                <li key={index2} className='student-name-2' onClick={()=>this.handleStudentDetail(student._id)}>
-                  <p className='pupil-name'>{student.lastName}, {student.firstName}</p>
-                  {/* <p>Last Mood Submission</p>
-                  <p>Mood:</p>
-                  <p>Caption:</p>
-                  <p>Submitted on:</p> */}
-                </li>
-                )}
-            </ul>
-          </li>)
+    result = this.props.studentList.map((course, index) => {
+      let noStudent, classPeriod;
+      if(course.students.length === 0 ){
+        noStudent = <p><em>There are no enrolled student in this class.</em></p>
+      }
+      if(course.classPeriod.length > 0){
+        classPeriod = <p className='course-period'><span className='label'>period </span> {course.classPeriod}</p>
+      }
+      return (
+      <li className='class-name-2' key={index}>
+        <div className='course-name-period'>
+          <p className='course-name'><span className='label'>class </span> {course.className}</p>
+          {classPeriod}
+        </div>
+        {noStudent}
+        <ul className='students-ul'>
+          {course.students.map((student, index2) =>
+            <li key={index2} className='student-name-2' onClick={()=>this.handleStudentDetail(student._id)}>
+              <p className='pupil-name'>{student.lastName}, {student.firstName}</p>
+            </li>
+            )}
+        </ul>
+      </li>)
+    })
+      
+          
 
   
     return(
