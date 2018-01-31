@@ -12,6 +12,7 @@ import DashboardTeacher from './components/Dashboard-Teacher/Dashboard-Teacher';
 import ClassesStudent from './components/Classes-Student/Classes-Student';
 import ClassesTeacher from './components/Classes-Teacher/Classes-Teacher';
 import Confirmation from './components/Dashboard-Student/Confirmation';
+import MoodHistory from './components/Dashboard-Teacher/MoodHistory';
 import StudentsDetail from './components/Students/StudentDetail';
 import MoodCloud from './components/MoodCloud/MoodCloud';
 import Students from './components/Students/Students';
@@ -42,6 +43,7 @@ export class App extends Component {
             <Route exact path="/teacher/classes" component={ClassesTeacher} />
             <Route exact path="/teacher/students" component={Students} />
             <Route exact path="/teacher/students/:studentID" component={StudentsDetail} />
+            <Route exact path="/teacher/students/history/:studentID" component={MoodHistory} />
 
           </Switch>
         </div>

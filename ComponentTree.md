@@ -1,37 +1,36 @@
-x = added
+- LandingPage
+  - Features
+  - LoginPage
+    - LoginForm
+  - RegistrationPage
+    - RegistrationForm
 
-- LandingPage x
-  - Features x
-  - LoginPage x
-    - LoginForm x
-  - RegistrationPage x
-    - RegistrationForm x
+- Classes-Student
+	- ClassDetail-Student
+	- SearchClass
+		- ClassesResult
 
-- Classes-Student x
-	- ClassDetail-Student x
-	- SearchClass x
-		- ClassesResult x
+- Classes-Teacher
+	- ClassDetail-Teacher
+	- AddClass
 
-- Classes-Teacher x
-	- ClassDetail-Teacher x
-	- AddClass x
-
-- Dashboard-Student x
-  - MoodView x
-	 - MoodSelections x
-	 - MoodCaptions x
-	 - MoodForm x
-	- PanicButton x
-	- Modal x
+- Dashboard-Student
+  - MoodView
+	 - MoodSelections
+	 - MoodCaptions
+	 - MoodForm
+	- PanicButton
+	- Modal
 	- Confirmation
 
-- Dashboard-Teacher x
-	- AlertMain x
-		- PanicAlertDetail x
-		- EmotionAlertDetail x
+- Dashboard-Teacher
+	- MoodHistory
+	- AlertMain
+		- PanicAlertDetail
+		- EmotionAlertDetail
 
-- Students x
-	- StudentListByClass x
-	- StudentDetail x
+- Students
+	- StudentListByClass
+	- StudentDetail
 
-- MoodCloud x
+- MoodCloud
