@@ -43,12 +43,21 @@ export class ClassDetailStudent extends Component {
 
     let classList;
 
-    classList = this.props.enrolledClasses.map((item, index) => 
-    <li key={index} className='enrolled-course'>
-      <p className='class-name-container'><span className='class-name'>Class Name: </span>{item.className}</p>
-      <p><span className='instructor'>Instructor: </span>{item.teacher.firstName} {item.teacher.lastName}</p>
-      <button className="delete-enrolled-button" onClick={()=>this.handleRemoveClass(item._id)}>Remove</button>
-    </li>
+    classList = this.props.enrolledClasses.map((item, index) => {
+      let classPeriod;
+      if(item.classPeriod.length > 0){
+        classPeriod = <p className='course-period-2'><span className='label'>period </span> {item.classPeriod}</p>
+      }
+
+      return (
+        <li key={index} className='enrolled-course'>
+          <p className='course-name-container'><span className='class-name label'>Class </span>{item.className}</p>
+          {classPeriod}
+          <p className='class-teacher'><span className='instructor label'>Teacher </span>{item.teacher.firstName} {item.teacher.lastName}</p>
+          <button className="delete-enrolled-button" onClick={()=>this.handleRemoveClass(item._id)}>Remove</button>
+        </li>
+      )
+    }
   );
 
     return(

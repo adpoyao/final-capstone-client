@@ -16,6 +16,7 @@ import MoodHistory from './components/Dashboard-Teacher/MoodHistory';
 import StudentsDetail from './components/Students/StudentDetail';
 import MoodCloud from './components/MoodCloud/MoodCloud';
 import Students from './components/Students/Students';
+import Chat from './components/Socketio/Chat';
 
 import './App.css';
 
@@ -44,6 +45,9 @@ export class App extends Component {
             <Route exact path="/teacher/students" component={Students} />
             <Route exact path="/teacher/students/:studentID" component={StudentsDetail} />
             <Route exact path="/teacher/students/history/:studentID" component={MoodHistory} />
+
+            {/* SocketIO */}
+            <Route exact path="/chatbox" component={Chat} />
 
           </Switch>
         </div>

@@ -7,6 +7,7 @@ import authReducer from './auth';
 import alertReducer from './alert';
 import moodsReducer from './moods';
 import studentsReducer from './students';
+import socketioReducer from './socketio';
 import protectedDataReducer from './protected-data';
 import conversationsReducer from './conversations';
 
@@ -17,8 +18,9 @@ const rootReducer = combineReducers({
   moods: moodsReducer,
   yourStudents: studentsReducer,
   view: viewReducer,
-  auth: authReducer,
   alert: alertReducer,
+  socketio: socketioReducer,
+  auth: authReducer,
   protectedData: protectedDataReducer,
   conversations: conversationsReducer,
 });

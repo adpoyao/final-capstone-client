@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Field, reduxForm, focus } from 'redux-form';
-
+import './loginForm.css'
+import {Link} from 'react-router-dom';
 import Input from '../Input';
 import { login } from '../../actions/auth';
 import { required, nonEmpty } from '../../validators';
@@ -32,7 +33,7 @@ export class LoginForm extends React.Component {
         );
     }
     return (
-      <div className="login-form">
+      <div className="login-container">
       <form
         className="login-form"
         onSubmit={this.props.handleSubmit(values =>
@@ -41,7 +42,7 @@ export class LoginForm extends React.Component {
 
         {error}
 
-        <fieldset>
+        <fieldset className="login-box">
             <legend>Log In</legend>
             <label htmlFor="username"></label>
             <Field
@@ -61,12 +62,13 @@ export class LoginForm extends React.Component {
               placeholder="password"
               validate={[required, nonEmpty]}
           />
-            <button className="log-in" disabled={this.props.pristine || this.props.submitting}>
+            <button className="log" disabled={this.props.pristine || this.props.submitting}>
               Log in
             </button>
           </fieldset>
+          <p>Don't have an account yet? Sign up <Link to={'/signup'}><span className="signup-here">Here</span></Link>.</p>
       </form>
-      {/* <p>Don't have an account yet? Sign up <Link to={'/signup'}><span className="signup-here">here</span></Link>.</p> */}
+      
       </div>
     );
   }

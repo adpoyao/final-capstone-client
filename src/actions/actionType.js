@@ -69,3 +69,7 @@ export const REFRESH_MESSAGES = 'REFRESH_MESSAGES';
 
 
  
+// SocketIO
+export const SET_MESSAGES = 'SET_MESSAGES';
+export const SET_USER_MESSAGES = 'SET_USER_MESSAGES';
+export const CLEAR_HISTORY = 'CLEAR_HISTORY';
