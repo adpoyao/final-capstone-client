@@ -41,4 +41,5 @@
 
 .laptop-view {
   width: 0px;
+  max-width: 600px;
 }
