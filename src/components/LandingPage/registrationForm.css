@@ -1,0 +1,83 @@
+.registration-form {
+    color: white;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    background-color: #000;
+    border-radius: 30px;
+    opacity: .65;
+    width: 400px;
+    margin: 0 auto;
+    height: 575px;
+  }
+
+  
+  .registration-box {
+    padding-top: 30px;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  }
+
+   .registration-form input {
+    font-size: 18px;
+    margin-top: 10px;
+    width: 230px;
+    height: 31px;
+    margin-bottom: 10px;
+    border: 1px solid #a6a6a6;
+    border-top-color: #949494;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.0),
+      0 1px 0 rgba(0, 0, 0, 0.07) inset;
+    outline: 0;
+    border-radius: 6px;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-weight: 600;
+    
+  }
+
+  .registration-form select {
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    margin-bottom: 10px;
+   }
+
+  .sign {
+    min-width: 100px;
+    width: 100px;;
+    height: 31px;
+    margin-top: 10px;
+    transition: all 100ms linear;
+    background-color: rgb(178, 25, 216);
+    color: white;
+    border: none;
+    margin-bottom: 15px;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    border-radius: 15px;
+    font-size: 16px;
+  }
+  
+  .sign:hover {
+    background:  rgb(172, 132, 54);
+  }
+  
+  .sign:active {
+    transform: translateY(5px);
+  }
+  
+  p {
+      font-size: 19px;
+  }
+
+  .log-in-here {
+    color: rgb(178, 25, 216)
+  }
+
+  .sign-container {
+    margin-top: 30px;
+  }
+  

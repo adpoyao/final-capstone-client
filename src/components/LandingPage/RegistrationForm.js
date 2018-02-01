@@ -2,7 +2,8 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm, focus } from 'redux-form';
-
+import {Link} from 'react-router-dom';
+import './registrationForm.css'
 import Input from '../Input';
 import { login } from '../../actions/auth';
 import { registerUser } from '../../actions/users';
@@ -47,6 +48,7 @@ export class RegistrationForm extends React.Component {
 
 
     return (
+      <div className="sign-container">
       <form
         className="registration-form"
         onSubmit={this.props.handleSubmit(values =>
@@ -56,7 +58,7 @@ export class RegistrationForm extends React.Component {
         {successMessage}
         {errorMessage}
 
-        <fieldset>
+        <fieldset className="registration-box">
           <legend>Sign Up</legend>
 
         <label htmlFor="firstName"></label>
@@ -98,14 +100,15 @@ export class RegistrationForm extends React.Component {
         </Field>
         {selectedRole && <div>{selectedRole}</div>}
         <button
-            className="login-button"
+            className="sign"
             type="submit"
             disabled={this.props.pristine || this.props.submitting}>
             Sign Up
         </button>
         </fieldset>
-        {/* <p>Already have an account? Log in <Link to={'/login'}><span className="log-in-here">here</span></Link>.</p> */}
+        <p>Already have an account? Log in <Link to={'/login'}><span className="log-in-here">Here</span></Link>.</p>
       </form>
+      </div>
     );
   }
 }
