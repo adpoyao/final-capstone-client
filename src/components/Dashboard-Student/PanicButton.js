@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import * as actions from '../../actions';
 import './PanicButton.css';
@@ -23,7 +24,7 @@ export class PanicButton extends Component {
       helpButton = (
         <button className="panic-button hoverable" onClick={()=>{this.handleToggleOn()}}>
           <p className='normal'><i className="fa fa-warning"> </i> Are you in trouble?</p>
-          <p className='hover'>Alert your teachers.</p>
+          <Link to='/chatbox'><p className='hover'>Alert your teachers.</p></Link>
         </button>
       )
     }

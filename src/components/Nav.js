@@ -25,6 +25,7 @@ export class Nav extends Component {
     this.props.dispatch(actions.fetchPanicAlertsSuccess([]));
     this.props.dispatch(actions.fetchMoodAlertsSuccess([]));
     this.props.dispatch(actions.toggleAlertButton(false));
+    this.props.dispatch(actions.setStudent(''));
     clearAuthToken();
   }
 

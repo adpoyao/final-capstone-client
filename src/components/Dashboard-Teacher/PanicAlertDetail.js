@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 
-import {dismissAlert} from '../../actions/alert';
+import * as actions from '../../actions';
 
 import './PanicAlertDetail.css';
 
 export class PanicAlertDetail extends Component {
   handleDismiss = (panicID) => {
     let data = {panicID, teacherID: this.props.userId}
-    this.props.dispatch(dismissAlert(data))
+    this.props.dispatch(actions.dismissAlert(data))
   }
+
+  handleChat = (studentID) => {
+    this.props.dispatch(actions.setStudent(studentID))
+  }
+
   render() {
     if(this.props.panicAlerts.length === 0){
       return null;
@@ -23,7 +29,7 @@ export class PanicAlertDetail extends Component {
         <p className='panic-alert-li-name'>{value.studentID.firstName} {value.studentID.lastName}</p>
         <Moment className='panic-alert-li-date-time' fromNow>{value.dateTime}</Moment>
         <div className='panic-alert-li-buttons'>
-          <button className='panic-alert-li-chat'>Chat</button>
+          <button className='panic-alert-li-chat' onClick={() => this.handleChat(value.studentID._id)}><Link to='/chatbox'>Chat</Link></button>
           <button className='panic-alert-li-dismiss' onClick={() => this.handleDismiss(value._id)}>Dismiss</button>
         </div>
       </li>

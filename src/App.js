@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 import Nav from './components/Nav';
+import ChatBox from './components/Socketio/ChatBox';
 import Features from './components/LandingPage/Features';
 import LoginPage from './components/LandingPage/LoginPage';
 import LandingPage from './components/LandingPage/LandingPage';
@@ -16,7 +17,6 @@ import MoodHistory from './components/Dashboard-Teacher/MoodHistory';
 import StudentsDetail from './components/Students/StudentDetail';
 import MoodCloud from './components/MoodCloud/MoodCloud';
 import Students from './components/Students/Students';
-import Chat from './components/Socketio/Chat';
 
 import './App.css';
 
@@ -47,7 +47,7 @@ export class App extends Component {
             <Route exact path="/teacher/students/history/:studentID" component={MoodHistory} />
 
             {/* SocketIO */}
-            <Route exact path="/chatbox" component={Chat} />
+            <Route exact path="/chatbox" component={ChatBox} />
 
           </Switch>
         </div>
