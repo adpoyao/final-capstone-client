@@ -29,9 +29,7 @@ export class LandingPage extends Component {
         <div className="landing-page-midsection">
           <div className="landing-page-left">
             <h3 className='main-tagline'>Bring teachers and students closer together with Mood Cloud</h3>
-            <p>-Mood Cloud enables teachers to develop their student's EQ or Emotional Intelligence. Students often struggle to 
-              to trace their emotion state over time. Mood Cloud helps inform students and communcates to teachers their emotional state.
-    track their ups and downs with the ability to reach out anytime during a time of crisis or despair.</p>
+            <p>Mood Cloud helps students track their moods over time to develop their Emotional Intelligence(EI). Additionally, Mood Cloud assists teachers by staying up-to-date on their students' emotional well-being, providing students a way to reach out during times of crisis or despair.</p>
           </div>
           <div className="landing-page-right">
             <img src="https://blogsimages.adobe.com/creativecloud/files/2015/06/ColorExplosion_Header-e1435350239810.jpg" alt="rainbow-fart" />
