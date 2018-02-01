@@ -92,7 +92,7 @@ export const fetchAlert = (studentID, alertID) => (dispatch, getState) => {
 export const toggleAlertOff = (data) => (dispatch, getState) => {
   dispatch(fetchAlertsRequest());
   const authToken = getState().auth.authToken;
-  return fetch(`${API_BASE_URL}/panic/off`, {
+  return fetch(`${API_BASE_URL}/alert/panic/off`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
