@@ -49,11 +49,13 @@ export const fetchUntoggleAlertsSuccess = () => ({
 // STUDENT: Toggle panic alert on
 export const studentAlertTeachers = (data) => (dispatch, getState) => {
   dispatch(fetchAlertsRequest());
+  const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/alert/panic/on`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
+            Authorization: `Bearer ${authToken}`
           },
         body: JSON.stringify(data),
       })
@@ -70,7 +72,13 @@ export const studentAlertTeachers = (data) => (dispatch, getState) => {
 // STUDENT: Submit Alert
 export const fetchAlert = (studentID, alertID) => (dispatch, getState) => {
   dispatch(fetchAlertsRequest());
-  return fetch(`${API_BASE_URL}/alert/${studentID}/${alertID}`)
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/alert/${studentID}/${alertID}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
   .then(res => res.json())
   .then(alerts => {
     dispatch(submitAlertSuccess(alerts))
@@ -83,11 +91,13 @@ export const fetchAlert = (studentID, alertID) => (dispatch, getState) => {
 // STUDENT: Toggle panic alert off
 export const toggleAlertOff = (data) => (dispatch, getState) => {
   dispatch(fetchAlertsRequest());
+  const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/panic/off`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
+            Authorization: `Bearer ${authToken}`
           },
         body: JSON.stringify(data),
       })
@@ -105,7 +115,13 @@ export const toggleAlertOff = (data) => (dispatch, getState) => {
 // TEACHER: Retrieves all critical emotion alerts attached to teacher ID
 export const fetchMoodAlertsByTeacher = teacherID => (dispatch, getState) => {
   dispatch(fetchAlertsRequest());
-  return fetch(`${API_BASE_URL}/alert/mood/${teacherID}`)
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/alert/mood/${teacherID}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    }
+  })
   .then(res => res.json())
   .then(alerts => dispatch(fetchMoodAlertsSuccess(alerts)))
   .catch((err) => {
@@ -116,7 +132,13 @@ export const fetchMoodAlertsByTeacher = teacherID => (dispatch, getState) => {
 // // TEACHER: Retrieves all panic alerts attached to studentID
 export const fetchPanicAlertsByTeacher = teacherID => (dispatch, getState) => {
   dispatch(fetchAlertsRequest());
-  return fetch(`${API_BASE_URL}/alert/panic/${teacherID}`)
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/alert/panic/${teacherID}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    }
+  })
   .then(res => res.json())
   .then(alerts => dispatch(fetchPanicAlertsSuccess(alerts)))
   .catch((err) => {
@@ -127,11 +149,13 @@ export const fetchPanicAlertsByTeacher = teacherID => (dispatch, getState) => {
 // // TEACHER: Dismisses a panic alert
 export const dismissAlert = (data) => (dispatch, getState) => {
   dispatch(fetchAlertsRequest());
+  const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/alert/panic/dismiss/${data.panicID}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
+            Authorization: `Bearer ${authToken}`,
           },
         body: JSON.stringify(data),
       })

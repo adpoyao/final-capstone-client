@@ -27,11 +27,13 @@ export const fetchMoodError = (err) => ({
 
 //----- MOOD: ASYNC ACTIONS  -----//
 export const saveMood = (mood) => (dispatch, getState) => {
+    const authToken = getState().auth.authToken
     return fetch(`${API_BASE_URL}/mood`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json', 
               'Accept': 'application/json',
+              Authorization: `Bearer ${authToken}`
             },
           body: JSON.stringify(mood),
         })
@@ -52,8 +54,14 @@ export const saveMood = (mood) => (dispatch, getState) => {
 
 //  MOOD: Retrieves all of a student's moods //
 export const fetchStudentMoods = studentID => (dispatch, getState) => {
-    dispatch(fetchMoodRequest());  
-    return fetch(`${API_BASE_URL}/mood/${studentID}`)
+    dispatch(fetchMoodRequest()); 
+    const authToken = getState().auth.authToken 
+    return fetch(`${API_BASE_URL}/mood/${studentID}`,{
+        method: 'Get',
+        headers: {
+            Authorization: `Bearer ${authToken}`
+        }
+    })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(moods => dispatch(fetchMoodSuccess(moods)))
