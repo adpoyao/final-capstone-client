@@ -38,7 +38,13 @@ export const toggleInitialMoodSearch = (boolean) => ({
 // Retrieves all enrolled students of a teacher
 export const fetchStudents = teacherID => (dispatch, getState) => {
   dispatch(fetchStudentsRequest());
-  return fetch(`${API_BASE_URL}/yourStudents/${teacherID}`)
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/yourStudents/${teacherID}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
   .then(res => res.json())
   .then(students => dispatch(fetchStudentsSuccess(students)))
   .catch((err) => {
@@ -49,7 +55,13 @@ export const fetchStudents = teacherID => (dispatch, getState) => {
 // Retrieves detail of student and mood
 export const fetchStudentDetail = studentID => (dispatch, getState) => {
   dispatch(fetchStudentDetailRequest());
-  return fetch(`${API_BASE_URL}/yourStudents/detail/${studentID}`)
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/yourStudents/detail/${studentID}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
   .then(res => res.json())
   .then(students => dispatch(fetchStudentDetailSuccess(students))
   )
