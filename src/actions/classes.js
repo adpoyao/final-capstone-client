@@ -75,7 +75,7 @@ export const enrollClass = (data) => (dispatch, getState) => {
         headers: {
             'Content-Type': 'application/json', 
             'Accept': 'application/json',
-            Authentication: `Bearer ${authToken}`,
+            Authorization: `Bearer ${authToken}`,
           },
         body: JSON.stringify(data),
       })
@@ -113,7 +113,7 @@ export const deleteClassByStudent = data => (dispatch, getState) => {
     headers: {
         'Content-Type': 'application/json', 
         'Accept': 'application/json',
-        Authentication: `Bearer ${authToken}`,
+        Authorization: `Bearer ${authToken}`,
         },
         body: JSON.stringify(data)
   })
