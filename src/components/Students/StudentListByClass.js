@@ -19,7 +19,7 @@ export class StudentListByClass extends Component {
       if(course.students.length === 0 ){
         noStudent = <p><em>There are no enrolled student in this class.</em></p>
       }
-      else if(course.classPeriod.length > 0){
+      if(course.classPeriod.length > 0){
         classPeriod = <p className='course-period'><span className='label'>period </span> {course.classPeriod}</p>
       }
       objectArray = course.students;

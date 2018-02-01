@@ -28,12 +28,21 @@ export class ClassesResult extends Component {
 
     let classList, resultHeader;
 
-    classList = this.props.result.map((item, index) => 
-    <li key={index} className='available-course'>
-      <p className='class-name-container'><span className='class-name'>Class Name: </span>{item.className}</p>
-      <p><span className='instructor'>Instructor:</span> {item.teacher.firstName} {item.teacher.lastName}</p>
-      <button className='add-class-button' onClick={()=>this.handleEnrollClass(item._id)}>ADD</button>
-    </li>
+    classList = this.props.result.map((item, index) => {
+      let classPeriod;
+      if(item.classPeriod.length > 0){
+        classPeriod = <p className='course-period-2'><span className='label'>period </span> {item.classPeriod}</p>
+      }
+      return (
+        <li key={index} className='available-course'>
+          <p className='class-name-container'><span className='class-name label'>Class </span>{item.className}</p>
+          {classPeriod}
+          <p className='class-teacher'><span className='instructor label'>Teacher </span> {item.teacher.firstName} {item.teacher.lastName}</p>
+          <button className='add-class-button' onClick={()=>this.handleEnrollClass(item._id)}>ADD</button>
+        </li>
+      )
+    }
+    
   );
 
   if(this.props.result.length === 0 && this.props.initialSearch){
