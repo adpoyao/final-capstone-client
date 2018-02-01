@@ -24,10 +24,12 @@ export class Features extends Component {
         <div className='features-sub-sections'>
           <div className='feature-1-section feature-detail'>
             <div className='feature-description'>
-              <h3 className='feature-number'>Feature 1</h3>
-              <p className='feature-small-description'>Description goes here...</p>
+              <h3 className='feature-number'>Mood Grid</h3>
+              <p className='feature-small-description'>Students record their moods on an interactive mood grid. Moods are laid
+     out left to right, representing negative to positive emotions, and top to bottom reflecting
+     high to low energy levels.</p>
             </div>
-            <img className='laptop-view' src="http://res.cloudinary.com/adpoyao/image/upload/v1517450719/Mood%20Cloud/macbookgold_front.png" alt='laptop with screen shots' />
+            <img className='laptop-view' src="http://home/adam/Documents/finalCap/final-capstone-client/src/assets/studentsSelectsMood.png" alt='student mood grid' />
           </div>
         </div>
 
@@ -35,8 +37,9 @@ export class Features extends Component {
           <div className='feature-2-section feature-detail'>
           <img className='laptop-view' src="http://res.cloudinary.com/adpoyao/image/upload/v1517450719/Mood%20Cloud/macbookgold_front.png" alt='laptop with screen shots' />
           <div className='feature-description'>
-              <h3 className='feature-number'>Feature 2</h3>
-              <p className='feature-small-description'>Description goes here...</p>
+              <h3 className='feature-number'>Mood Cloud</h3>
+              <p className='feature-small-description'>Submitted moods are displayed for the student in a word cloud with each word's size corresponding
+    to how frequently it has been submitted.</p>
             </div>
           </div>
         </div>
@@ -44,8 +47,9 @@ export class Features extends Component {
         <div className='features-sub-sections'>
           <div className='feature-3-section feature-detail'>
           <div className='feature-description'>
-              <h3 className='feature-number'>Feature 3</h3>
-              <p className='feature-small-description'>Description goes here...</p>
+              <h3 className='feature-number'>Teacher Dashboard</h3>
+              <p className='feature-small-description'>Teachers stay up to date on their students' emotional wellbeing, 
+    and may be alerted during times of crisis or despair.</p>
             </div>
             <img className='laptop-view' src="http://res.cloudinary.com/adpoyao/image/upload/v1517450719/Mood%20Cloud/macbookgold_front.png" alt='laptop with screen shots' />
           </div>
