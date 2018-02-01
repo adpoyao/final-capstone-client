@@ -14,3 +14,8 @@ export const setUserMessage = (message) => ({
 export const clearhistory = () => ({
   type: types.CLEAR_HISTORY,
 });
+
+export const setStudent = (student) => ({
+  type: types.SET_STUDENT,
+  student,
+})

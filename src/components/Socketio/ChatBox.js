@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import io from 'socket.io-client';
 
 import * as types from './socketTypes';
 import * as actions from '../../actions';
+
+import './ChatBox.css';
 
 class ChatBox extends Component {
   constructor(props){
@@ -40,6 +43,10 @@ class ChatBox extends Component {
     this.props.dispatch(actions.clearhistory());
   }
 
+  componentWillUnmount = () => {
+    this.props.dispatch(actions.setUserMessage(''));
+  }
+
   render(){
     return (
       <div className="container">
@@ -49,21 +56,28 @@ class ChatBox extends Component {
               
               <div className="card-body">
                 <div className="card-title">Chat Box</div>
-                <hr/>
+                <p className='chat-instruction'>Begin your chat session now.</p>
+                <p className='chat-instruction emergency'><em>If this is an emergency, dial 911 right away.</em></p>
                 <div className="messages">
+             
                   {this.props.messages.map((message, index) => {
                     return (
-                      <div key={index}>{message.author}: {message.message}</div>
+                      <div key={index} className='message-line'><span className='author'>{message.author}:</span> {message.message}</div>
                     )
                   })}
                 </div>
               </div>
 
               <div className="card-footer">
-                <input type="text" placeholder="Message" className="form-control" ref={(input) => { this.textInput = input; }}/>
-                <br/>
-                <button onClick={(e)=>this.handleMessage(e)} className="btn btn-primary form-control">Send</button>
-                <button onClick={(e)=>this.handleClearHistory(e)} className="btn btn-primary form-control">Clear History</button>
+                <form onSubmit={(e)=>this.handleMessage(e)}>
+                  <input type="text" placeholder="Message" className="form-control chat-input" ref={(input) => { this.textInput = input; }}/>
+                  <br/>
+                  <div className='button-group'>
+                    <button type="submit" className="btn btn-primary form-control submit-btn" >Send</button>
+                    <button onClick={(e)=>this.handleClearHistory(e)} className="btn btn-primary form-control clear-btn">Clear Messages</button>
+                    <Link to='/'><button className="btn btn-primary form-control back-btn">Back to home</button></Link>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -74,7 +88,7 @@ class ChatBox extends Component {
 }
 
 const mapStateToProps = state => ({
-  studentId: state.auth.currentUser.role === 'student' ? state.auth.currentUser.id : undefined,
+  studentId: state.auth.currentUser.role === 'student' ? state.auth.currentUser.id : state.socketio.student,
   user: state.auth.currentUser,
   messages: state.socketio.messages
 })

@@ -60,3 +60,4 @@ export const FETCH_MOOD_ERROR = 'FETCH_MOOD_ERROR';
 export const SET_MESSAGES = 'SET_MESSAGES';
 export const SET_USER_MESSAGES = 'SET_USER_MESSAGES';
 export const CLEAR_HISTORY = 'CLEAR_HISTORY';
+export const SET_STUDENT = 'SET_STUDENT';

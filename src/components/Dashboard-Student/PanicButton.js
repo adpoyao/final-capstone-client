@@ -24,7 +24,7 @@ export class PanicButton extends Component {
       helpButton = (
         <button className="panic-button hoverable" onClick={()=>{this.handleToggleOn()}}>
           <p className='normal'><i className="fa fa-warning"> </i> Are you in trouble?</p>
-          <Link to='/chatbox' target="_blank"><p className='hover'>Alert your teachers.</p></Link>
+          <Link to='/chatbox'><p className='hover'>Alert your teachers.</p></Link>
         </button>
       )
     }
