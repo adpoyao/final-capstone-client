@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 
 import {dismissAlert} from '../../actions/alert';
@@ -23,7 +24,7 @@ export class PanicAlertDetail extends Component {
         <p className='panic-alert-li-name'>{value.studentID.firstName} {value.studentID.lastName}</p>
         <Moment className='panic-alert-li-date-time' fromNow>{value.dateTime}</Moment>
         <div className='panic-alert-li-buttons'>
-          <button className='panic-alert-li-chat'>Chat</button>
+          <button className='panic-alert-li-chat'><Link to='/chatbox'>Chat</Link></button>
           <button className='panic-alert-li-dismiss' onClick={() => this.handleDismiss(value._id)}>Dismiss</button>
         </div>
       </li>

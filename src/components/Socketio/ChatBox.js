@@ -5,7 +5,7 @@ import io from 'socket.io-client';
 import * as types from './socketTypes';
 import * as actions from '../../actions';
 
-class Chat extends Component {
+class ChatBox extends Component {
   constructor(props){
     super(props)
 
@@ -16,15 +16,20 @@ class Chat extends Component {
     });
 
     const addMessage = data => {
-      this.props.dispatch(actions.setMessages(data));
+      if(data.studentId === this.props.studentId){
+        this.props.dispatch(actions.setMessages(data));
+      }
     }
   }
 
   handleMessage = (e) => {
     e.preventDefault();
+    let userName = `${this.props.user.firstName} ${this.props.user.lastName}`
+
     this.socket.emit(types.SEND_MESSAGE, {
-      author: 'test-user',
+      author: userName,
       message: this.textInput.value,
+      studentId: this.props.studentId,
     });
     this.props.dispatch(actions.setUserMessage(this.textInput.value));
     this.textInput.value = '';
@@ -46,9 +51,9 @@ class Chat extends Component {
                 <div className="card-title">Chat Box</div>
                 <hr/>
                 <div className="messages">
-                  {this.props.messages.map(message => {
+                  {this.props.messages.map((message, index) => {
                     return (
-                      <div>{message.author}: {message.message}</div>
+                      <div key={index}>{message.author}: {message.message}</div>
                     )
                   })}
                 </div>
@@ -69,8 +74,9 @@ class Chat extends Component {
 }
 
 const mapStateToProps = state => ({
+  studentId: state.auth.currentUser.role === 'student' ? state.auth.currentUser.id : undefined,
   user: state.auth.currentUser,
   messages: state.socketio.messages
 })
 
-export default connect(mapStateToProps)(Chat);
+export default connect(mapStateToProps)(ChatBox);
