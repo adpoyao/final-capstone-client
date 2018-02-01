@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Footer.css';
 
@@ -10,15 +11,14 @@ export default function Footer(){
           <p className="footer-category">Project</p>
           <ul>
             <li>GitHub</li>
-            <li>Register</li>
-            <li>Log In</li>
+            <li><Link className='footer-links' to='/signup'>Register</Link></li>
+            <li><Link className='footer-links' to='/login'>Log In</Link></li>
           </ul>
         </div>
         <div className="product-container">
           <p className="footer-category">Product</p>
           <ul>
-            <li>Mission &amp; Values</li>
-            <li>Features</li>
+            <li><Link className='footer-links' to='/features'>Features</Link></li>
           </ul>
         </div>
         <div className="about-us-container">
@@ -26,9 +26,9 @@ export default function Footer(){
             <p className="footer-category">About Us</p>
             <ul>
               <li>Adam Bradbury</li>
-              <li>Eddie Po Yao</li>
+              <li><a className='link-to-portfolio' href='http://www.eddiepo.co' target='_blank'>Eddie Po Yao</a></li>
               <li>Nathan Garrett</li>
-              <li>Quang Nguyen</li>
+              <li><a className='link-to-portfolio' href='https://quang-portfolio.netlify.com/' target='_blank'>Quang Nguyen</a></li>
             </ul>
         </div>
       </div>

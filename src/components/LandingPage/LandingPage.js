@@ -28,7 +28,7 @@ export class LandingPage extends Component {
       <div className="landing-page-container">
         <div className="landing-page-midsection">
           <div className="landing-page-left">
-            <h2>Main tagline goes here</h2>
+            <h2 className='main-tagline'>Main tagline goes here</h2>
             <p>...smaller captions goes here</p>
           </div>
           <div className="landing-page-right">

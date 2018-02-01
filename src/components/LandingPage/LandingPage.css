@@ -13,7 +13,7 @@
 
 .landing-page-left,
 .landing-page-right {
-  flex: 1 100%
+  flex: 1 100%;
 }
 
 .landing-page-left {
@@ -22,4 +22,8 @@
   align-items: flex-end;
   justify-content: center;
   margin-top: 20px;
+}
+
+.main-tagline {
+  font-size: 2em;
 }

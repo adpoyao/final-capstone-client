@@ -45,7 +45,7 @@ export class Nav extends Component {
       landingPageTabs = (
         <div className="nav-button right">
           <button className="nav-bttn features"><Link id='features' to="/features" className="nav-bttn">Features</Link></button>
-          <button className="nav-bttn signup active-nav-button"><Link to="/signup" className="nav-bttn nav-bttn-signup">Signup</Link></button>
+          <button className="nav-bttn signup active-nav-button"><Link to="/signup" className="nav-bttn nav-bttn-selected">Signup</Link></button>
           <button className="nav-bttn login"><Link to="/login" className="nav-bttn">Login</Link></button>
         </div>
       )
@@ -56,22 +56,23 @@ export class Nav extends Component {
         <div className="nav-button right">
           <button className="nav-bttn features"><Link id='features' to="/features" className="nav-bttn">Features</Link></button>
           <button className="nav-bttn signup"><Link to="/signup" className="nav-bttn">Signup</Link></button>
-          <button className="nav-bttn login active-nav-button"><Link to="/login" className="nav-bttn nav-bttn-login">Login</Link></button>
+          <button className="nav-bttn login active-nav-button"><Link to="/login" className="nav-bttn nav-bttn-selected">Login</Link></button>
         </div>
       )
     }
     
     if(this.props.currentView === 'features'){
-      featuresTabs1 = (
-        <div className="nav-button features-tabs-1 center">
-          <button className="nav-bttn features">Feature 1</button>
-          <button className="nav-bttn features">Feature 2</button>
-          <button className="nav-bttn features">Feature 3</button>
-        </div>
-      )
+      // featuresTabs1 = (
+      //   <div className="nav-button features-tabs-1 center">
+      //     <button className="nav-bttn features">Feature 1</button>
+      //     <button className="nav-bttn features">Feature 2</button>
+      //     <button className="nav-bttn features">Feature 3</button>
+      //   </div>
+      // )
       
       featuresTabs2 = (
         <div className="nav-button features-tabs-1 right">
+          <button className="nav-bttn features active-nav-button"><Link id='features' to="/features" className="nav-bttn nav-bttn-selected">Features</Link></button>
           <button className="nav-bttn signup"><Link to="/signup" className="nav-bttn">signup</Link></button>
           <button className="nav-bttn login"><Link to="/login" className="nav-bttn">Login</Link></button>
         </div>
