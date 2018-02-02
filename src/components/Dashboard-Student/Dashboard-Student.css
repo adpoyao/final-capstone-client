@@ -52,24 +52,6 @@
   z-index: 1000
 }
 
-.hover {
-  display: none;
-}
-
-.hoverable:hover .normal {
-  display: none;
-}
-
-.hoverable:hover .hover {
-  display: inline;
-}
-
-.hoverable { 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* CLOUD BUTTON */
 
 #cloud {

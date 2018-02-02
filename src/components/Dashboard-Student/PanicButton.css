@@ -48,3 +48,30 @@
   box-shadow: 0px 0px 0px;
   background-color: rgb(216, 201, 64);
 }
+
+.hover {
+  display: none;
+}
+
+.hoverable:hover .normal {
+  display: none;
+}
+
+.hoverable:hover .hover {
+  display: inline;
+}
+
+.hoverable { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.normal {
+  margin: 0;
+}
+
+.alert-teacher-button {
+  text-decoration: none;
+  color: white;
+}

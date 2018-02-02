@@ -1,5 +1,4 @@
 import * as types from './actionType';
-import { API_BASE_URL } from './../config';
 
 export const setMessages = (message) => ({
   type: types.SET_MESSAGES,

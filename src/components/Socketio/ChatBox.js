@@ -59,7 +59,7 @@ class ChatBox extends Component {
                 <p className='chat-instruction'>Begin your chat session now.</p>
                 <p className='chat-instruction emergency'><em>If this is an emergency, dial 911 right away.</em></p>
                 <div className="messages">
-             
+                
                   {this.props.messages.map((message, index) => {
                     return (
                       <div key={index} className='message-line'><span className='author'>{message.author}:</span> {message.message}</div>
