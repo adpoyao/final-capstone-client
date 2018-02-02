@@ -25,7 +25,7 @@ export class Features extends Component {
           <div className='feature-1-section feature-detail'>
             <div className='feature-description'>
               <h3 className='feature-number'>Mood Grids</h3>
-              <p className='feature-small-description'>Inspired by the Yale Center for Emotional Intelligence, students can record their moods by choosing from 100 emotional vocabularies via mood grids. The mood grids are intelligently laid out, guiding the users with its color schema. Students voluntarily share their moods with teachers, notifying them in times of critical need.</p>
+              <p className='feature-small-description'>Inspired by the Yale Center for Emotional Intelligence, students can record their moods by choosing from 100 emotional states via mood grids. The mood grids are intelligently laid out, guiding the users with its color schema. Students voluntarily share their moods with teachers, notifying them in times of critical need.</p>
             </div>
             <img className='laptop-view' src="http://res.cloudinary.com/adpoyao/image/upload/v1517536297/Mood%20Cloud/macbookgold_front-1.png" alt='Student Mood Cloud' />
           </div>
@@ -46,7 +46,7 @@ export class Features extends Component {
           <div className='feature-3-section feature-detail'>
           <div className='feature-description'>
               <h3 className='feature-number'>Connections</h3>
-              <p className='feature-small-description'> An up-to-date dashboard provides teachers with an an ongoing overview of their students' emotional wellbeing, instantly alerting them when students submit a critical mood. This gives teacher an opportunity to reach out.</p>
+              <p className='feature-small-description'> An up-to-date dashboard provides teachers with an an ongoing overview of their students' emotional wellbeing, instantly alerting them when students submit a critical mood. This gives teachers an opportunity to reach out.</p>
             </div>
             <img className='laptop-view' src="http://res.cloudinary.com/adpoyao/image/upload/v1517537202/Mood%20Cloud/moodcloud-f2.png" alt='Teacher Alert Dashboard' />
           </div>
@@ -57,7 +57,7 @@ export class Features extends Component {
           <img className='laptop-view' src="http://res.cloudinary.com/adpoyao/image/upload/v1517537292/Mood%20Cloud/moodcloud-f4.png" alt='Student Mood Cloud' />
           <div className='feature-description'>
               <h3 className='feature-number'>Panic Button</h3>
-              <p className='feature-small-description'>In times of dire need or bystander-effects, such as bullying, students may alert their teachers at a touch of a Panic Button. This instantly connects the student with all of their linked teachers in a chatroom to real-time communication.</p>
+              <p className='feature-small-description'>In times of dire need or bystander-effects, such as bullying, students may alert their teachers at the touch of a Panic Button. This instantly connects the student with all of their linked teachers in a chatroom to real-time communication.</p>
             </div>
           </div>
         </div>

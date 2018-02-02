@@ -113,7 +113,7 @@ export class RegistrationForm extends React.Component {
           </button>
         </div>
         </fieldset>
-        <p className='no-account'>Already have an account? Log in <Link to={'/login'}><span className="log-in-here">Here</span></Link>.</p>
+        <p className='no-account'>Already have an account? Log in <Link className='log-in-here' to={'/login'}><span className="log-in-here">Here</span></Link>.</p>
       </form>
       </div>
     );

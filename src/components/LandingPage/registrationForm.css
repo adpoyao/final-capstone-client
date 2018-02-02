@@ -114,3 +114,7 @@
   .log-in-clouds {
     position: absolute;
   }
+
+  .log-in-here {
+    text-decoration: none;
+  }

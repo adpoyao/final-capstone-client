@@ -46,8 +46,12 @@ li {
   width: 80%;
 }
 
-.link-to-portfolio,
 .footer-links {
   text-decoration: none;
   color: rgb(85, 85, 85);
+  font-size: 1.1em;
+}
+
+.footer-links:hover {
+  color: rgb(226, 35, 35);
 }
