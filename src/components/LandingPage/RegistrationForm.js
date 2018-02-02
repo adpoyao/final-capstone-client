@@ -9,7 +9,7 @@ import { login } from '../../actions/auth';
 import { registerUser } from '../../actions/users';
 import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
 
-import './RegistrationForm.css'
+import './registrationForm.css'
 
 export class RegistrationForm extends React.Component {
   onSubmit(values) {
