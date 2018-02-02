@@ -24,23 +24,20 @@ export class Features extends Component {
         <div className='features-sub-sections'>
           <div className='feature-1-section feature-detail'>
             <div className='feature-description'>
-              <h3 className='feature-number'>Mood Grid</h3>
-              <p className='feature-small-description'>Students record moods via an interactive mood grid. Moods are laid
-     out left to right, representing negative to positive emotions, and top to bottom reflecting
-     high to low energy levels. Students voluntarily share moods with teachers, notifying them
-      in times of critical need.</p>
+              <h3 className='feature-number'>Mood Grids</h3>
+              <p className='feature-small-description'>Inspired by the Yale Center for Emotional Intelligence, students can record their moods by choosing from 100 emotional vocabularies via mood grids. The mood grids are intelligently laid out, guiding the users with its color schema. Students voluntarily share their moods with teachers, notifying them in times of critical need.</p>
             </div>
-            <img className='laptop-view' src="" alt='student mood grid' />
+            <img className='laptop-view' src="http://res.cloudinary.com/adpoyao/image/upload/v1517536297/Mood%20Cloud/macbookgold_front-1.png" alt='Student Mood Cloud' />
           </div>
         </div>
 
         <div className='features-sub-sections'>
           <div className='feature-2-section feature-detail'>
-          <img className='laptop-view' src="" alt='Student Mood Cloud' />
+          <img className='laptop-view' src="http://res.cloudinary.com/adpoyao/image/upload/v1517536337/Mood%20Cloud/moodcloud-f1.png" alt='student mood grid' />
+
           <div className='feature-description'>
               <h3 className='feature-number'>Mood Cloud</h3>
-              <p className='feature-small-description'>Submitted moods are displayed for the student in a word cloud. Each word's size corresponds
-    with how often it was submitted. Larger moods more often, smaller moods less often.</p>
+              <p className='feature-small-description'>Moods submitted by students are displayed in a word cloud. Each word's size corresponds to frequency of submissions. Students can build self-awareness by having a visual monitor over their emotional patterns.</p>
             </div>
           </div>
         </div>
@@ -48,10 +45,20 @@ export class Features extends Component {
         <div className='features-sub-sections'>
           <div className='feature-3-section feature-detail'>
           <div className='feature-description'>
-              <h3 className='feature-number'>Teacher Dashboard</h3>
-              <p className='feature-small-description'> An up-to-date dashboard provides teachers with an an ongoing overview of their students' emotional wellbeing, instantly alerting them when students submit a critical mood.</p>
+              <h3 className='feature-number'>Connections</h3>
+              <p className='feature-small-description'> An up-to-date dashboard provides teachers with an an ongoing overview of their students' emotional wellbeing, instantly alerting them when students submit a critical mood. This gives teacher an opportunity to reach out.</p>
             </div>
-            <img className='laptop-view' src="" alt='Teacher Alert Dashboard' />
+            <img className='laptop-view' src="http://res.cloudinary.com/adpoyao/image/upload/v1517537202/Mood%20Cloud/moodcloud-f2.png" alt='Teacher Alert Dashboard' />
+          </div>
+        </div>
+
+        <div className='features-sub-sections'>
+          <div className='feature-4-section feature-detail'>
+          <img className='laptop-view' src="http://res.cloudinary.com/adpoyao/image/upload/v1517537292/Mood%20Cloud/moodcloud-f4.png" alt='Student Mood Cloud' />
+          <div className='feature-description'>
+              <h3 className='feature-number'>Panic Button</h3>
+              <p className='feature-small-description'>In times of dire need or bystander-effects, such as bullying, students may alert their teachers at a touch of a Panic Button. This instantly connects the student with all of their linked teachers in a chatroom to real-time communication.</p>
+            </div>
           </div>
         </div>
         

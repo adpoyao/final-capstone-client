@@ -13,17 +13,25 @@
 
 .landing-page-left,
 .landing-page-right {
-  flex: 1 100%;
+  flex: 1 45%;
 }
 
 .landing-page-left {
   display: flex;
-  flex-flow: column wrap;
-  align-items: flex-end;
+  flex-flow: column nowrap;
+  text-align: right;
   justify-content: center;
   margin-top: 20px;
+  margin-left: 20px;
+  z-index: -1;
 }
 
 .main-tagline {
   font-size: 2em;
+}
+
+.sub-tagline {
+  font-size: 0.9em;
+  font-weight: 200;
+  line-height: 20px;
 }

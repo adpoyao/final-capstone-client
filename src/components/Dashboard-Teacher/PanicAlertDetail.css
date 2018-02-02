@@ -89,3 +89,8 @@
   background-color:rgb(170, 17, 17);
   transition: all 0.1s ease;
 }
+
+.to-chatbox {
+  text-decoration: none;
+  color: white;
+}

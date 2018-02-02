@@ -26,9 +26,9 @@ export default function Footer(){
             <p className="footer-category">About Us</p>
             <ul>
               <li>Adam Bradbury</li>
-              <li><a className='link-to-portfolio' href='http://www.eddiepo.co' target='_blank'>Eddie Po Yao</a></li>
+              <li><a className='link-to-portfolio' href='http://www.eddiepo.co' target='_blank' rel="noopener noreferrer">Eddie Po Yao</a></li>
               <li>Nathan Garrett</li>
-              <li><a className='link-to-portfolio' href='https://quang-portfolio.netlify.com/' target='_blank'>Quang Nguyen</a></li>
+              <li><a className='link-to-portfolio' href='https://quang-portfolio.netlify.com/' target='_blank' rel="noopener noreferrer">Quang Nguyen</a></li>
             </ul>
         </div>
       </div>
