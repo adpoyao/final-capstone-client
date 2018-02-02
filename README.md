@@ -1,25 +1,24 @@
-# MOOD CLOUD *tentative*
+# MOOD CLOUD 
 
 ## ABOUT THIS PROJECT
-In this age of school bullying and shootings, sometimes it is not clear what a student's emotional state is for teachers to see. This app will give teachers and counselors access to the emotional state of their students. Students could update their emotional status every day where only the teachers have access to. If a teacher realizes a student is in a critical or depressed emotional condition, the teacher now have an opportunity to reach out immediately. In addition, students have access to record events of any incidents that made them hurtful - physically and/or emotionally. Teachers, too, will be notified and have access to these incidents as they are being logged.
+The purpose of the Mood Cloud project is to provide teachers and students a way to enhance their emotional intelligence, commonly referred to as EI or EQ, and better connect interpersonally. Often,many students struggle to express or track their emotional state, making it difficult for teachers to adequately gauge their emotional well-being. Mood Cloud provides a means for students to track their moods overtime, and observe them reflected in a word cloud. Students may also log comments about their emotional state for later reference, helping to gain further insight into their ongoing emotional well-being. Students may also share their moods with their teachers and alert them during times of crisis or despair. Connected teachers receive up-to-date alerts from students who submit critical moods, or alert their teacher directly via a panic/alert button. Additionally, teachers or students may open an instant message alert window to respond to any dire student needs.
 
-## STRATEGY
-* Test Driven Development (TDD)
 
 ## KEY USER FEATURES
 AS a ***TEACHER/COUNSELOR***, you will be able to:
-* Create new class with auto-generated class ID to provide to students to add to their classes.
-* Update & Remove existing class information.
-* Be alerted when a student presses the Panic button with additional information to the location and time.
-* Be alerted when a student submits a mood that is considered to be a critical state (i.e. depressed, enraged).
-* View all linked students and access their personal profile with at-a-glance report and logs of their emotion submissions.
+* Create new class with auto-generated class ID, which allows students to add their class and        share their moods.
+* Edit & delete existing class information.
+* Be alerted when a student presses the panic button, which opens an instant message window for      real-time communication between the student and teacher/teachers.
+* Stay up-to-date when a students submit moods that are of concern (i.e. depressed, enraged).
+* View all students who've provided access their personal mood profile with a mood history that      logs their emotion submissions.
 
 AS a ***STUDENT***, you will be able to:
-* Search and add one or multiple classes with unique class ID provided by the teacher.
-* Remove yourself from a class at the end of term.
-* Submit your emotional status and an optional message to keep track via Mood Cloud.
-* Access Mood Cloud, a visual, word cloud representation of all the accumulated mood submissions.
-* Access to Alert button, which will dispatch the student's current location and begin chat session with all the teachers linked.
+* Search and add one or multiple classes by searching for a teacher's name.
+* Remove yourself from a class at any time.
+* Submit your emotional status, which then displays on a Mood Cloud.
+* Provide an optional description on every mood submitted to journal their emotional state over      time.
+* Access to an alert button, which will alert all linked teacher
+* Access to a crisis real-time instant messenger to open chat sessions with all linked teachers.
 
 ## WIREFRAME
 *See Attached*
@@ -33,6 +32,7 @@ AS a ***STUDENT***, you will be able to:
 * React/Redux/Redux Form
 * Socket.io
 
+
 ### SERVER TECHNOLOGIES:
 * Node JS
 * Express
@@ -40,15 +40,14 @@ AS a ***STUDENT***, you will be able to:
 
 ## DATA PERSISTENCE:
 * MongoDB
-* ElephantSQL
 * D3
 
 ## CICD
 * Mocha/Chai
 * Jest
 
-
 ##
 
 ## ATTRIBUTIONS
 * Create-React-App by Facebook - 2018
+* Mood Meter by Yale Center for Emotional Intelligence.

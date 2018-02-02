@@ -99,7 +99,7 @@
     height: 200px;
   }
 
-  .signup-here {
+  .signup-here, .signup-here-link {
     color: rgb(204, 118, 228);
     text-decoration: none;
     border: none;

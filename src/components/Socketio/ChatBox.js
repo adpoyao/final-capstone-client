@@ -26,10 +26,6 @@ class ChatBox extends Component {
     }
   }
 
-  componentWillUnmount = () => {
-    this.socket.disconnect();
-  }
-
   handleMessage = (e) => {
     e.preventDefault();
     let userName = `${this.props.user.firstName} ${this.props.user.lastName}`
@@ -48,8 +44,13 @@ class ChatBox extends Component {
     this.props.dispatch(actions.clearhistory());
   }
 
+  // componentDidUpdate = () => {
+  //   this.box.scrollTop = this.box.scrollHeight;
+  // }
+
   componentWillUnmount = () => {
     this.props.dispatch(actions.setUserMessage(''));
+    this.socket.disconnect();
   }
 
   render(){
@@ -67,7 +68,9 @@ class ChatBox extends Component {
                 
                   {this.props.messages.map((message, index) => {
                     return (
-                      <div key={index} className='message-line'><span className='author'>{message.author}:</span> {message.message}</div>
+                      <div key={index} className='message-line' ref={div => this.box = div}>
+                        <span className='author'>{message.author}:</span> {message.message}
+                      </div>
                     )
                   })}
                 </div>

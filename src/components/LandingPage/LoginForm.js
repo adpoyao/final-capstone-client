@@ -71,7 +71,7 @@ export class LoginForm extends React.Component {
               </button>
             </div>
           </fieldset>
-          <p className='no-account'>Don't have an account yet? Sign up <Link to={'/signup'}><span className="signup-here">Here</span></Link>.</p>
+          <p className='no-account'>Don't have an account yet? Sign up <Link className='signup-here-link' to={'/signup'}><span className="signup-here">Here</span></Link>.</p>
       </form>
       
       </div>
