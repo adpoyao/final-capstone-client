@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import io from 'socket.io-client';
+import { SOCKET_URL } from '../../config';
 
 import * as types from './socketTypes';
 import * as actions from '../../actions';
@@ -12,7 +13,7 @@ class ChatBox extends Component {
   constructor(props){
     super(props)
 
-    this.socket = io('localhost:8080');
+    this.socket = io(SOCKET_URL);
 
     this.socket.on(types.RECEIVE_MESSAGE, function(data){
       addMessage(data);
@@ -23,6 +24,10 @@ class ChatBox extends Component {
         this.props.dispatch(actions.setMessages(data));
       }
     }
+  }
+
+  componentWillUnmount = () => {
+    this.socket.disconnect();
   }
 
   handleMessage = (e) => {

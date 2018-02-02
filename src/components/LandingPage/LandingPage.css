@@ -19,7 +19,7 @@
 .landing-page-left {
   display: flex;
   flex-flow: column nowrap;
-  text-align: right;
+  text-align: center;
   justify-content: center;
   margin-top: 20px;
   margin-left: 20px;
