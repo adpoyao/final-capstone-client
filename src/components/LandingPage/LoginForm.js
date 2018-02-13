@@ -16,6 +16,11 @@ export class LoginForm extends React.Component {
     return this.props.dispatch(login(username, password));
   }
 
+  demologin(x, y) {
+    return this.props.dispatch(login(x, y));
+}
+
+
   render() {
     if (this.props.loggedIn) {
       if(this.props.user.role === 'student'){
@@ -69,6 +74,14 @@ export class LoginForm extends React.Component {
               <button className="log" disabled={this.props.pristine || this.props.submitting}>
                 Log in
               </button>
+              <br></br>
+              <button onClick={()=>this.demologin('inconbeo', 'anhyeungan293')} className="log">
+                    Student
+                </button>
+                <br></br>
+                <button onClick={()=>this.demologin('demo_teacher1', 'password')} className="log">
+                    Teacher
+                </button>
             </div>
           </fieldset>
           <p className='no-account'>Don't have an account yet? Sign up <Link className='signup-here-link' to={'/signup'}><span className="signup-here">Here</span></Link>.</p>
