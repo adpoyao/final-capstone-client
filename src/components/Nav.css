@@ -44,6 +44,7 @@
 
 button {
   border: none;
+  background: white;
   font-family: 'PT Sans Narrow', sans-serif;
   text-transform: uppercase;
   font-size: 1em;
@@ -67,7 +68,7 @@ button {
   text-decoration: none;
   color: black;
   font-size: 1.1em;
-
+  background-color: white;
 }
 
 .nav-bttn:hover {
